@@ -16,5 +16,3 @@ $ ./olivsoft.sh
 ```
 Other scripts are available, depending on your system.
 
-# TODO
-A single repository, rooted here.
