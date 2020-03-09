@@ -1,0 +1,73 @@
+apply plugin: 'java'
+compileJava.options.encoding = 'ISO-8859-1'
+apply plugin: 'maven'
+
+//def userprofile = System.getenv()['USERPROFILE'] // On Windows...
+
+group = 'oliv.cool.stuff'
+version = '4.0.0.0'
+
+//sourceSets {
+//  main {
+//    java {
+//      srcDir 'src/main/java'
+//    }
+//    resources {
+//      srcDir 'src/main/resources'
+//    }
+//  }
+//  test {
+//    java {
+//      srcDir 'src/tests'
+//    }
+//  }
+//}
+
+repositories {
+  mavenCentral()
+  maven { url "http://lediouris.net/maven2" }
+  mavenLocal()
+}
+
+dependencies {
+  // testCompile 'junit:junit:4.8.2'
+  testCompile group: 'junit', name: 'junit', version: '4.11'
+  compile 'oracle:xmlparser:v2'
+  compile 'javax:jai_codec:1.1.3'
+  compile 'javax:jai_core:1.1.3'
+  compile 'javax.mail:mail:1.4.4'
+  compile project(':coreutilities')
+  compile project(':chartcomponents')
+  compile project(':fullnmeaconsole')
+  compile project(':polar-smoother')
+  compile project(':java-tide-engine')
+  compile project(':javanauticalalmanac')
+  compile project(':javanauticalalmanac')
+}
+
+//task copyResources(type: Copy) {
+//  description = 'Copies non-java resources in the output directory before the jar task (png, xml, xsd, ttf, properties, etc)'
+//  from 'src'
+//  into 'build/classes/main'
+//  include '**/*.xml', '**/*.xsd', '**/*.png', '**/*.gif', '**/*.jpg', '**/*.properties', '**/*.ttf', '**/*.html', '**/background/*.*'
+//}
+//
+//jar.dependsOn(copyResources)
+
+//task tellMeProxy (description: "Spits out the proxy settings.") << {
+//  try {
+//    println "Accessing resources with proxy $proxyHost:$proxyPort"
+//    println "UserProfile: " + System.getenv()['USERPROFILE']
+//  } catch (Exception e) {
+//    println "No proxy"
+//  }
+//}
+//
+//compileJava.dependsOn(tellMeProxy)
+
+//task run(type: JavaExec, dependsOn: build, description: "Test run.") {
+//  main = 'main.splash.Splasher'
+////jvmArgs "-verbose"
+//  classpath project.configurations.default
+//  classpath sourceSets.main.output.classesDir
+//}

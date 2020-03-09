@@ -1,0 +1,14 @@
+build/
+.gradle/
+all-scripts/composites/
+all-scripts/*.email.*
+all-scripts/temp
+all-scripts/WeatherFaxes
+all-scripts/GRIBFiles
+all-db/*
+setWinWP.bat
+all-scripts/gribrequests.properties
+all-scripts/config/desktop-prms.xml
+all-scripts/desktop.xml
+all-scripts/ww-config.properties
+all-scripts/ww_position.properties

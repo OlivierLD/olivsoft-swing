@@ -1,0 +1,253 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></meta>
+    <title>rebroadcast.help</title>
+    <style type='text/css'>
+      body { background : #ffffff; color : #000000; font-size: 12pt; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular } 
+      h1 { color: white; font-style: italic; font-size: 14pt; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; background-color: black; padding-left: 5pt } 
+      h2 { font-size: 12pt; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular } 
+      h3 { font-style: italic; font-weight: bold; font-size: 12pt; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; font-weight: bold  } 
+      li { font-size: 12pt; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular } 
+      p { font-size: 12pt; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular } 
+      td { font-size: 12pt; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular } 
+      small { font-size: 10pt; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular } 
+      blockquote{ font-style: italic; font-size: 12pt; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular }--> 
+      em { font-size: 12pt; font-style: italic; font-weight: bold; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular } 
+      pre { font-size: 11pt; font-family: Courier New, Helvetica, Geneva, Swiss, SunSans-Regular } 
+      address { font-size: 12pt; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular } 
+      a:link { color : #000000}  
+      a:active { color: #000000}  
+      a:visited { color : #000000}
+    </style>  
+  </head>
+  <body>
+    <h1>NMEA Rebroadcasting</h1>
+    <p>
+      <h2>Graphical User Interface (GUI)</h2>
+      Rebroadcast is available from a right-click at the botton-left of the Console Desktop frame.
+      <br>
+      It can be started and stopped at any time.
+    </p>
+    <p>
+      <h2>Headless Console</h2>
+      Rebroadcast is available - setup - from the command line that starts the program.
+      In addition, an Admin server (HTTP based) is available to interfere with the console, from an external process.
+      <br>
+      This http server runs on a port defined by a system variable named <code>admin.http.port</code>, default is <code>8080</code>.
+      <br>
+      This server is systematically started when the headless console option is selected.      
+      <br>
+      You can access the server from a browser (locally or remotely), by typing
+      <pre>
+ http://&lt;hostname-or-ip>:&lt;port>/help
+      </pre>
+      or even easier
+      <pre>
+ http://&lt;hostname-or-ip>:&lt;port>/console
+      </pre>
+      For example, 
+      <pre style="background-color: lightgray;">
+
+ http://localhost:8080/console
+      </pre>
+      <h3>Command line options (parameters)</h3>
+      <pre>
+-output=HTTP:[PortNum]
+-output=TCP:[PortNum]
+-output=UDP:[Address:port]
+-output=FILE:[LogFilePath]
+      </pre>
+      <h3>Command line options (system variables)</h3>
+      <pre>
+-Dverbose=true|false
+-Dheadless=yes|no
+-Dheadless.gui=yes|no
+-Dlogged.nmea.data=[data-file-to-replay]
+      </pre>
+      <h4>More System variables</h4>
+    <table border="1">
+        <tr>
+            <td valign="top" style="font-family: 'Courier New'">verbose</td>
+            <td valign="top" style="font-family: 'Courier New'">true|false|y|n|yes|no</td>
+        </tr>
+        <tr>
+            <td valign="top" style="font-family: 'Courier New'">headless</td>
+            <td valign="top" style="font-family: 'Courier New'"> yes|no</td>
+        </tr>
+        <tr>
+            <td valign="top" style="font-family: 'Courier New'">headless.gui</td>
+            <td valign="top" style="font-family: 'Courier New'">yes|no</td>
+            <td valign="top" style="font-family: 'Courier New'">Display a swing UI to choose the options, with headless=yes</td>
+        </tr>
+        <tr>
+            <td valign="top" style="font-family: 'Courier New'">small.ui</td>
+            <td valign="top" style="font-family: 'Courier New'">true|false</td>
+            <td valign="top" style="font-family: 'Courier New'">Smaller dialog, with headless.gui=yes</td>
+        </tr>
+        <tr>
+            <td valign="top" style="font-family: 'Courier New'">char.console</td>
+            <td valign="top" style="font-family: 'Courier New'">true|false</td>
+        </tr>
+        <tr>
+            <td valign="top" style="font-family: 'Courier New'">console.definition</td>
+            <td valign="top" style="font-family: 'Courier New'">The properties file describing the character console, if char.console=.
+                Default is ./char.console.properties
+            </td>
+        </tr>
+        <tr>
+            <td valign="top" style="font-family: 'Courier New'">logged.nmea.data</td>
+            <td valign="top" style="font-family: 'Courier New'">Name of the log file to replay.
+            </td>
+        </tr>
+        <tr>
+            <td valign="top" style="font-family: 'Courier New'">admin.http.port</td>
+            <td valign="top" style="font-family: 'Courier New'">Used when headless=yes Default is 7070. 0 (or less)
+                means no admin server.
+            </td>
+        </tr>
+        <tr>
+            <td valign="top" style="font-family: 'Courier New'">with.logger</td>
+            <td valign="top" style="font-family: 'Courier New'">true|false</td>
+        </tr>
+        <tr>
+            <td valign="top" style="font-family: 'Courier New'">with.journal</td>
+            <td valign="top" style="font-family: 'Courier New'">true|false</td>
+        </tr>
+        <tr>
+            <td valign="top" style="font-family: 'Courier New'">net.port</td>
+            <td valign="top" style="font-family: 'Courier New'">Numeric value</td>
+            <td valign="top" style="font-family: 'Courier New'">The value of the port to use
+                for the net.transport to <b>read</b></td>
+        </tr>
+        <tr>
+            <td valign="top" style="font-family: 'Courier New'">net.transport</td>
+            <td valign="top" style="font-family: 'Courier New'"> TCP|UDP|RMI</td>
+            <td valign="top" style="font-family: 'Courier New'">Along with the above when
+                reading a specific channel.
+            </td>
+        </tr>
+        <tr>
+            <td valign="top" style="font-family: 'Courier New'">hostname</td>
+            <td valign="top" style="font-family: 'Courier New'">Localhost by default</td>
+            <td valign="top" style="font-family: 'Courier New'">Along with the above when
+                reading a specific channel.
+            </td>
+        </tr>
+        <tr>
+            <td valign="top" style="font-family: 'Courier New'">original.cache</td>
+            <td valign="top" style="font-family: 'Courier New'">true|false</td>
+            <td valign="top" style="font-family: 'Courier New'">In case you rebroadcast, the
+                cache having original.cache=true will tell all the others.
+            </td>
+        </tr>
+        <tr>
+            <td valign="top" style="font-family: 'Courier New'">cache.age.sleep.time</td>
+            <td valign="top" style="font-family: 'Courier New'">Numeric value, in ms.</td>
+            <td valign="top" style="font-family: 'Courier New'">Default 1000 ms. Broadcasts
+                the actual cache age based on this value.
+            </td>
+        </tr>
+        <tr>
+            <td valign="top" style="font-family: 'Courier New'">console.refresh</td>
+            <td valign="top" style="font-family: 'Courier New'">yes|no</td>
+            <td valign="top" style="font-family: 'Courier New'">Default yes. Refresh the
+                char console every 5 minutes (Soft reset).
+            </td>
+        </tr>
+        <tr>
+            <td valign="top" style="font-family: 'Courier New'">log.file.name</td>
+            <td valign="top" style="font-family: 'Courier New'">To be associated with
+                log.level
+            </td>
+            <td valign="top" style="font-family: 'Courier New'">
+                log.log
+            </td>
+        </tr>
+        <tr>
+            <td valign="top" style="font-family: 'Courier New'">log.level</td>
+            <td valign="top" style="font-family: 'Courier New'">
+                <ul>
+                    <li style="font-family: 'Courier New'">0: NONE</li>
+                    <li style="font-family: 'Courier New'">1: INFO</li>
+                    <li style="font-family: 'Courier New'">2: WARNING</li>
+                    <li style="font-family: 'Courier New'">3: DEBUG</li>
+                    <li style="font-family: 'Courier New'">4: VERBOSE</li>
+                </ul>
+            </td>
+            <td valign="top" style="font-family: 'Courier New'">
+                0
+            </td>
+        </tr>
+        <tr>
+            <td valign="top" style="font-family: 'Courier New'">nmea.channel.test</td>
+            <td valign="top" style="font-family: 'Courier New'">true|false</td>
+            <td valign="top" style="font-family: 'Courier New'">false. Used to test
+                (visualize) the NMEA Channel output.
+            </td>
+        </tr>
+        <tr>
+            <td valign="top" style="font-family: 'Courier New'">log.fmt</td>
+            <td valign="top" style="font-family: 'Courier New'">raw|json</td>
+            <td valign="top" style="font-family: 'Courier New'">Default raw. Used when
+                logging into a file.
+            </td>
+        </tr>
+        <tr>
+            <td valign="top" style="font-family: 'Courier New'">log.with.time</td>
+            <td valign="top" style="font-family: 'Courier New'">true|false</td>
+            <td valign="top" style="font-family: 'Courier New'">Default false. If true,
+                timestamp is included in the log line.
+            </td>
+        </tr>
+        <tr>
+            <td valign="top" style="font-family: 'Courier New'">serial.port</td>
+            <td valign="top" style="font-family: 'Courier New'">like COM15 on Windows, /dev/ttyUSB0 elsewhere.</td>
+        </tr>
+        <tr>
+            <td valign="top" style="font-family: 'Courier New'">baud.rate</td>
+            <td valign="top" style="font-family: 'Courier New'">Numeric value</td>
+            <td valign="top" style="font-family: 'Courier New'">Default 4800. Used in headless mode.
+            </td>
+        </tr>
+    </table>
+    <br>
+    Example:
+      <pre>
+java -cp $CP \
+     -Dverbose=false \
+     -Dheadless=yes \
+     -Dlogged.nmea.data=/home/oliv/OlivSoft/all-scripts/logged-data/2010-11-08.Nuku-Hiva-Tuamotu.nmea \
+     olivsoftdesktop.OlivSoftDesktop -output=HTTP:9999 \
+                                     -output=TCP:7001 \
+                                     -output=UDP:230.0.0.1:8001 
+      </pre>   
+      <i><b>Note:</b></i> With the Admin Server, you can only turn the options <b>OFF</b> or <b>ON</b>.   
+      <br>
+      This means that if you need (for example) the data to be re-broadcasted on TCP, the parameter <b>-output=TCP:7001</b> must have been set at startup. Then - and only then - you can turn in <b>OFF</b> from the Admin Server, and back <b>ON</b> when needed.
+      <br>
+      <i>This is why</i> each <code>-output</code> parameter can have a suffix that can be <code>true</code>, <code>false</code>, <code>TRUE</code>, or <code>FALSE</code>, like:
+      <pre>
+ -output=TCP:7001,false
+      </pre>
+      <code>true</code> is the default value. that means that <code>-output=TCP:7001,true</code> is equivalent to <code>-output=TCP:7001</code>.
+      <br>
+      In the example above, TCP re-broadcast will be avaiable, but will start only when turned <b>ON</b> by the Admin Server. As wee said, this is available for the <code>HTTP</code>, <code>TCP</code>, <code>UDP</code>, and <code>FILE</code> outputs.
+    </p>
+    <p>
+      There is also an option to prevent some strings from being re-broadcasted.
+      <br>
+      Create a file named <code>no.rebroadcast.list</code>, and on each line, put a regular expression that matches the strings <b>to exclude</b>.
+      <br>
+      Example:
+      <pre>
+ # Regular expressions for the strings NOT to rebroadcast
+ ^\$IIMWV,.*
+ # ^\$IIRMB,.*      
+      </pre>
+      The lines beginning with a '#' are considered as comments.
+    </p>
+    <hr>
+    <address>&copy; 2014, OlivSoft</address>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+#!/bin/bash
+echo Parameters: $*
+export SCRIPT_DIR=`dirname $0`
+echo moving to ${SCRIPT_DIR}
+cd ${SCRIPT_DIR}
+#
+# export JAVA_HOME=/usr/java/jre1.6.0_17
+# export PATH=$JAVA_HOME/bin:$PATH
+export OLIVSOFT_HOME=../..
+#
+CP=""
+CP=$CP:../../build/libs/release-4.0.0.0-all.jar
+CP=$CP:$OLIVSOFT_HOME/all-3rd-party/orai18n-collation.jar
+CP=$CP:$OLIVSOFT_HOME/all-3rd-party/orai18n-mapping.jar
+CP=$CP:$OLIVSOFT_HOME/all-3rd-party/fnd2.zip
+CP=$CP:$OLIVSOFT_HOME/all-3rd-party/xdo-0301.jar
+export CP
+#
+export XSL_STYLESHEET=./data2fop_2pages.xsl
+LANG=$1
+WITH_STARS=$2
+if [ $LANG = "FR" ] 
+then
+  echo Will speak French
+  PRM_OPTION="-docconf ./lang_fr.cfg" 
+  if [ $WITH_STARS = "false" ] 
+  then
+    PRM_OPTION="-docconf ./lang_fr_ns.cfg "
+  fi
+  cp literals_fr.xsl literals.xsl  
+else
+  echo Will speak English
+  cp literals_en.xsl literals.xsl
+  PRM_OPTION="-docconf ./lang_en.cfg" 
+  if [ $WITH_STARS = "false" ] 
+  then
+    PRM_OPTION="-docconf ./lang_en_ns.cfg"
+  fi
+fi
+echo Publishing
+# echo $PRM_OPTION
+java -Xms256m -Xmx1024m -classpath $CP oracle.apps.xdo.template.FOProcessor $PRM_OPTION -xml $3 -xsl $XSL_STYLESHEET -pdf $4
+echo Done calculating, $4 is ready.
+if [[ "$OSTYPE" == "darwin"* ]] # Mac
+then
+  open $4
+else                            # Linux
+  evince $4
+fi
+# exit

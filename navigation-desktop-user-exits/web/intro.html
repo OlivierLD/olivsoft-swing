@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Introducing Console User Exit</title>
+    <link rel="stylesheet" href="./stylesheet.css" type="text/css"/>   
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252"/>
+  </head>
+  <body>
+    <h1>Introducing Console User Exit</h1>
+    There are many things to do with the NMEA Data available in the cache, and the console
+    is just doing a little - obvious - part of them.
+    <br>
+    In order for the users to implement their own features and ideas, we now provide a "user-exit" mechanism.
+    <br>
+    The user-exits are to be written in Java, and implement a specific interface named <code>olivsoftdesktop.DesktopUserExitInterface</code>,
+    and defined as foillow:
+    <div id="div-01" style="padding:5px; background:#ddd; border-radius:5px; overflow-x: scroll; overflow-y: scroll;border:1px solid #CCC; margin-top:10px; height: 150px; resize:both;">
+    <div style='width:1200px'>
+    <pre style="font-family:'Source Code Pro', 'Courier New'; font-size:11px; color:white; background-color:#1e1e1e;">
+      <!-- Generated code pasted below -->
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;</font>&nbsp;<font color='#ffff66'><b>package</b></font> olivsoftdesktop;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;</font>&nbsp;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;</font>&nbsp;<font color='#ffff66'><b>public</b></font> <font color='#ffff66'><b>interface</b></font> DesktopUserExitInterface
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;</font>&nbsp;{
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;&nbsp;5&nbsp;</font>&nbsp;  <font color='#ffff66'><b>public</b></font> <font color='#ffff66'><b>void</b></font> start();
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;&nbsp;6&nbsp;</font>&nbsp;  <font color='#ffff66'><b>public</b></font> <font color='#ffff66'><b>void</b></font> stop();
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;&nbsp;7&nbsp;</font>&nbsp;  <font color='#ffff66'><b>public</b></font> <font color='#ffff66'><b>void</b></font> describe();
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;</font>&nbsp;}
+      <!-- End of generated code -->
+    </pre></div></div>
+    It could probably not be any simpler.
+    <h2>A Simple User-exit implementation</h2>
+    To develop your own features, you would need to put - at least - into your classpath:
+    <ul>
+      <li><code>desktop.jar</code></li>
+    </ul>
+    And probably, to access the NMEA Data Cache:
+    <ul>
+      <li><code>nmeaparser.jar</code></li>
+      <li><code>nmeareader.jar</code></li>
+      <li><code>coreutilities</code></li>
+      <li><code>geomutil.jar</code></li>
+    </ul>
+    Then, write your code, and archive it into a jar-file.
+    <br>
+    Here is a simple implementation of this interface. This one evaluates the True Wind Speed
+    <i>every</i> time a sentence is received from the NMEA station, and displays a message if the 
+    TWS is above 10 knots.
+    <br>
+    See how the <code>NMEAReaderListener</code> is registered.
+    <div id="div-02" style="padding:5px; background:#ddd; border-radius:5px; overflow-x: scroll; overflow-y: scroll;border:1px solid #CCC; margin-top:10px; height: 150px; resize:both;">
+      <div style='width:1200px'>
+      <pre style="font-family:'Source Code Pro', 'Courier New'; font-size:11px; color:white; background-color:#1e1e1e;">
+      <!-- Generated code pasted below -->
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;</font>&nbsp;<font color='#ffff66'><b>package</b></font> olivsoftdesktop.sampleue;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;</font>&nbsp;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;</font>&nbsp;<font color='#ffff66'><b>import</b></font> nmea.event.NMEAReaderListener;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;</font>&nbsp;<font color='#ffff66'><b>import</b></font> nmea.server.ctx.NMEAContext;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;&nbsp;5&nbsp;</font>&nbsp;<font color='#ffff66'><b>import</b></font> nmea.server.ctx.NMEADataCache;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;&nbsp;6&nbsp;</font>&nbsp;<font color='#ffff66'><b>import</b></font> ocss.nmea.parser.<font color='cyan'>Angle360</font>;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;&nbsp;7&nbsp;</font>&nbsp;<font color='#ffff66'><b>import</b></font> ocss.nmea.parser.Speed;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;</font>&nbsp;<font color='#ffff66'><b>import</b></font> olivsoftdesktop.DesktopUserExitInterface;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;&nbsp;9&nbsp;</font>&nbsp;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;10&nbsp;</font>&nbsp;<font color='#ffff66'><b>public</b></font> <font color='#ffff66'><b>class</b></font> UserExitSample
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;11&nbsp;</font>&nbsp;  <font color='#ffff66'><b>implements</b></font> DesktopUserExitInterface
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;12&nbsp;</font>&nbsp;{
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;13&nbsp;</font>&nbsp;  <font color='#ffff66'><b>public</b></font> UserExitSample()
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;14&nbsp;</font>&nbsp;  {
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;15&nbsp;</font>&nbsp;    <font color='#ffff66'><b>super</b></font>();
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;16&nbsp;</font>&nbsp;  }
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;17&nbsp;</font>&nbsp;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;18&nbsp;</font>&nbsp;  @Override
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;19&nbsp;</font>&nbsp;  <font color='#ffff66'><b>public</b></font> <font color='#ffff66'><b>void</b></font> start()
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;20&nbsp;</font>&nbsp;  {
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;21&nbsp;</font>&nbsp;    <font color='cyan'><b><i>System</i></b></font>.out.println(<font color='orange'><i>"User exit is starting..."</i></font>);
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;22&nbsp;</font>&nbsp;    NMEAContext.getInstance().addNMEAReaderListener(<font color='#ffff66'><b>new</b></font> NMEAReaderListener()
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;23&nbsp;</font>&nbsp;    {
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;24&nbsp;</font>&nbsp;        @Override
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;25&nbsp;</font>&nbsp;        <font color='#ffff66'><b>public</b></font> <font color='#ffff66'><b>void</b></font> manageNMEAString(<font color='cyan'><b><i>String</i></b></font> nmeaString)
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;26&nbsp;</font>&nbsp;        {
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;27&nbsp;</font>&nbsp;<font color='orange'><i>//        System.out.println("     ... From user exit, got NMEA Data [" + nmeaString + "]");</i></font>
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;28&nbsp;</font>&nbsp;          NMEADataCache dc = NMEAContext.getInstance().getCache();
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;29&nbsp;</font>&nbsp;          <font color='#ffff66'><b>double</b></font> tws = ((Speed) dc.get(NMEADataCache.TWS)).getValue();
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;30&nbsp;</font>&nbsp;          <font color='#ffff66'><b>double</b></font> twd = ((<font color='cyan'>Angle360</font>) dc.get(NMEADataCache.TWD)).getValue();
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;31&nbsp;</font>&nbsp;          <font color='#ffff66'><b>if</b></font> (tws > <font color='cyan'>10</font> &amp;&amp; !<font color='cyan'><b><i>Double</i></b></font>.isInfinite(tws))
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;32&nbsp;</font>&nbsp;          {
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;33&nbsp;</font>&nbsp;            <font color='cyan'><b><i>System</i></b></font>.out.println(<font color='orange'><i>"Wind is over 10 kts:"</i></font> + tws + <font color='orange'><i>", TWD:"</i></font> + twd);
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;34&nbsp;</font>&nbsp;            <font color='gray'><i>// TODO Send an email...</i></font>
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;35&nbsp;</font>&nbsp;          }
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;36&nbsp;</font>&nbsp;        }
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;37&nbsp;</font>&nbsp;    });
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;38&nbsp;</font>&nbsp;  }
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;39&nbsp;</font>&nbsp;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;40&nbsp;</font>&nbsp;  @Override
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;41&nbsp;</font>&nbsp;  <font color='#ffff66'><b>public</b></font> <font color='#ffff66'><b>void</b></font> stop()
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;42&nbsp;</font>&nbsp;  {
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;43&nbsp;</font>&nbsp;    <font color='cyan'><b><i>System</i></b></font>.out.println(<font color='orange'><i>"Terminating User exit"</i></font>);
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;44&nbsp;</font>&nbsp;  }
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;45&nbsp;</font>&nbsp;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;46&nbsp;</font>&nbsp;  @Override
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;47&nbsp;</font>&nbsp;  <font color='#ffff66'><b>public</b></font> <font color='#ffff66'><b>void</b></font> describe()
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;48&nbsp;</font>&nbsp;  {
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;49&nbsp;</font>&nbsp;    <font color='cyan'><b><i>System</i></b></font>.out.println(<font color='orange'><i>"This is a simple user-exit example that shows howto register an NMEAReaderListener from your code."</i></font>);
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;50&nbsp;</font>&nbsp;  }
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;51&nbsp;</font>&nbsp;}
+      <!-- End of generated code -->
+    </pre>
+    </div></div>    
+    <h2>User-exit runtime</h2>
+    To have your user-exit to be taken care if, you need to:
+    <ul>
+      <li>
+        Archive it in a jar-file, and put the jar (along with the ones it may depend on) in one of the following directories
+        <ul>
+          <li><code>all-user-exits</code> (recommended)</li>
+          <li><code>all-libs</code></li>
+          <li><code>all-3rd-party</code></li>
+        </ul>
+      </li>
+      <li>
+        Mention the name of the user-exit in the command-line parameters, like <code>-ue:myspecial.feature.SuperUserExit</code>.
+        For the example above, the parameter would be <code>-ue:olivsoftdesktop.sampleue.UserExitSample</code>.
+      </li>
+    </ul>
+    And that's it. This works from the console, as well as from the headless one.
+    <h2>A more complex sample</h2>
+    Here is the scenario:
+    <br>
+    <b>You have an internet connection</b> on the boat, it is docked or anchored in the harbor.
+    <br>
+    From wherever you are, you want to know what the wind is like where the boat is.
+    <br>
+    This user-exit monitors the True Wind Speed (TWS), and send an email when it is above a given threshold.
+    It looks at the wind speed every X minutes, the X comes from a configuration file (<code>email.properties</code>) that can be edited.
+    <div id="div-03" style="padding:5px; background:#ddd; border-radius:5px; overflow-x: scroll; overflow-y: scroll;border:1px solid #CCC; margin-top:10px; height: 150px; resize:both;">
+      <div style='width:1200px'>
+      <pre style="font-family:'Source Code Pro', 'Courier New'; font-size:11px; color:white; background-color:#1e1e1e;">
+      <!-- Generated code pasted below -->
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;</font>&nbsp;<font color='#ffff66'><b>package</b></font> olivsoftdesktopuserexits;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;</font>&nbsp;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;</font>&nbsp;<font color='#ffff66'><b>import</b></font> java.io.FileInputStream;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;</font>&nbsp;<font color='#ffff66'><b>import</b></font> java.text.DecimalFormat;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;&nbsp;5&nbsp;</font>&nbsp;<font color='#ffff66'><b>import</b></font> java.text.SimpleDateFormat;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;&nbsp;6&nbsp;</font>&nbsp;<font color='#ffff66'><b>import</b></font> java.util.Calendar;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;&nbsp;7&nbsp;</font>&nbsp;<font color='#ffff66'><b>import</b></font> java.util.Date;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;</font>&nbsp;<font color='#ffff66'><b>import</b></font> java.util.Properties;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;&nbsp;9&nbsp;</font>&nbsp;<font color='#ffff66'><b>import</b></font> java.util.TimeZone;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;10&nbsp;</font>&nbsp;<font color='#ffff66'><b>import</b></font> nmea.server.ctx.NMEAContext;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;11&nbsp;</font>&nbsp;<font color='#ffff66'><b>import</b></font> nmea.server.ctx.NMEADataCache;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;12&nbsp;</font>&nbsp;<font color='#ffff66'><b>import</b></font> ocss.nmea.parser.<font color='cyan'>Angle360</font>;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;13&nbsp;</font>&nbsp;<font color='#ffff66'><b>import</b></font> ocss.nmea.parser.GeoPos;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;14&nbsp;</font>&nbsp;<font color='#ffff66'><b>import</b></font> ocss.nmea.parser.Speed;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;15&nbsp;</font>&nbsp;<font color='#ffff66'><b>import</b></font> ocss.nmea.parser.UTCDate;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;16&nbsp;</font>&nbsp;<font color='#ffff66'><b>import</b></font> olivsoftdesktop.DesktopUserExitInterface;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;17&nbsp;</font>&nbsp;<font color='#ffff66'><b>import</b></font> olivsoftdesktopuserexits.emailutil.EmailSender;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;18&nbsp;</font>&nbsp;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;19&nbsp;</font>&nbsp;<font color='#ffff66'><b>public</b></font> <font color='#ffff66'><b>class</b></font> DesktopEmailSender
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;20&nbsp;</font>&nbsp;  <font color='#ffff66'><b>implements</b></font> DesktopUserExitInterface
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;21&nbsp;</font>&nbsp;{
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;22&nbsp;</font>&nbsp;  <font color='#ffff66'><b>private</b></font> <font color='#ffff66'><b>final</b></font> <font color='#ffff66'><b>static</b></font> SimpleDateFormat SDF = <font color='#ffff66'><b>new</b></font> SimpleDateFormat(<font color='orange'><i>"yyyy-MMM-dd HH:mm:ss"</i></font>);
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;23&nbsp;</font>&nbsp;  <font color='#ffff66'><b>private</b></font> <font color='#ffff66'><b>final</b></font> <font color='#ffff66'><b>static</b></font> DecimalFormat <font color='cyan'>DF22</font>   = <font color='#ffff66'><b>new</b></font> DecimalFormat(<font color='orange'><i>"##0.00 'kts'"</i></font>);
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;24&nbsp;</font>&nbsp;  <font color='#ffff66'><b>private</b></font> <font color='#ffff66'><b>final</b></font> <font color='#ffff66'><b>static</b></font> DecimalFormat <font color='cyan'>DF30</font>   = <font color='#ffff66'><b>new</b></font> DecimalFormat(<font color='orange'><i>"##0'\272'"</i></font>);
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;25&nbsp;</font>&nbsp;  <font color='#ffff66'><b>private</b></font> <font color='#ffff66'><b>static</b></font> <font color='cyan'><b><i>String</i></b></font> SEND_PROVIDER = <font color='orange'><i>"google"</i></font>;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;26&nbsp;</font>&nbsp;  <font color='#ffff66'><b>private</b></font> Thread watcher = null;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;27&nbsp;</font>&nbsp;  <font color='#ffff66'><b>private</b></font> <font color='#ffff66'><b>boolean</b></font> keepWatching = <font color='pink'><b><i>true</i></b></font>;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;28&nbsp;</font>&nbsp;  <font color='#ffff66'><b>private</b></font> EmailSender sender = null;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;29&nbsp;</font>&nbsp;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;30&nbsp;</font>&nbsp;  <font color='#ffff66'><b>private</b></font> <font color='#ffff66'><b>double</b></font> windThreshold = -<font color='cyan'>1</font>;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;31&nbsp;</font>&nbsp;  <font color='#ffff66'><b>private</b></font> <font color='#ffff66'><b>long</b></font> betweenLoops = <font color='cyan'>600</font> * <font color='cyan'>1000L</font>; <font color='gray'><i>// 10 minutes default</i></font>
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;32&nbsp;</font>&nbsp;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;33&nbsp;</font>&nbsp;  <font color='#ffff66'><b>public</b></font> DesktopEmailSender()
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;34&nbsp;</font>&nbsp;  {
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;35&nbsp;</font>&nbsp;    <font color='#ffff66'><b>super</b></font>();
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;36&nbsp;</font>&nbsp;  }
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;37&nbsp;</font>&nbsp;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;38&nbsp;</font>&nbsp;  @Override
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;39&nbsp;</font>&nbsp;  <font color='#ffff66'><b>public</b></font> <font color='#ffff66'><b>void</b></font> start()
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;40&nbsp;</font>&nbsp;  {
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;41&nbsp;</font>&nbsp;    <font color='cyan'><b><i>System</i></b></font>.out.println(<font color='orange'><i>"Method 'start':"</i></font> + <font color='#ffff66'><b>this</b></font>.getClass().getName() + <font color='orange'><i>" User exit is starting..."</i></font>);
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;42&nbsp;</font>&nbsp;    Properties props = <font color='#ffff66'><b>new</b></font> Properties();
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;43&nbsp;</font>&nbsp;    <font color='cyan'><b><i>String</i></b></font> propFile = <font color='orange'><i>"email.properties"</i></font>;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;44&nbsp;</font>&nbsp;    <font color='#ffff66'><b>try</b></font>
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;45&nbsp;</font>&nbsp;    {
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;46&nbsp;</font>&nbsp;      FileInputStream fis = <font color='#ffff66'><b>new</b></font> FileInputStream(propFile);
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;47&nbsp;</font>&nbsp;      props.load(fis);
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;48&nbsp;</font>&nbsp;    }
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;49&nbsp;</font>&nbsp;    <font color='#ffff66'><b>catch</b></font> (<font color='cyan'><b><i>Exception</i></b></font> e)
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;50&nbsp;</font>&nbsp;    {
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;51&nbsp;</font>&nbsp;      <font color='cyan'><b><i>System</i></b></font>.err.println(<font color='orange'><i>"email.properies file problem..., from "</i></font> + <font color='cyan'><b><i>System</i></b></font>.getProperty(<font color='orange'><i>"user.dir"</i></font>));
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;52&nbsp;</font>&nbsp;      <font color='#ffff66'><b>throw</b></font> <font color='#ffff66'><b>new</b></font> RuntimeException(<font color='orange'><i>"File not found:email.properies"</i></font>);
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;53&nbsp;</font>&nbsp;    }
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;54&nbsp;</font>&nbsp;    SEND_PROVIDER = props.getProperty(<font color='orange'><i>"ue.preferred.provider"</i></font>, SEND_PROVIDER);
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;55&nbsp;</font>&nbsp;    sender = <font color='#ffff66'><b>new</b></font> EmailSender(SEND_PROVIDER);
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;56&nbsp;</font>&nbsp;    <font color='#ffff66'><b>try</b></font>
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;57&nbsp;</font>&nbsp;    {
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;58&nbsp;</font>&nbsp;      windThreshold = <font color='cyan'><b><i>Double</i></b></font>.parseDouble(props.getProperty(<font color='orange'><i>"ue.wind.threshold"</i></font>));
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;59&nbsp;</font>&nbsp;      <font color='cyan'><b><i>System</i></b></font>.out.println(<font color='orange'><i>"Will send emails when the wind is above ["</i></font> + windThreshold + <font color='orange'><i>"]"</i></font>);
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;60&nbsp;</font>&nbsp;    }
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;61&nbsp;</font>&nbsp;    <font color='#ffff66'><b>catch</b></font> (NumberFormatException nfe)
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;62&nbsp;</font>&nbsp;    {
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;63&nbsp;</font>&nbsp;      <font color='#ffff66'><b>throw</b></font> <font color='#ffff66'><b>new</b></font> RuntimeException(<font color='orange'><i>"Bad wind threshold:"</i></font> + props.getProperty(<font color='orange'><i>"ue.wind.threshold"</i></font>));
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;64&nbsp;</font>&nbsp;    }
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;65&nbsp;</font>&nbsp;    <font color='#ffff66'><b>try</b></font>
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;66&nbsp;</font>&nbsp;    {
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;67&nbsp;</font>&nbsp;      betweenLoops = Long.parseLong(props.getProperty(<font color='orange'><i>"ue.between.loops.in.minute"</i></font>));
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;68&nbsp;</font>&nbsp;    }
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;69&nbsp;</font>&nbsp;    <font color='#ffff66'><b>catch</b></font> (NumberFormatException nfe)
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;70&nbsp;</font>&nbsp;    {
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;71&nbsp;</font>&nbsp;      <font color='#ffff66'><b>throw</b></font> <font color='#ffff66'><b>new</b></font> RuntimeException(<font color='orange'><i>"Bad Loop interval:"</i></font> + props.getProperty(<font color='orange'><i>"ue.between.loops.in.minute"</i></font>));
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;72&nbsp;</font>&nbsp;    }
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;73&nbsp;</font>&nbsp;    <font color='#ffff66'><b>final</b></font> <font color='#ffff66'><b>long</b></font> _betweenLoops = betweenLoops;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;74&nbsp;</font>&nbsp;    watcher = <font color='#ffff66'><b>new</b></font> Thread()
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;75&nbsp;</font>&nbsp;      {
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;76&nbsp;</font>&nbsp;        <font color='#ffff66'><b>private</b></font> <font color='#ffff66'><b>boolean</b></font> started = <font color='pink'><b><i>false</i></b></font>;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;77&nbsp;</font>&nbsp;        <font color='#ffff66'><b>private</b></font> <font color='#ffff66'><b>final</b></font> <font color='#ffff66'><b>long</b></font> BETWEEN_LOOPS = _betweenLoops * <font color='cyan'>60</font> * <font color='cyan'>1000</font>;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;78&nbsp;</font>&nbsp;        <font color='#ffff66'><b>private</b></font> <font color='#ffff66'><b>final</b></font> <font color='#ffff66'><b>long</b></font> TEN_SECONDS   =  <font color='cyan'>10000L</font>;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;79&nbsp;</font>&nbsp;        <font color='#ffff66'><b>private</b></font> <font color='#ffff66'><b>long</b></font> waitTime = BETWEEN_LOOPS;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;80&nbsp;</font>&nbsp;        <font color='#ffff66'><b>public</b></font> <font color='#ffff66'><b>void</b></font> run()
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;81&nbsp;</font>&nbsp;        {
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;82&nbsp;</font>&nbsp;          <font color='#ffff66'><b>while</b></font> (keepWatching)
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;83&nbsp;</font>&nbsp;          {
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;84&nbsp;</font>&nbsp;            waitTime = BETWEEN_LOOPS;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;85&nbsp;</font>&nbsp;            NMEADataCache dc = NMEAContext.getInstance().getCache();
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;86&nbsp;</font>&nbsp;            <font color='#ffff66'><b>try</b></font>
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;87&nbsp;</font>&nbsp;            {
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;88&nbsp;</font>&nbsp;              <font color='#ffff66'><b>double</b></font> tws = ((Speed) dc.get(NMEADataCache.TWS)).getValue();
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;89&nbsp;</font>&nbsp;              <font color='#ffff66'><b>double</b></font> twd = ((<font color='cyan'>Angle360</font>) dc.get(NMEADataCache.TWD)).getValue();
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;90&nbsp;</font>&nbsp;              <font color='cyan'><b><i>String</i></b></font> date = <font color='orange'><i>""</i></font>;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;91&nbsp;</font>&nbsp;              UTCDate utcDate = (UTCDate)NMEAContext.getInstance().getCache().get(NMEADataCache.GPS_DATE_TIME);
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;92&nbsp;</font>&nbsp;              <font color='#ffff66'><b>if</b></font> (utcDate != null &amp;&amp; utcDate.getValue() != null)
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;93&nbsp;</font>&nbsp;              {
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;94&nbsp;</font>&nbsp;                Date d = utcDate.getValue();
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;95&nbsp;</font>&nbsp;                Calendar cal = Calendar.getInstance();
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;96&nbsp;</font>&nbsp;                cal.setTime(d);
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;97&nbsp;</font>&nbsp;                cal.setTimeZone(TimeZone.getTimeZone(<font color='orange'><i>"Etc/UTC"</i></font>));
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;98&nbsp;</font>&nbsp;                date = SDF.format(cal.getTime());
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;&nbsp;99&nbsp;</font>&nbsp;              }
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;100&nbsp;</font>&nbsp;              <font color='cyan'><b><i>String</i></b></font> pos = <font color='orange'><i>""</i></font>;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;101&nbsp;</font>&nbsp;              <font color='#ffff66'><b>try</b></font> { pos = ((GeoPos)dc.get(NMEADataCache.POSITION)).toString(); } <font color='#ffff66'><b>catch</b></font> (<font color='cyan'><b><i>Exception</i></b></font> ex) {}
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;102&nbsp;</font>&nbsp;              <font color='#ffff66'><b>if</b></font> (!started)
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;103&nbsp;</font>&nbsp;              {
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;104&nbsp;</font>&nbsp;                started = <font color='pink'><b><i>true</i></b></font>;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;105&nbsp;</font>&nbsp;                <font color='cyan'><b><i>System</i></b></font>.out.println(<font color='orange'><i>" -- User exit started for good."</i></font>);
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;106&nbsp;</font>&nbsp;              }
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;107&nbsp;</font>&nbsp;              <font color='#ffff66'><b>if</b></font> (tws > windThreshold &amp;&amp; !<font color='cyan'><b><i>Double</i></b></font>.isInfinite(tws))
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;108&nbsp;</font>&nbsp;              {
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;109&nbsp;</font>&nbsp;                <font color='cyan'><b><i>String</i></b></font> alertMessage =
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;110&nbsp;</font>&nbsp;                  (date.trim().length() > <font color='cyan'>0</font> ? <font color='orange'><i>"Date:"</i></font> + date + <font color='orange'><i>"\n"</i></font>: <font color='orange'><i>""</i></font>) +
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;111&nbsp;</font>&nbsp;                  (pos.trim().length() > <font color='cyan'>0</font> ? <font color='orange'><i>"Pos:"</i></font> + pos + <font color='orange'><i>"\n"</i></font> : <font color='orange'><i>""</i></font>) +
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;112&nbsp;</font>&nbsp;                  <font color='orange'><i>"Wind is over "</i></font> + <font color='cyan'>DF22</font>.format(windThreshold) + <font color='orange'><i>":"</i></font> + <font color='cyan'>DF22</font>.format(tws) + <font color='orange'><i>", TWD:"</i></font> + <font color='cyan'>DF30</font>.format(twd);
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;113&nbsp;</font>&nbsp;                <font color='cyan'><b><i>System</i></b></font>.out.println(alertMessage);
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;114&nbsp;</font>&nbsp;                <font color='gray'><i>// Send an email...</i></font>
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;115&nbsp;</font>&nbsp;                <font color='#ffff66'><b>try</b></font>
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;116&nbsp;</font>&nbsp;                {
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;117&nbsp;</font>&nbsp;                  sender.send(alertMessage);
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;118&nbsp;</font>&nbsp;                  <font color='cyan'><b><i>System</i></b></font>.out.println(<font color='orange'><i>"Email sent."</i></font>);
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;119&nbsp;</font>&nbsp;                }
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;120&nbsp;</font>&nbsp;                <font color='#ffff66'><b>catch</b></font> (<font color='cyan'><b><i>Exception</i></b></font> ex)
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;121&nbsp;</font>&nbsp;                {
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;122&nbsp;</font>&nbsp;                  <font color='cyan'><b><i>System</i></b></font>.err.println(<font color='orange'><i>"Sending email failed through ["</i></font> + SEND_PROVIDER + <font color='orange'><i>"]"</i></font>);
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;123&nbsp;</font>&nbsp;                  ex.printStackTrace();
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;124&nbsp;</font>&nbsp;                }
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;125&nbsp;</font>&nbsp;              }
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;126&nbsp;</font>&nbsp;            }
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;127&nbsp;</font>&nbsp;            <font color='#ffff66'><b>catch</b></font> (NullPointerException npe)
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;128&nbsp;</font>&nbsp;            {
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;129&nbsp;</font>&nbsp;              <font color='gray'><i>// Just wait til next time...</i></font>
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;130&nbsp;</font>&nbsp;              <font color='cyan'><b><i>System</i></b></font>.out.println(<font color='orange'><i>"Cache not initialized (yet)"</i></font>);
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;131&nbsp;</font>&nbsp;              waitTime = TEN_SECONDS;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;132&nbsp;</font>&nbsp;            }
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;133&nbsp;</font>&nbsp;            <font color='#ffff66'><b>synchronized</b></font> (<font color='#ffff66'><b>this</b></font>)
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;134&nbsp;</font>&nbsp;            {
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;135&nbsp;</font>&nbsp;              <font color='cyan'><b><i>System</i></b></font>.out.println(<font color='orange'><i>"  ...User exit going to wait, at "</i></font> + <font color='#ffff66'><b>new</b></font> Date().toString() + <font color='orange'><i>" (will wait for "</i></font> + (waitTime / <font color='cyan'>1000</font>) + <font color='orange'><i>" s)"</i></font>);
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;136&nbsp;</font>&nbsp;              <font color='#ffff66'><b>try</b></font> { wait(waitTime); }
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;137&nbsp;</font>&nbsp;              <font color='#ffff66'><b>catch</b></font> (InterruptedException ie)
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;138&nbsp;</font>&nbsp;              {
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;139&nbsp;</font>&nbsp;                <font color='cyan'><b><i>System</i></b></font>.out.println(<font color='orange'><i>"Told to stop!"</i></font>);
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;140&nbsp;</font>&nbsp;                keepWatching = <font color='pink'><b><i>false</i></b></font>;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;141&nbsp;</font>&nbsp;              }
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;142&nbsp;</font>&nbsp;            }
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;143&nbsp;</font>&nbsp;          }
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;144&nbsp;</font>&nbsp;          <font color='cyan'><b><i>System</i></b></font>.out.println(<font color='orange'><i>"Stop waiting."</i></font>);
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;145&nbsp;</font>&nbsp;        }
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;146&nbsp;</font>&nbsp;      };
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;147&nbsp;</font>&nbsp;    keepWatching = <font color='pink'><b><i>true</i></b></font>;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;148&nbsp;</font>&nbsp;    watcher.start();
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;149&nbsp;</font>&nbsp;  }
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;150&nbsp;</font>&nbsp;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;151&nbsp;</font>&nbsp;  @Override
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;152&nbsp;</font>&nbsp;  <font color='#ffff66'><b>public</b></font> <font color='#ffff66'><b>void</b></font> stop()
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;153&nbsp;</font>&nbsp;  {
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;154&nbsp;</font>&nbsp;    <font color='cyan'><b><i>System</i></b></font>.out.println(<font color='#ffff66'><b>this</b></font>.getClass().getName() + <font color='orange'><i>" is terminating"</i></font>);
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;155&nbsp;</font>&nbsp;    keepWatching = <font color='pink'><b><i>false</i></b></font>;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;156&nbsp;</font>&nbsp;    <font color='#ffff66'><b>synchronized</b></font> (watcher)
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;157&nbsp;</font>&nbsp;    {
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;158&nbsp;</font>&nbsp;      watcher.notify();
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;159&nbsp;</font>&nbsp;    }
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;160&nbsp;</font>&nbsp;  }
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;161&nbsp;</font>&nbsp;
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;162&nbsp;</font>&nbsp;  @Override
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;163&nbsp;</font>&nbsp;  <font color='#ffff66'><b>public</b></font> <font color='#ffff66'><b>void</b></font> describe()
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;164&nbsp;</font>&nbsp;  {
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;165&nbsp;</font>&nbsp;    <font color='cyan'><b><i>System</i></b></font>.out.println(<font color='orange'><i>"Polls the NMEA Cache on a regular base, and sends an email if the TWS is above a given threshold."</i></font>);
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;166&nbsp;</font>&nbsp;    <font color='cyan'><b><i>System</i></b></font>.out.println(<font color='orange'><i>"Driven by a properties file named email.properties, in the all-scripts directory."</i></font>);
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;167&nbsp;</font>&nbsp;  }
+&nbsp;<font color='gray' style='text-align:right; background-color:lightgray;'>&nbsp;&nbsp;168&nbsp;</font>&nbsp;}      <!-- End of generated code -->
+      </pre>
+    </div></div>
+    <a href="http://donpedro.lediouris.net/software/blog/src.zip">All the sources</a> of this example.
+    <br><br>
+    Possibilities are endless. The limit is your imagination.
+    <br>
+    Combining the two examples above, you can as well gather all the data into a single document (XML, json, etc), and send it through email on
+    a regular base, so it can be rendered by the receipient.
+    <br>
+    Etc, etc...
+    <h2>How to do it for yourself, step by step</h2>
+    <ol>
+      <li>Download all the sources, in the <a href="http://donpedro.lediouris.net/software/blog/src.zip">zip</a> mentionned above</li>
+      <li>Extract it is a new clean directory</li>
+      <li>Make sure the jar <code>mail.jar</code> is in your <code>all-3rd-party</code> directory</li>
+      <li>Make sure you have installed a JDK in your environment</li>
+      <li>In a system console, navigate to the directory where you unzipped the sources</li>
+      <li>If it does not exist, create a <code>classes</code> directory. Make sure it is empty</li>
+      <li>
+        Compile the code:
+        <br><b>On Windows</b>
+        <div id="div-01" style="padding:5px; background:#ddd; border-radius:5px; overflow-x: scroll; overflow-y: scroll;border:1px solid #CCC; margin-top:10px; height: 150px; resize:both;">
+    <div style='width:1200px'>
+    <pre style="font-family:'Source Code Pro', 'Courier New'; font-size:11px; color:white; background-color:#1e1e1e;">
+ Prompt> set OLIV_HOME=D:\OlivSoft
+ Prompt> set CP=%OLIV_HOME%\all-3rd-party\mail.jar
+ Prompt> set CP=%CP%;%OLIV_HOME%\all-libs\nmeaparser.jar
+ Prompt> set CP=%CP%;%OLIV_HOME%\all-libs\nmeareader.jar
+ Prompt> set CP=%CP%;%OLIV_HOME%\all-libs\desktop.jar
+ Prompt> set CP=%CP%;%OLIV_HOME%\all-libs\geomutil.jar
+ Prompt> javac -d classes -sourcepath src -cp %CP% src\olivsoftdesktopuserexits\*.java
+        </pre></div></div>
+        <b>On Linux</b>
+        <div id="div-01" style="padding:5px; background:#ddd; border-radius:5px; overflow-x: scroll; overflow-y: scroll;border:1px solid #CCC; margin-top:10px; height: 150px; resize:both;">
+        <div style='width:1200px'>
+        <pre style="font-family:'Source Code Pro', 'Courier New'; font-size:11px; color:white; background-color:#1e1e1e;"> 
+ Prompt> bash
+ Prompt> OLIV_HOME=/usr/OlivSoft
+ Prompt> CP=$OLIV_HOME/all-3rd-party/mail.jar
+ Prompt> CP=$CP:$OLIV_HOME/all-libs/nmeaparser.jar
+ Prompt> CP=$CP:$OLIV_HOME/all-libs/nmeareader.jar
+ Prompt> CP=$CP:$OLIV_HOME/all-libs/desktop.jar
+ Prompt> CP=$CP:$OLIV_HOME/all-libs/geomutil.jar
+ Prompt> javac -d classes -sourcepath src -cp $CP src/olivsoftdesktopuserexits/*.java
+        </pre></div></div>
+        Make sure you do not see any error.
+      </li>
+      <li> 
+        Archive the generated classes:
+        <br><b>On Windows</b>
+        <div style="padding:5px; background:#ddd; border-radius:5px; overflow-x: scroll; overflow-y: scroll;border:1px solid #CCC; margin-top:10px; height: 80px; resize:both;">
+        <div style='width:1200px'>
+        <pre style="font-family:'Source Code Pro', 'Courier New'; font-size:11px; color:white; background-color:#1e1e1e;"> 
+ Prompt> cd classes
+ Prompt> jar -cvf ..\emailUserExit.jar *
+        </pre></div></div>
+        <b>On Linux</b>
+        <div style="padding:5px; background:#ddd; border-radius:5px; overflow-x: scroll; overflow-y: scroll;border:1px solid #CCC; margin-top:10px; height: 80px; resize:both;">
+        <div style='width:1200px'>
+        <pre style="font-family:'Source Code Pro', 'Courier New'; font-size:11px; color:white; background-color:#1e1e1e;"> 
+ Prompt> cd classes
+ Prompt> jar -cvf ../emailUserExit.jar *
+        </pre></div></div>
+      </li>
+      <li>
+        Copy the archive in the <code>all-user-exits</code> directory
+        <br><b>On Windows</b>
+        <div style="padding:5px; background:#ddd; border-radius:5px; overflow-x: scroll; overflow-y: scroll;border:1px solid #CCC; margin-top:10px; height: 80px; resize:both;">
+        <div style='width:1200px'>
+        <pre style="font-family:'Source Code Pro', 'Courier New'; font-size:11px; color:white; background-color:#1e1e1e;"> 
+ Prompt> cd ..
+ Prompt> copy *.jar %OLIV_HOME%\all-user-exits
+        </pre></div></div>
+        <b>On Linux</b>
+        <div style="padding:5px; background:#ddd; border-radius:5px; overflow-x: scroll; overflow-y: scroll;border:1px solid #CCC; margin-top:10px; height: 80px; resize:both;">
+        <div style='width:1200px'>
+        <pre style="font-family:'Source Code Pro', 'Courier New'; font-size:11px; color:white; background-color:#1e1e1e;"> 
+ Prompt> cd ..
+ Prompt> cp *.jar $OLIV_HOME/all-user-exits
+        </pre></div></div>
+        Copy <code>email.properties</code> in the <code>all-scripts</code> directory
+        <br><b>On Windows</b>
+        <div style="padding:5px; background:#ddd; border-radius:5px; overflow-x: scroll; overflow-y: scroll;border:1px solid #CCC; margin-top:10px; height: 80px; resize:both;">
+        <div style='width:1200px'>
+        <pre style="font-family:'Source Code Pro', 'Courier New'; font-size:11px; color:white; background-color:#1e1e1e;"> 
+ Prompt> copy email.properties %OLIV_HOME%\all-scripts
+        </pre></div></div>
+        <b>On Linux</b>
+        <div style="padding:5px; background:#ddd; border-radius:5px; overflow-x: scroll; overflow-y: scroll;border:1px solid #CCC; margin-top:10px; height: 80px; resize:both;">
+        <div style='width:1200px'>
+        <pre style="font-family:'Source Code Pro', 'Courier New'; font-size:11px; color:white; background-color:#1e1e1e;"> 
+ Prompt> cp email.properties $OLIV_HOME/all-scripts
+        </pre></div></div>
+        You are almost done...
+      </li>
+      <li>
+        Modify the line that starts the console, so it takes your work in account:
+        <br><b>On Windows</b>
+        <div style="padding:5px; background:#ddd; border-radius:5px; overflow-x: scroll; overflow-y: scroll;border:1px solid #CCC; margin-top:10px; height: 80px; resize:both;">
+        <div style='width:1200px'>
+        <pre style="font-family:'Source Code Pro', 'Courier New'; font-size:11px; color:white; background-color:#1e1e1e;"> 
+set COMMAND=java %JAVA_OPTIONS% -classpath %CP% olivsoftdesktop.OlivSoftDesktop %HEADLESS_OPTIONS% -ue:olivsoftdesktopuserexits.DesktopEmailSender
+start "Headless Console (User-Exit)" %COMMAND%
+        </pre></div></div>
+        <b>On Linux</b>
+        <div style="padding:5px; background:#ddd; border-radius:5px; overflow-x: scroll; overflow-y: scroll;border:1px solid #CCC; margin-top:10px; height: 80px; resize:both;">
+        <div style='width:1200px'>
+        <pre style="font-family:'Source Code Pro', 'Courier New'; font-size:11px; color:white; background-color:#1e1e1e;"> 
+java $JAVA_OPTIONS -classpath $CP olivsoftdesktop.OlivSoftDesktop $HEADLESS_OPTIONS -ue:olivsoftdesktopuserexits.DesktopEmailSender &
+        </pre></div></div>
+        That's it!
+        <br>
+        <i><b>Important</b></i>: Do not forget to edit and modify <code>email.properties</code>, so it matches your environment, and your needs.
+      </li>
+    </ol>    
+    <hr>
+    &copy; 2013, OlivSoft
+  </body>
+</html>

@@ -1,0 +1,34 @@
+; File generated on Thu Aug 12 14:04:35 PDT 2010
+; San Francisco (Pt. Reyes) 
+ 01:40 01:43 4346 fax size=120/576 NMC 01:40 Test Pattern
+ 01:43 01:46 4346 fax size=120/576 NMC 01:43 NE Pacific Goes IR Satellite Image
+ 02:45 02:48 4346 fax size=120/576 NMC 02:45 500Mb Analysis
+ 14:45 14:48 4346 fax size=120/576 NMC 14:45 500Mb Analysis
+ 03:31 03:34 4346 fax size=120/576 NMC 03:31 Final Surface Analysis (Part 1 - NE Pac)
+ 15:31 15:34 4346 fax size=120/576 NMC 15:31 Final Surface Analysis (Part 1 - NE Pac)
+ 03:44 03:47 4346 fax size=120/576 NMC 03:44 Final Surface Analysis (Part 2 - NW Pac)
+ 15:44 15:47 4346 fax size=120/576 NMC 15:44 Final Surface Analysis (Part 2 - NW Pac)
+ 04:08 04:11 4346 fax size=120/576 NMC 04:08 Tropical Surface Analysis
+ 16:08 16:11 4346 fax size=120/576 NMC 16:08 Tropical Surface Analysis
+ 07:58 08:01 4346 fax size=120/576 NMC 07:58 24hr 500Mb Forecast
+ 19:23 19:26 4346 fax size=120/576 NMC 19:23 24hr 500Mb Forecast
+ 08:08 08:11 4346 fax size=120/576 NMC 08:08 24hr Surface Forecast
+ 19:33 19:36 4346 fax size=120/576 NMC 19:33 24hr Surface Forecast
+ 09:19 09:22 4346 fax size=120/576 NMC 09:19 Surface Analysis (Part 1 - NE Pacific)
+ 21:24 21:27 4346 fax size=120/576 NMC 21:24 Surface Analysis (Part 1 - NE Pacific)
+ 09:32 09:35 4346 fax size=120/576 NMC 09:32 Surface Analysis (Part 2 - NW Pacific)
+ 21:37 21:40 4346 fax size=120/576 NMC 21:37 Surface Analysis (Part 2 - NW Pacific)
+ 00:15 00:45 8416.5 FEC NMC 00:15 sitor weather
+ 18:15 18:45 8416.5 FEC NMC 18:15 sitor weather
+; Kodiak, Alalska 
+; Honolulu 
+ 05:55 05:58 9982.5 fax size=120/576 KVM70 05:55 Streamline Analysis
+ 17:55 17:58 9982.5 fax size=120/576 KVM70 17:55 Streamline Analysis
+ 11:54 11:57 9982.5 fax size=120/576 KVM70 11:54 Streamline Analysis
+ 23:54 23:57 9982.5 fax size=120/576 KVM70 23:54 Streamline Analysis
+ 01:30 02:00 8416.5 FEC KVM70 01:30 SITOR Weather
+ 07:30 08:00 8416.5 FEC KVM70 07:30 SITOR Weather
+ 13:30 14:00 8416.5 FEC KVM70 13:30 SITOR Weather
+ 20:30 21:00 8416.5 FEC KVM70 20:30 SITOR Weather
+; Wellington, New Zealand 
+; Charleville, Australia Wiluna, Australia 

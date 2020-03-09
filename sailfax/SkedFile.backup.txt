@@ -1,0 +1,154 @@
+; start stop     freq   mode           broadcast
+;-------------------------------------------------------------------
+; Comments which start with semicolon (;) in the first column are ignored
+; Semicolons can be added to schedule lines to disable them without deleting. 
+; Use SPACES and NOT tabs to delimit parameters within a line
+; Frequencies: NMG (New Orleans)= 4317.9, 8503.9, 12789.9
+;              NMF (Boston) = 4235.0, 6340.5, 9110 12750
+;              NMC (San Francisco) = 4346, 8682, 12730, 17151.2, 22527
+;              KVM70 (Honolulu) = 9982.4, 11089.9, 16134.9, 23331.4 
+;              NOJ (Kodiak) = 2054, 4298, 8459, 12412.5
+;
+; Seach for start tone starts two minutes BEFORE the listed start time, 
+; if not found by the stop time then fax is aborted. 
+; Ditto marks (") can be used for frequency to copy frequency from the 
+; previous line, but MAKE SURE that the previous line is NOT a comment;
+; 
+; The size parameter is helpful if the stop-code is not reliably detected 
+;   (an issue with NMC), the translation from time is 120 lines per minute 
+;   (i.e. size=1200 translates to 10 minutes max)
+
+; NMG New Orleans (Bellchase)
+;  00:00 00:10   12789.9  fax size=3600 NMG  Tropo Anal (Bellchase)
+;  12:00 12:05   8503.9  fax size=3600 trop anal
+;  00:00 00:05   12789.9 fax size =3600  Tropic Surface Analysis
+;  00:30 00:35   12789.9 fax 		24Hr Wind/Wave Forecast
+;  00:50 00:55	12789.9	fax		72 Hr Tropical Cyclone Danger Area
+;  01:35 01:40	12789.9	fax		72 Hr Wind/Wave Forecast
+;  01:55 02:00	12789.9	fax grey	6 PM Gulf Sat Picture
+;  02:10 02:15	12789.9	fax		Sea State Analysis
+;  04:28 04:33	 9110	fax		500 MB Analysis - NMF
+;  06:00 06:05	 8503.9 fax size=3600	Tropic Surface Analysis
+;  06:30 06:35	 8503.9	fax 		24 Hr Wind/Wave Forecast
+;  06:50 06:55	 8503.9 fax		72 Hr Tropical Cyclone Danger Area
+;  07:15 07:20	 8503.9 fax		48 Hr Wind/Wave Forecast
+;  07:55 08:00	 8503.9 fax grey	Midnight Gulf Sat Picture
+;  08:10 08:15	 8503.9 fax		Sea State Analysis
+;  08:45 08:50	 9110	fax		48 Hr 500 MB Forecast - NMF
+;  12:00 12:05	12789.9 fax size=3600	Tropic Surface Analysis
+;  12:30 12:35	12789.9 fax		24 Hr Wind/Wave Forecast
+;  12:50 12:55	12789.9 fax		72 Hr Tropical Cyclone Danger Area
+;  13:50 13:55	12789.9 fax grey	6 AM Gulf Sat Picture
+;  14:05 14:10	12789.9 fax 		Sea State Analysis
+;  17:49 17:54	12750	fax		500 MB Analysis - NMF
+;  18:00 18:05	12789.9 fax size=3600	Tropic Surface Analysis
+;  18:30 18:35	12789.9 fax		24 Hr Wind/Wave Forecast
+;  18:50 18:55	12789.9 fax		72 Hr Tropical Cyclone Danger Area
+;  19:15 19:20	12789.9 fax 		48 Hr Wind/Wave Forecast
+;  19:45 19:50	12750	fax		48 Hr 500 MB Forecast - NMF
+;  19:55 20:00	12789.9 fax grey	Noon Gulf Sat Picture
+;  20:10 20:15 	12789.9 fax		Sea State Analysis
+;  20:35 20:40	12750	fax		96 Hr 500 MB Forecast - NMF
+
+
+; KVM-70, Honolulu
+;  00:05 00:08 16134.9  fax size=3000   KVM anal
+  00:12 00:22  11089.9    fax size=3000 KVM70 Pac sfc anal
+;  00:30 00:33   "      fax size=3000 grey KVM sat image
+;  00:45 00:48   "      fax size=3000 grey KVM sat image
+;  01:05 01:10   "      fax size=3000 grey  KVM trop sfc anal
+  01:28 01:33  16134.9 fax size=3000   KVM 48h sfc prog
+  01:50 01:55   "      fax size=3000   KVM 48h 500mb prog
+  02:12 02:17 16134.9  fax size=3000   KVM 24h wind/sea fcst
+  02:36 02:41   "      fax size=3000   KVM 48h wind/sea fcst
+  03:28 03:35   "         fax size=3000 KVM70 Pac sfc anal Part 1 NE Pac
+  03:41 03:48   "         fax size=3000 KVM70 Pac sfc anal Part 2 NW Pac
+  03:54 04:01   "         fax size=3000 KVM70 Trop sfc anal
+;  05:33 05:36 9982.4   fax  KNM70 test/symbols
+;  05:45 05:50  "       fax  KVM70 Clouds
+  06:13 06:20  16134.9    fax size=3000 KVM70 Pac sfc anal
+  06:47 07:10  16134.9    fax size=3000 KVM70 Pac 24 sfc fcst
+  07:12 07:24  16134.9    fax size=3000 KVM70 Pac 48 sfc fcst
+  07:25 07:35  16134.9    fax size=3000 KVM70 Pac 72 sfc fcst
+  12:12 12:22  16134.9    fax size=3000 KVM70 Pac sfc anal
+  13:58 14:10  11089.9    fax size=3000 KVM70 Pac 24 trop fcst
+  14:12 14:17   "         fax size=3000 KVM70 24h wind/sea fcst
+  14:36 14:41   "         fax size=3000 KVM70 48h wind/sea fcst
+  15:28 15:35   "         fax size=3000 KVM70 Pac sfc anal Part 1 NE Pac
+  15:41 15:48   "         fax size=3000 KVM70 Pac sfc anal Part 2 NW Pac
+  15:54 16:01   "         fax size=3000 KVM70 Trop sfc anal
+;  18:04 18:10  16134.9    fax size=3000 KVM70 Pac sfc anal
+  18:13 18:20  11089.9    fax size=3000 KVM70 Pac sfc anal
+  18:47 19:10  11089.9    fax size=3000 KVM70 Pac 24 sfc fcst
+  19:12 19:24  11089.9    fax size=3000 KVM70 Pac 48 sfc fcst
+  19:25 19:35  11089.9    fax size=3000 KVM70 Pac 72 sfc fcst
+;  18:30 18:35  16134.9       fax grey size=2400 KVM70 Sat disc
+;  18:45 18:50   "       fax grey size=2400 KVM70 Sat NE pac
+  23:50 23:55  16134.9    fax grey KVM-70 sked
+ 
+; NMC San Francisco (Pt. Reyes)
+
+;  02:35 02:38  8682     fax  NMC tropo 0/24h wind/wave fcst
+;  02:48 02:51    "      fax size=1240 grey NMC sat image
+;  02:59 03:02    "      fax grey NMC sat image
+;  03:10 03:13    "      fax  NMC sea state anal
+  03:20 03:23  8682     fax  NMC sfc anal/E
+  03:33 03:36   "       fax  NMC sfc anal/W
+;  03:45 03:48   "       fax  NMC 500mb anal
+;  03:55 03:58   "       fax  NMC topo cyclone dangers
+  04:08 04:11   "       fax  NMC 48h topo wind/wave fcst 
+
+;  08:00 08:03  8682     fax grey NMC test pattern
+  08:08 08:12   "       fax NMC 24h sfc prog
+;  08:28 08:31   "       fax      NMC 48h 500mb 
+  08:38 08:41   "       fax      NMC 48h Sfc Prog
+  08:48 08:51   "       fax      NMC 48h wind/wave Prog
+;  08:58 09:01   "       fax      NMC sea state
+;  09:08 09:13   "       fax grey NMC Sat image
+;  09:19 09:24   "       fax grey NMC Sfc Anal 1/2
+;  09:32 09:35   "       fax grey NMC Sfc Anal 2/2  
+;  09:44 09:49   "       fax grey NMC Sat image
+;  11:00 11:40   "       fax grey NMC req for comment
+ 
+  14:18 14:23   8682   fax   NMC 96h 500mb prog
+  14:28 14:33   8682   fax   NMC 96h sfc prog
+
+;  14:38 14:41    8682   fax grey NMC Sat Image
+;  14:49 14:52    "      fax grey NMC Sat Image
+;  15:00 15:03    "      fax  NMC sea state anal
+;  15:10 15:13    "      fax  NMC Trop wind/wave 0/24 fcst
+  15:20 15:23    8682   fax  NMC Sfc Anal 1/2 (NE Pac)
+  15:33 15:36    "      fax  NMC Sfc Anal 1/2 (NW Pac)  
+  15:45 15:48    "      fax  NMC  500mb anal
+
+
+  19:30 19:33  12786    fax NMC test pattern
+  19:33 19:36  12786    fax size=1140 NMC 24h sfc fcst
+;  19:43 19:46   "       fax size=1140 NMC 24h wind/wave fcst
+;  19:53 19:56   "       fax size=1140 NMC 48h 500mb fcst
+  20:03 20:06   "       fax size=1140 NMC 48h sfc fcst
+  20:13 20:16   "       fax size=1140 NMC 48h wind/wave fcst
+;  20:23 20:26   "       fax size=1140 NMC 48h wave per fcst
+  20:33 20:34  12786  fax size=1140 NMC 96h 500mb fcst
+  20:43 20:46   "       fax size=1140 NMC 96h Sfc fcst
+  20:53 20:56   "       fax size=1140 NMC 96h wind/wave fcst
+;  21:03 21:06   "       fax size=1140 NMC 96h wave per fcst
+;  21:13 21:16   "       fax size=1250 grey NMC Sat image
+  21:24 21:27   "       fax size=1360 NMC Sfc Anal 1/2
+  21:37 21:40   "       fax size=1360 NMC Sfc Anal 2/2  
+;  21:49 21:53   "       fax size=1140 NMC trop anal 
+
+ 23:24 23:40  17151.2  fax  NMC sked
+
+;SITOR
+; Pt. Reyes(NMC) 8416.5, 16806.5 kHz  0000z, 1800z
+  00:00 00:30  8416.5  FEX  NMC sitor weather
+  18:00 19:00  8416.5  FEC  NMC sitor weather
+
+; Honolulu(NMO) 8416.5, 12579, 22376 kHz
+;   8/12/22mHz: 0130Z 2030Z  
+;      8/12mHz: 0730Z 1330Z 
+  01:30 02:00   22376  FEC  NMP sitor weather
+ 
+
+;========

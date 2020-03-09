@@ -1,0 +1,42 @@
+plugins {
+  id 'java'
+  id 'scala'
+  id 'idea'
+  id 'maven'
+  id 'com.github.johnrengelman.shadow' version '5.0.0'
+}
+
+compileJava.options.encoding = 'ISO-8859-1'
+compileJava.options.compilerArgs += ["-Xlint:unchecked"]
+
+group = 'oliv.cool.stuff'
+version = '4.0.0.0'
+
+// def userprofile = System.getenv()['USERPROFILE'] // On Windows...
+
+dependencies {
+  compile project(':geomutils')
+  compile project(':javanmeaparser')
+  compile project(':coreutilities')
+  compile project(':chartcomponents')
+  compile project(':javanauticalalmanac')
+  compile project(':fullnmeaconsole')
+  compile project(':almanac-related-tools')
+  compile project(':chart-library')
+  compile project(':google-locator')
+  compile project(':java-tide-engine')
+  compile project(':tide-engine-implementation')
+  compile project(':star-finder')
+  compile project(':sailfax')
+  compile project(':navigation-desktop')
+  compile project(':navigation-desktop-user-exits')
+  compile project(':polar-smoother')
+  compile project(':weatherwizard')
+  compile project(':release')
+}
+
+repositories {
+  mavenCentral()
+  maven { url "http://lediouris.net/maven2" }
+  mavenLocal()
+}

@@ -1,0 +1,25 @@
+<schedule-root desc="File generated on Sat Feb 05 14:47:56 PST 2011">
+   <bulletin starts="02:45" stops="02:48" freq="4346" type="fax" size="size=120/576 " content="NMC 02:45 500Mb Analysis"/>
+   <bulletin starts="14:45" stops="14:48" freq="4346" type="fax" size="size=120/576 " content="NMC 14:45 500Mb Analysis"/>
+   <bulletin starts="03:31" stops="03:34" freq="4346" type="fax" size="size=120/576 " content="NMC 03:31 Final Surface Analysis (Part 1 - NE Pac)"/>
+   <bulletin starts="15:31" stops="15:34" freq="4346" type="fax" size="size=120/576 " content="NMC 15:31 Final Surface Analysis (Part 1 - NE Pac)"/>
+   <bulletin starts="03:44" stops="03:47" freq="4346" type="fax" size="size=120/576 " content="NMC 03:44 Final Surface Analysis (Part 2 - NW Pac)"/>
+   <bulletin starts="15:44" stops="15:47" freq="4346" type="fax" size="size=120/576 " content="NMC 15:44 Final Surface Analysis (Part 2 - NW Pac)"/>
+   <bulletin starts="04:08" stops="04:11" freq="4346" type="fax" size="size=120/576 " content="NMC 04:08 Tropical Surface Analysis"/>
+   <bulletin starts="16:08" stops="16:11" freq="4346" type="fax" size="size=120/576 " content="NMC 16:08 Tropical Surface Analysis"/>
+   <bulletin starts="09:19" stops="09:22" freq="4346" type="fax" size="size=120/576 " content="NMC 09:19 Surface Analysis (Part 1 - NE Pacific)"/>
+   <bulletin starts="21:24" stops="21:27" freq="4346" type="fax" size="size=120/576 " content="NMC 21:24 Surface Analysis (Part 1 - NE Pacific)"/>
+   <bulletin starts="09:32" stops="09:35" freq="4346" type="fax" size="size=120/576 " content="NMC 09:32 Surface Analysis (Part 2 - NW Pacific)"/>
+   <bulletin starts="21:37" stops="21:40" freq="4346" type="fax" size="size=120/576 " content="NMC 21:37 Surface Analysis (Part 2 - NW Pacific)"/>
+   <bulletin starts="00:15" stops="00:45" freq="8416.5" type="FEC" size="size=120/576 " content="NMC 00:15 sitor weather"/>
+   <bulletin starts="18:15" stops="18:45" freq="8416.5" type="FEC" size="size=120/576 " content="NMC 18:15 sitor weather"/>
+   <bulletin starts="05:55" stops="05:58" freq="9982.5" type="fax" size="size=120/576 " content="KVM70 05:55 Streamline Analysis"/>
+   <bulletin starts="17:55" stops="17:58" freq="9982.5" type="fax" size="size=120/576 " content="KVM70 17:55 Streamline Analysis"/>
+   <bulletin starts="11:54" stops="11:57" freq="9982.5" type="fax" size="size=120/576 " content="KVM70 11:54 Streamline Analysis"/>
+   <bulletin starts="23:54" stops="23:57" freq="9982.5" type="fax" size="size=120/576 " content="KVM70 23:54 Streamline Analysis"/>
+   <bulletin starts="01:30" stops="02:00" freq="8416.5" type="FEC" size="size=120/576 " content="KVM70 01:30 SITOR Weather"/>
+   <bulletin starts="07:30" stops="08:00" freq="8416.5" type="FEC" size="size=120/576 " content="KVM70 07:30 SITOR Weather"/>
+   <bulletin starts="13:30" stops="14:00" freq="8416.5" type="FEC" size="size=120/576 " content="KVM70 13:30 SITOR Weather"/>
+   <bulletin starts="20:30" stops="21:00" freq="8416.5" type="FEC" size="size=120/576 " content="KVM70 20:30 SITOR Weather"/>
+   <bulletin starts="22:45" stops="22:48" freq="16340.1" type="fax" size="size=120/576 " content="ZKLF 22:45 Southwest Pacific MSL Analysis on 16340.1 kHz"/>
+</schedule-root>

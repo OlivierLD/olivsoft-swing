@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Console User Exit</title>
+    <link rel="stylesheet" href="./stylesheet.css" type="text/css"/>   
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252"/>
+  </head>
+  <body>
+    <h1>Stellarium User Exit</h1>
+    <p>
+      The idea of this user exit comes from <a href="http://navigatrix.net/" target="NX">Navigatrix</a>.
+      <br>
+      Stellarium does not provide a possibility to plug a GPS, or any device that would deliver the current location of the user.
+      <br>
+      But in Stellarium, you can define your own custom positions, that will be stored in a file named <code>user_locations.txt</code> (the location of this file varies with the system).
+      <br>
+      When a GPS is connected to the machine, Navigatrix writes the current location in some specific files.
+      <br>
+      Stellarium is launched from a script that will first add the current position - based on the files above - to the <code>user_locations.txt</code> file.
+      <br>
+      If this location has been set to the default one, then when Stellarium opens, it is located at the current location of the user.
+    </p>
+    <p>
+      The Stellarium user exit more or less does the same thing.
+      <br>
+      The NMEA Console can take its NMEA input from various sources (Serial Port, UDP, TCP, RMI, HTTP, etc).
+      <br>
+      A file containing what is required by Stellarium is generated in <code>all-scripts/stellarium.txt</code>.
+      <br>
+      There is also a file named <code>stellarium.properties</code> that can give the user-exit the location of the <code>user_locations.txt</code> file, in which the user-exit will write directly.
+      <pre>
+ 
+  user.locations=C:/Users/olediour.ORADEV/AppData/Roaming/Stellarium/data/user_locations.txt
+  # location.name=GPS Position
+  location.name=Don Pedro Position
+      </pre>
+      Even on Windows, use forward slashes ('/') for the file location.
+      <br>
+      This way, Stellarium behaves just like in Navigatrix. When you start it, it's located to the last updated position provided by the NMEA Stream.
+      <br>
+      The <code>location.name</code> can be used to customize the 'GPS Position' that will show up in Stellarium's locations list.
+    </p>
+    <p>
+      To use the user-exit:
+      <ul>
+        <li>Download the <a href="stellarium.zip">sources</a></li>
+        <li>Compile and archive, as described <a href="#make">below</a></li>
+        <li>Drop the generated archive in the <code>all-user-exits</code> directory</li>
+        <li>
+          Add the following parameter to the script line that starts the Desktop, in <code>olivsoft</code> or <code>olivsoft.bat</code>
+          <pre>
+
+  java %JAVA_OPTIONS% -classpath %CP% olivsoftdesktop.OlivSoftDesktop <b style="color: red;">-ue:olivsoftdesktopuserexits.StellariumPosition</b>
+          </pre>
+          or
+          <pre>
+
+  java $JAVA_OPTIONS -classpath $CP olivsoftdesktop.OlivSoftDesktop <b style="color: red;">-ue:olivsoftdesktopuserexits.StellariumPosition</b>
+          </pre>
+        </li>
+        <li>
+          And you're good to go, you can try it.<br>
+          Here is a sample output:
+          <pre>
+
+  ...
+  -- Suspecting user-exit olivsoftdesktopuserexits.StellariumPosition...
+  -- Enqueing user-exit olivsoftdesktopuserexits.StellariumPosition
+  -- Description for [olivsoftdesktopuserexits.StellariumPosition] --
+  This user-exit will insert the GPS Position in the user_locations.txt file of Stellarium
+  This way, when Stellarium is started, there is a position named 'GPS Position' in the location list.
+  If this is set to the default position, then Stellarium will show the sky at the vessel's location.
+  This is something Navigatrix is doing, and that is quite convenient!
+  This relies on a file named 'stellarium.properties', that must contain a property named 'user.locations' giving 
+  the location of the user_locations.txt file of Stellarium. Use forward slashes '/' for the path, even on Windows.
+  -------------------------------------------
+  Starting userExit olivsoftdesktopuserexits.StellariumPosition
+  Method 'start':olivsoftdesktopuserexits.StellariumPosition User exit is starting
+  ...
+    ...User exit going to wait, at Mon Apr 07 14:28:24 PDT 2014 (will wait for 60s)
+  S  09&deg;06.54' / W 140&deg;12.60'
+  GPS Position            Automatic               147127  -9.108933333333333 -140.20993333333334     2       2   Earth
+    ...User exit going to wait, at Mon Apr 07 14:29:24 PDT 2014 (will wait for 60s)
+  S  09&deg;06.63' / W 140&deg;12.69'
+  ...
+          </pre>
+        </li>
+      </ul>
+      <p style="text-align: center;">
+        <img src="00.png">
+      </p>
+      <p style="text-align: center;">
+        <img src="01.png">
+      </p>
+    </p>
+    <h2><a name="make">How to do it for yourself, step by step</a></h2>
+    <ol>
+      <li>Download the source, in the <a href="stellarium.zip">zip</a> mentionned above</li>
+      <li>Extract it is a new clean directory</li>
+      <li>Make sure you have installed a JDK in your environment, and <code>javac</code> and <code>jar</code> are in the System PATH</li>
+      <li>In a system console, navigate to the directory where you unzipped the source</li>
+      <li>If it does not exist, create a <code>classes</code> directory. Make sure it is empty</li>
+      <li>
+        Compile the code:
+        <br><b>On Windows</b>
+        <div id="div-01" style="padding:5px; background:#ddd; border-radius:5px; overflow-x: scroll; overflow-y: scroll;border:1px solid #CCC; margin-top:10px; height: 150px; resize:both;">
+    <div style='width:1200px'>
+    <pre style="font-family:'Source Code Pro', 'Courier New'; font-size:11px; color:white; background-color:#1e1e1e;">
+ Prompt> set OLIV_HOME=D:\OlivSoft
+ Prompt> set CP=%OLIV_HOME%\all-libs\nmeaparser.jar
+ Prompt> set CP=%CP%;%OLIV_HOME%\all-libs\nmeareader.jar
+ Prompt> set CP=%CP%;%OLIV_HOME%\all-libs\desktop.jar
+ Prompt> set CP=%CP%;%OLIV_HOME%\all-libs\geomutil.jar
+ Prompt> javac -d classes -sourcepath . -cp %CP% olivsoftdesktopuserexits\*.java
+        </pre></div></div>
+        <b>On Linux</b>
+        <div id="div-01" style="padding:5px; background:#ddd; border-radius:5px; overflow-x: scroll; overflow-y: scroll;border:1px solid #CCC; margin-top:10px; height: 150px; resize:both;">
+        <div style='width:1200px'>
+        <pre style="font-family:'Source Code Pro', 'Courier New'; font-size:11px; color:white; background-color:#1e1e1e;"> 
+ Prompt> bash
+ Prompt> OLIV_HOME=/usr/OlivSoft
+ Prompt> CP=$OLIV_HOME/all-libs/nmeaparser.jar
+ Prompt> CP=$CP:$OLIV_HOME/all-libs/nmeareader.jar
+ Prompt> CP=$CP:$OLIV_HOME/all-libs/desktop.jar
+ Prompt> CP=$CP:$OLIV_HOME/all-libs/geomutil.jar
+ Prompt> javac -d classes -sourcepath . -cp $CP olivsoftdesktopuserexits/*.java
+        </pre></div></div>
+        Make sure you do not see any error.
+      </li>
+      <li> 
+        Archive the generated classes:
+        <br><b>On Windows</b>
+        <div style="padding:5px; background:#ddd; border-radius:5px; overflow-x: scroll; overflow-y: scroll;border:1px solid #CCC; margin-top:10px; height: 80px; resize:both;">
+        <div style='width:1200px'>
+        <pre style="font-family:'Source Code Pro', 'Courier New'; font-size:11px; color:white; background-color:#1e1e1e;"> 
+ Prompt> cd classes
+ Prompt> jar -cvf ..\stellariumUserExit.jar *
+        </pre></div></div>
+        <b>On Linux</b>
+        <div style="padding:5px; background:#ddd; border-radius:5px; overflow-x: scroll; overflow-y: scroll;border:1px solid #CCC; margin-top:10px; height: 80px; resize:both;">
+        <div style='width:1200px'>
+        <pre style="font-family:'Source Code Pro', 'Courier New'; font-size:11px; color:white; background-color:#1e1e1e;"> 
+ Prompt> cd classes
+ Prompt> jar -cvf ../stellariumUserExit.jar *
+        </pre></div></div>
+      </li>
+      <li>
+        Copy the archive in the <code>all-user-exits</code> directory
+        <br><b>On Windows</b>
+        <div style="padding:5px; background:#ddd; border-radius:5px; overflow-x: scroll; overflow-y: scroll;border:1px solid #CCC; margin-top:10px; height: 80px; resize:both;">
+        <div style='width:1200px'>
+        <pre style="font-family:'Source Code Pro', 'Courier New'; font-size:11px; color:white; background-color:#1e1e1e;"> 
+ Prompt> cd ..
+ Prompt> copy *.jar %OLIV_HOME%\all-user-exits
+        </pre></div></div>
+        <b>On Linux</b>
+        <div style="padding:5px; background:#ddd; border-radius:5px; overflow-x: scroll; overflow-y: scroll;border:1px solid #CCC; margin-top:10px; height: 80px; resize:both;">
+        <div style='width:1200px'>
+        <pre style="font-family:'Source Code Pro', 'Courier New'; font-size:11px; color:white; background-color:#1e1e1e;"> 
+ Prompt> cd ..
+ Prompt> cp *.jar $OLIV_HOME/all-user-exits
+        </pre></div></div>
+        Create a <code>stellarium.properties</code> in the <code>all-scripts</code> directory and create in it an entry defining the path to <code>user_locations.txt</code> like this (this is on Windows):
+        <pre>
+
+ user.locations=C:/Users/olediour.ORADEV/AppData/Roaming/Stellarium/data/user_locations.txt
+        </pre>
+        You are almost done...
+      </li>
+      <li>
+        Modify the line that starts the console, so it takes your work in account:
+        <br><b>On Windows</b>
+        <div style="padding:5px; background:#ddd; border-radius:5px; overflow-x: scroll; overflow-y: scroll;border:1px solid #CCC; margin-top:10px; height: 80px; resize:both;">
+        <div style='width:1200px'>
+        <pre style="font-family:'Source Code Pro', 'Courier New'; font-size:11px; color:white; background-color:#1e1e1e;"> 
+java %JAVA_OPTIONS% -classpath %CP% olivsoftdesktop.OlivSoftDesktop -ue:olivsoftdesktopuserexits.StellariumPosition
+        </pre></div></div>
+        <b>On Linux</b>
+        <div style="padding:5px; background:#ddd; border-radius:5px; overflow-x: scroll; overflow-y: scroll;border:1px solid #CCC; margin-top:10px; height: 80px; resize:both;">
+        <div style='width:1200px'>
+        <pre style="font-family:'Source Code Pro', 'Courier New'; font-size:11px; color:white; background-color:#1e1e1e;"> 
+java $JAVA_OPTIONS -classpath $CP olivsoftdesktop.OlivSoftDesktop -ue:olivsoftdesktopuserexits.StellariumPosition
+        </pre></div></div>
+      </li>
+    </ol>
+    <p>
+      <h2>One last important thing</h2>
+      Once the user-exit has written in Stellarium's file named user_location (look at the console log), go in Stellarium, open its location window, and look for <code>'GPS Position'</code> (or the name you provided in the property named <code>location.name</code>).
+      <br>
+      <em>Do make sure it is set as default</em>. Check the box that says so (bottom left of the location windows) if not.
+    </p>
+    If <i>anything</i> is unclear, please let me know. Drop me an email at <a href="mailto:olivier@lediouris.net">olivier@lediouris.net</a>.
+    <hr>
+    &copy; 2014, OlivSoft
+  </body>
+</html>

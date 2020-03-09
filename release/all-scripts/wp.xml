@@ -1,0 +1,296 @@
+<waypoint-list>
+  <waypoint rnk="1">
+    <mnemo>AYALA </mnemo>
+    <position>
+      <latitude>37.86767</latitude>
+      <longitude>-122.43666</longitude>
+    </position>
+  </waypoint>
+  <waypoint rnk="2">
+    <mnemo>BAYBDG</mnemo>
+    <position>
+      <latitude>37.798996</latitude>
+      <longitude>-122.37685</longitude>
+    </position>
+  </waypoint>
+  <waypoint rnk="3">
+    <mnemo>BAYSTO</mnemo>
+    <position>
+      <latitude>37.72441</latitude>
+      <longitude>-122.36983</longitude>
+    </position>
+  </waypoint>
+  <waypoint rnk="4">
+    <mnemo>BCA   </mnemo>
+    <position>
+      <latitude>37.888664</latitude>
+      <longitude>-122.353516</longitude>
+    </position>
+  </waypoint>
+  <waypoint rnk="5">
+    <mnemo>BCB   </mnemo>
+    <position>
+      <latitude>37.878998</latitude>
+      <longitude>-122.34067</longitude>
+    </position>
+  </waypoint>
+  <waypoint rnk="6">
+    <mnemo>BCC   </mnemo>
+    <position>
+      <latitude>37.86767</latitude>
+      <longitude>-122.33734</longitude>
+    </position>
+  </waypoint>
+  <waypoint rnk="7">
+    <mnemo>BCD   </mnemo>
+    <position>
+      <latitude>37.85767</latitude>
+      <longitude>-122.349335</longitude>
+    </position>
+  </waypoint>
+  <waypoint rnk="8">
+    <mnemo>BCE   </mnemo>
+    <position>
+      <latitude>37.854996</latitude>
+      <longitude>-122.36284</longitude>
+    </position>
+  </waypoint>
+  <waypoint rnk="9">
+    <mnemo>BCF   </mnemo>
+    <position>
+      <latitude>37.863167</latitude>
+      <longitude>-122.37517</longitude>
+    </position>
+  </waypoint>
+  <waypoint rnk="10">
+    <mnemo>BCG   </mnemo>
+    <position>
+      <latitude>37.873333</latitude>
+      <longitude>-122.38069</longitude>
+    </position>
+  </waypoint>
+  <waypoint rnk="11">
+    <mnemo>BCH   </mnemo>
+    <position>
+      <latitude>37.885334</latitude>
+      <longitude>-122.36601</longitude>
+    </position>
+  </waypoint>
+  <waypoint rnk="12">
+    <mnemo>BCX   </mnemo>
+    <position>
+      <latitude>37.87083</latitude>
+      <longitude>-122.358</longitude>
+    </position>
+  </waypoint>
+  <waypoint rnk="13">
+    <mnemo>BDGABA</mnemo>
+    <position>
+      <latitude>38.304165</latitude>
+      <longitude>-123.04001</longitude>
+    </position>
+  </waypoint>
+  <waypoint rnk="14">
+    <mnemo>BLOSSM</mnemo>
+    <position>
+      <latitude>37.817997</latitude>
+      <longitude>-122.403</longitude>
+    </position>
+  </waypoint>
+  <waypoint rnk="15">
+    <mnemo>BODEGA</mnemo>
+    <position>
+      <latitude>38.305336</latitude>
+      <longitude>-123.04918</longitude>
+    </position>
+  </waypoint>
+  <waypoint rnk="16">
+    <mnemo>BRADHD</mnemo>
+    <position>
+      <latitude>-33.855347</latitude>
+      <longitude>151.24583</longitude>
+    </position>
+  </waypoint>
+  <waypoint rnk="17">
+    <mnemo>CHINAC</mnemo>
+    <position>
+      <latitude>38.0015</latitude>
+      <longitude>-122.45767</longitude>
+    </position>
+  </waypoint>
+  <waypoint rnk="18">
+    <mnemo>CLARK </mnemo>
+    <position>
+      <latitude>-33.86383</latitude>
+      <longitude>151.2395</longitude>
+    </position>
+  </waypoint>
+  <waypoint rnk="19">
+    <mnemo>DRAKES</mnemo>
+    <position>
+      <latitude>37.999165</latitude>
+      <longitude>-122.974335</longitude>
+    </position>
+  </waypoint>
+  <waypoint rnk="20">
+    <mnemo>DUXGRN</mnemo>
+    <position>
+      <latitude>37.858334</latitude>
+      <longitude>-122.69667</longitude>
+    </position>
+  </waypoint>
+  <waypoint rnk="21">
+    <mnemo>FARALN</mnemo>
+    <position>
+      <latitude>37.698334</latitude>
+      <longitude>-123.013336</longitude>
+    </position>
+  </waypoint>
+  <waypoint rnk="22">
+    <mnemo>FBRAGG</mnemo>
+    <position>
+      <latitude>39.427666</latitude>
+      <longitude>-123.80867</longitude>
+    </position>
+  </waypoint>
+  <waypoint rnk="23">
+    <mnemo>GARMIN</mnemo>
+    <position>
+      <latitude>38.855556</latitude>
+      <longitude>-94.79901</longitude>
+    </position>
+  </waypoint>
+  <waypoint rnk="24">
+    <mnemo>GGBRDG</mnemo>
+    <position>
+      <latitude>37.82</latitude>
+      <longitude>-122.47751</longitude>
+    </position>
+  </waypoint>
+  <waypoint rnk="25">
+    <mnemo>GROTPT</mnemo>
+    <position>
+      <latitude>-33.819336</latitude>
+      <longitude>151.2605</longitude>
+    </position>
+  </waypoint>
+  <waypoint rnk="26">
+    <mnemo>HARDNG</mnemo>
+    <position>
+      <latitude>37.836834</latitude>
+      <longitude>-122.4445</longitude>
+    </position>
+  </waypoint>
+  <waypoint rnk="27">
+    <mnemo>HNTRPT</mnemo>
+    <position>
+      <latitude>37.729164</latitude>
+      <longitude>-122.356674</longitude>
+    </position>
+  </waypoint>
+  <waypoint rnk="28">
+    <mnemo>HORN  </mnemo>
+    <position>
+      <latitude>-56.0</latitude>
+      <longitude>-68.0</longitude>
+    </position>
+  </waypoint>
+  <waypoint rnk="29">
+    <mnemo>MAREST</mnemo>
+    <position>
+      <latitude>38.068333</latitude>
+      <longitude>-122.24751</longitude>
+    </position>
+  </waypoint>
+  <waypoint rnk="30">
+    <mnemo>MIDHD </mnemo>
+    <position>
+      <latitude>-33.830353</latitude>
+      <longitude>151.27083</longitude>
+    </position>
+  </waypoint>
+  <waypoint rnk="31">
+    <mnemo>MNDCNO</mnemo>
+    <position>
+      <latitude>40.466</latitude>
+      <longitude>124.50117</longitude>
+    </position>
+  </waypoint>
+  <waypoint rnk="32">
+    <mnemo>NELSON</mnemo>
+    <position>
+      <latitude>37.777836</latitude>
+      <longitude>-122.34</longitude>
+    </position>
+  </waypoint>
+  <waypoint rnk="33">
+    <mnemo>OYSTER</mnemo>
+    <position>
+      <latitude>37.663364</latitude>
+      <longitude>-122.375336</longitude>
+    </position>
+  </waypoint>
+  <waypoint rnk="34">
+    <mnemo>PARENA</mnemo>
+    <position>
+      <latitude>38.867332</latitude>
+      <longitude>-123.791336</longitude>
+    </position>
+  </waypoint>
+  <waypoint rnk="35">
+    <mnemo>PINL11</mnemo>
+    <position>
+      <latitude>38.054165</latitude>
+      <longitude>-122.33</longitude>
+    </position>
+  </waypoint>
+  <waypoint rnk="36">
+    <mnemo>PREYES</mnemo>
+    <position>
+      <latitude>37.982</latitude>
+      <longitude>-123.03502</longitude>
+    </position>
+  </waypoint>
+  <waypoint rnk="37">
+    <mnemo>PTKNOX</mnemo>
+    <position>
+      <latitude>37.852497</latitude>
+      <longitude>-122.443344</longitude>
+    </position>
+  </waypoint>
+  <waypoint rnk="38">
+    <mnemo>RACNNW</mnemo>
+    <position>
+      <latitude>37.862503</latitude>
+      <longitude>-122.45302</longitude>
+    </position>
+  </waypoint>
+  <waypoint rnk="39">
+    <mnemo>RCHMND</mnemo>
+    <position>
+      <latitude>37.935833</latitude>
+      <longitude>-122.44418</longitude>
+    </position>
+  </waypoint>
+  <waypoint rnk="40">
+    <mnemo>SFCHAN</mnemo>
+    <position>
+      <latitude>37.76733</latitude>
+      <longitude>-122.636185</longitude>
+    </position>
+  </waypoint>
+  <waypoint rnk="41">
+    <mnemo>SFLSHP</mnemo>
+    <position>
+      <latitude>37.75</latitude>
+      <longitude>-122.693344</longitude>
+    </position>
+  </waypoint>
+  <waypoint rnk="42">
+    <mnemo>SISTRS</mnemo>
+    <position>
+      <latitude>37.9875</latitude>
+      <longitude>-122.4375</longitude>
+    </position>
+  </waypoint>
+</waypoint-list>

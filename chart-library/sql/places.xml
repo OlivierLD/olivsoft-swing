@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<places>
+  <place name="San Francisco">
+    <latitude deg="37" min="56" sign="N"/>
+    <longitude deg="123" min="4" sign="W"/>
+  </place>
+  <place name="Channel Islands">
+    <latitude deg="34" min="0" sign="N"/>
+    <longitude deg="120" min="0" sign="W"/>
+  </place>
+  <place name="Marquesas">
+    <latitude deg="9" min="31" sign="S"/>
+    <longitude deg="139" min="15" sign="W"/>
+  </place>
+  <place name="Gambiers">
+    <latitude deg="23" min="10" sign="S"/>
+    <longitude deg="135" min="00" sign="W"/>
+  </place>
+  <place name="Austral - Tubuai">
+    <latitude deg="23" min="21" sign="S"/>
+    <longitude deg="149" min="29" sign="W"/>
+  </place>
+  <place name="Austral - Raivavae">
+    <latitude deg="23" min="52" sign="S"/>
+    <longitude deg="147" min="44" sign="W"/>
+  </place>
+  <place name="Tahiti - Society Islands">
+    <latitude deg="17" min="36" sign="S"/>
+    <longitude deg="149" min="31" sign="W"/>
+  </place>
+  <place name="Cook Islands">
+    <latitude deg="21" min="13" sign="S"/>
+    <longitude deg="159" min="46" sign="W"/>
+  </place>
+  <place name="Tonga">
+    <latitude deg="21" min="11" sign="S"/>
+    <longitude deg="175" min="10" sign="W"/>
+  </place>
+  <place name="Fiji">
+    <latitude deg="18" min="8" sign="S"/>
+    <longitude deg="178" min="22" sign="E"/>
+  </place>
+  <place name="Tuvalu">
+    <latitude deg="8" min="32" sign="S"/>
+    <longitude deg="179" min="13" sign="E"/>
+  </place>
+  <place name="Hawai'i">
+    <latitude deg="21" min="36" sign="N"/>
+    <longitude deg="157" min="40" sign="W"/>
+  </place>
+  <place name="Vancouver">
+    <latitude deg="50" min="0" sign="N"/>
+    <longitude deg="127" min="0" sign="W"/>
+  </place>
+</places>

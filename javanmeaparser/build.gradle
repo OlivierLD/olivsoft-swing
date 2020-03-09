@@ -1,0 +1,81 @@
+apply plugin: 'java'
+compileJava.options.encoding = 'ISO-8859-1'
+apply plugin: 'maven'
+
+group = 'oliv.cool.stuff'
+version = '4.0.0.0'
+
+//sourceSets {
+//  main {
+//    java {
+//      srcDir 'src'
+//    }
+//  }
+//  test {
+//    java {
+//      srcDir 'tests'
+//    }
+//  }
+//}
+
+repositories {
+  mavenCentral()
+  maven { url "https://oss.sonatype.org/content/groups/public" }
+  maven { url "http://lediouris.net/maven2" }
+  mavenLocal()
+}
+
+dependencies {
+//  testCompile 'junit:junit:4.8.2'
+  testCompile group: 'junit', name: 'junit', version: '4.11'
+  compile 'comm:rxtx:1.0'
+  compile project(':geomutils')
+//compile 'oliv.cool.stuff:coreutilities:1.0'
+  compile project(':coreutilities')
+}
+
+//task run(type: JavaExec, dependsOn: build, description: "Run some tests. No GUI, bulk output.") {
+//  main = 'ocss.nmea.parser.StringParsers'
+////jvmArgs "-verbose"
+//  classpath project.configurations.default
+//  classpath sourceSets.main.output.classesDir
+//}
+//
+//task run2(type: JavaExec, dependsOn: build, description: "Run Custom Client with GUI.") {
+//  main = 'ui.sampleclient.CustomClient'
+////jvmArgs "-verbose"
+//  jvmArgs "-Dverbose=true"
+//  jvmArgs "-Djava.library.path=../all-3rd-party/rxtx.distrib/win64"
+//  classpath project.configurations.default
+//  classpath sourceSets.main.output.classesDir
+//  args "COM3" // comma separated if several parameters.
+//}
+//
+//task run3(type: JavaExec, dependsOn: build, description: "Run file simulation with GUI.") {
+//  main = 'gui.sampleclient.Main'
+//  jvmArgs "-Dverbose=true"
+//  classpath project.configurations.default
+//  classpath sourceSets.main.output.classesDir
+////args "./data/nmea.txt"
+//  args "./data/hydra2.nmea"
+//}
+//
+task copyResources(type: Copy) {
+  description = 'Copies non-java resources in the output directory before the jar task (png, xml, xsd, ttf, properties, etc)'
+  from 'src'
+  into 'build/classes/main'
+  include '**/*.xml', '**/*.xsd', '**/*.png', '**/*.gif', '**/*.jpg', '**/*.properties', '**/*.ttf', '**/*.html'
+}
+
+jar.dependsOn(copyResources)
+
+//task tellMeProxy (description: "Spits out the proxy settings.") << {
+//  try {
+//    println "Accessing resources with proxy $proxyHost:$proxyPort"
+//    println "UserProfile: " + System.getenv()['USERPROFILE']
+//  } catch (Exception e) {
+//    println "No proxy"
+//  }
+//}
+//
+//compileJava.dependsOn(tellMeProxy)

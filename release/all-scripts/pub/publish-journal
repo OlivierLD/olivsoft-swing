@@ -1,0 +1,26 @@
+#!/bin/bash
+echo ----------------------------
+echo Journal publisher
+echo ----------------------------
+#
+# export JAVA_HOME=/usr/java/jre1.6.0_17
+# export PATH=$JAVA_HOME/bin:$PATH
+#
+export SCRIPT_DIR=`dirname $0`
+echo moving to ${SCRIPT_DIR}
+cd ${SCRIPT_DIR}
+#
+export OLIVSOFT_HOME=../..
+#
+export CP=$CP:../../build/libs/release-4.0.0.0-all.jar
+export CP=${CP}:${OLIVSOFT_HOME}/all-3rd-party/orai18n-collation.jar
+export CP=${CP}:${OLIVSOFT_HOME}/all-3rd-party/orai18n-mapping.jar
+export CP=${CP}:${OLIVSOFT_HOME}/all-3rd-party/fnd2.zip
+export CP=${CP}:${OLIVSOFT_HOME}/all-3rd-party/xdo-0301.jar
+#
+export XSL_STYLESHEET=./journal.xsl
+echo Publishing $1 as $2
+java -Xms256m -Xmx1024m -classpath ${CP} oracle.apps.xdo.template.FOProcessor -xml $1 -xsl ${XSL_STYLESHEET} -pdf $2
+echo Done transforming, displaying $2.
+evince $2
+# exit

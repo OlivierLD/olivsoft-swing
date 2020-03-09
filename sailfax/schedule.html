@@ -1,0 +1,297 @@
+<html>
+   <header>
+      <link rel="stylesheet" href="print.css" type="text/css">
+      <title>Fax Schedule</title>
+   </header><script type="text/javascript">
+      
+function getTimeZone()
+{
+  var visitortime = new Date();
+  document.write('<input type="hidden" name="x-VisitorTimeZoneOffset" ');
+  if (visitortime) 
+  {
+    document.write('value="' + visitortime.getTimezoneOffset()/60 + '">');
+  }
+  else 
+  {
+    document.write('value="JavaScript not Date() enabled">');
+  }   
+}  
+var offset = 0;
+
+function displayTimeZone()
+{
+  var visitortime = new Date();
+  if (visitortime) 
+  {
+    offset = visitortime.getTimezoneOffset()/60;
+    document.write('Computer Time Zone: UTC' + (offset>0?'-':'+') + Math.abs(offset));
+  }
+  else
+    document.write('No Computer Time Zone');
+}
+
+function calculateLocalTime(gmtTime)
+{
+  hours = gmtTime.substring(0, gmtTime.indexOf(':'));
+  minutes = gmtTime.substring(gmtTime.indexOf(':') + 1);
+  h = parseInt(hours, 10);
+  newH = h - offset;
+//if (gmtTime.indexOf('09:') == 0)
+//  alert("in GMTTime [" + gmtTime + "], Hour:[" + hours + "] => " + h + ", becomes " + newH);
+  while (newH > 24) newH -= 24;
+  while (newH < 0) newH += 24;
+//alert("-- Hour:" + h + ", becomes " + newH);
+  document.write(newH + ':' + minutes);
+}
+      
+      </script>
+   <body>
+      <h1>Fax Schedule</h1><script type="text/javascript">
+        displayTimeZone();
+        </script><br>
+        All times are UTC
+        <p style="background-color : #8caae6;"><small>
+            The <b>Starts</b> element is the actual start of the transmission.
+            <br>
+            The Fax program will search for start tone, beginning two minutes 
+            <b>before</b> the listed start time, if not found by the stop time then 
+            fax is aborted.
+            <br>
+            In other words, the stop is not the end of the transmission.
+            <br><i>Example:</i><br>
+            If you have :
+            <pre>
+              Starts 10:00
+              Stops  10:03
+            </pre>
+            the fax program will be searching for the start signal at 09:58.
+            If the start signal is found before 10:03, the fax will be received 
+            completely, finished with a stop signal.
+            If no start signal has been received by 10:03, then the fax is 
+            aborted.  
+          </small>
+      </p>
+      <table width="100%" border="0">
+         <tr>
+            <th></th>
+            <th>Starts</th>
+            <th><i><script type="text/javascript">document.write('UTC' + (offset>0?'-':'+') + Math.abs(offset));</script>
+               </i>
+            </th>
+            <th>Stops</th>
+            <th>Freq</th>
+            <th align="left">Content</th>
+         </tr>
+         <tr style="background-color : #c0c0c0;">
+            <td align="center">1</td>
+            <td align="center">00:15</td>
+            <td align="center"><script type="text/javascript">calculateLocalTime('00:15');</script>
+            </td>
+            <td align="center">00:45</td>
+            <td align="center">8416.5</td>
+            <td align="left">NMC 00:15 sitor weather</td>
+         </tr>
+         <tr>
+            <td align="center">2</td>
+            <td align="center">01:30</td>
+            <td align="center"><script type="text/javascript">calculateLocalTime('01:30');</script>
+            </td>
+            <td align="center">02:00</td>
+            <td align="center">8416.5</td>
+            <td align="left">KVM70 01:30 SITOR Weather</td>
+         </tr>
+         <tr style="background-color : #c0c0c0;">
+            <td align="center">3</td>
+            <td align="center">02:45</td>
+            <td align="center"><script type="text/javascript">calculateLocalTime('02:45');</script>
+            </td>
+            <td align="center">02:48</td>
+            <td align="center">4346</td>
+            <td align="left">NMC 02:45 500Mb Analysis</td>
+         </tr>
+         <tr>
+            <td align="center">4</td>
+            <td align="center">03:31</td>
+            <td align="center"><script type="text/javascript">calculateLocalTime('03:31');</script>
+            </td>
+            <td align="center">03:34</td>
+            <td align="center">4346</td>
+            <td align="left">NMC 03:31 Final Surface Analysis (Part 1 - NE Pac)</td>
+         </tr>
+         <tr style="background-color : #c0c0c0;">
+            <td align="center">5</td>
+            <td align="center">03:44</td>
+            <td align="center"><script type="text/javascript">calculateLocalTime('03:44');</script>
+            </td>
+            <td align="center">03:47</td>
+            <td align="center">4346</td>
+            <td align="left">NMC 03:44 Final Surface Analysis (Part 2 - NW Pac)</td>
+         </tr>
+         <tr>
+            <td align="center">6</td>
+            <td align="center">04:08</td>
+            <td align="center"><script type="text/javascript">calculateLocalTime('04:08');</script>
+            </td>
+            <td align="center">04:11</td>
+            <td align="center">4346</td>
+            <td align="left">NMC 04:08 Tropical Surface Analysis</td>
+         </tr>
+         <tr style="background-color : #c0c0c0;">
+            <td align="center">7</td>
+            <td align="center">05:55</td>
+            <td align="center"><script type="text/javascript">calculateLocalTime('05:55');</script>
+            </td>
+            <td align="center">05:58</td>
+            <td align="center">9982.5</td>
+            <td align="left">KVM70 05:55 Streamline Analysis</td>
+         </tr>
+         <tr>
+            <td align="center">8</td>
+            <td align="center">07:30</td>
+            <td align="center"><script type="text/javascript">calculateLocalTime('07:30');</script>
+            </td>
+            <td align="center">08:00</td>
+            <td align="center">8416.5</td>
+            <td align="left">KVM70 07:30 SITOR Weather</td>
+         </tr>
+         <tr style="background-color : #c0c0c0;">
+            <td align="center">9</td>
+            <td align="center">09:19</td>
+            <td align="center"><script type="text/javascript">calculateLocalTime('09:19');</script>
+            </td>
+            <td align="center">09:22</td>
+            <td align="center">4346</td>
+            <td align="left">NMC 09:19 Surface Analysis (Part 1 - NE Pacific)</td>
+         </tr>
+         <tr>
+            <td align="center">10</td>
+            <td align="center">09:32</td>
+            <td align="center"><script type="text/javascript">calculateLocalTime('09:32');</script>
+            </td>
+            <td align="center">09:35</td>
+            <td align="center">4346</td>
+            <td align="left">NMC 09:32 Surface Analysis (Part 2 - NW Pacific)</td>
+         </tr>
+         <tr style="background-color : #c0c0c0;">
+            <td align="center">11</td>
+            <td align="center">11:54</td>
+            <td align="center"><script type="text/javascript">calculateLocalTime('11:54');</script>
+            </td>
+            <td align="center">11:57</td>
+            <td align="center">9982.5</td>
+            <td align="left">KVM70 11:54 Streamline Analysis</td>
+         </tr>
+         <tr>
+            <td align="center">12</td>
+            <td align="center">13:30</td>
+            <td align="center"><script type="text/javascript">calculateLocalTime('13:30');</script>
+            </td>
+            <td align="center">14:00</td>
+            <td align="center">8416.5</td>
+            <td align="left">KVM70 13:30 SITOR Weather</td>
+         </tr>
+         <tr style="background-color : #c0c0c0;">
+            <td align="center">13</td>
+            <td align="center">14:45</td>
+            <td align="center"><script type="text/javascript">calculateLocalTime('14:45');</script>
+            </td>
+            <td align="center">14:48</td>
+            <td align="center">4346</td>
+            <td align="left">NMC 14:45 500Mb Analysis</td>
+         </tr>
+         <tr>
+            <td align="center">14</td>
+            <td align="center">15:31</td>
+            <td align="center"><script type="text/javascript">calculateLocalTime('15:31');</script>
+            </td>
+            <td align="center">15:34</td>
+            <td align="center">4346</td>
+            <td align="left">NMC 15:31 Final Surface Analysis (Part 1 - NE Pac)</td>
+         </tr>
+         <tr style="background-color : #c0c0c0;">
+            <td align="center">15</td>
+            <td align="center">15:44</td>
+            <td align="center"><script type="text/javascript">calculateLocalTime('15:44');</script>
+            </td>
+            <td align="center">15:47</td>
+            <td align="center">4346</td>
+            <td align="left">NMC 15:44 Final Surface Analysis (Part 2 - NW Pac)</td>
+         </tr>
+         <tr>
+            <td align="center">16</td>
+            <td align="center">16:08</td>
+            <td align="center"><script type="text/javascript">calculateLocalTime('16:08');</script>
+            </td>
+            <td align="center">16:11</td>
+            <td align="center">4346</td>
+            <td align="left">NMC 16:08 Tropical Surface Analysis</td>
+         </tr>
+         <tr style="background-color : #c0c0c0;">
+            <td align="center">17</td>
+            <td align="center">17:55</td>
+            <td align="center"><script type="text/javascript">calculateLocalTime('17:55');</script>
+            </td>
+            <td align="center">17:58</td>
+            <td align="center">9982.5</td>
+            <td align="left">KVM70 17:55 Streamline Analysis</td>
+         </tr>
+         <tr>
+            <td align="center">18</td>
+            <td align="center">18:15</td>
+            <td align="center"><script type="text/javascript">calculateLocalTime('18:15');</script>
+            </td>
+            <td align="center">18:45</td>
+            <td align="center">8416.5</td>
+            <td align="left">NMC 18:15 sitor weather</td>
+         </tr>
+         <tr style="background-color : #c0c0c0;">
+            <td align="center">19</td>
+            <td align="center">20:30</td>
+            <td align="center"><script type="text/javascript">calculateLocalTime('20:30');</script>
+            </td>
+            <td align="center">21:00</td>
+            <td align="center">8416.5</td>
+            <td align="left">KVM70 20:30 SITOR Weather</td>
+         </tr>
+         <tr>
+            <td align="center">20</td>
+            <td align="center">21:24</td>
+            <td align="center"><script type="text/javascript">calculateLocalTime('21:24');</script>
+            </td>
+            <td align="center">21:27</td>
+            <td align="center">4346</td>
+            <td align="left">NMC 21:24 Surface Analysis (Part 1 - NE Pacific)</td>
+         </tr>
+         <tr style="background-color : #c0c0c0;">
+            <td align="center">21</td>
+            <td align="center">21:37</td>
+            <td align="center"><script type="text/javascript">calculateLocalTime('21:37');</script>
+            </td>
+            <td align="center">21:40</td>
+            <td align="center">4346</td>
+            <td align="left">NMC 21:37 Surface Analysis (Part 2 - NW Pacific)</td>
+         </tr>
+         <tr>
+            <td align="center">22</td>
+            <td align="center">22:45</td>
+            <td align="center"><script type="text/javascript">calculateLocalTime('22:45');</script>
+            </td>
+            <td align="center">22:48</td>
+            <td align="center">16340.1</td>
+            <td align="left">ZKLF 22:45 Southwest Pacific MSL Analysis on 16340.1 kHz</td>
+         </tr>
+         <tr style="background-color : #c0c0c0;">
+            <td align="center">23</td>
+            <td align="center">23:54</td>
+            <td align="center"><script type="text/javascript">calculateLocalTime('23:54');</script>
+            </td>
+            <td align="center">23:57</td>
+            <td align="center">9982.5</td>
+            <td align="left">KVM70 23:54 Streamline Analysis</td>
+         </tr>
+      </table>
+   </body>
+   <hr>
+   <address>© 2007, Oliv Cool Stuff Soft</address>
+</html>

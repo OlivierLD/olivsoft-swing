@@ -1,0 +1,15 @@
+{
+  "name": "NMEAServer",
+  "version": "4.0.0",
+  "description": "NMEA Server used to broadcast the data",
+  "main": "server.js",
+  "keywords": [
+    "NMEA",
+    "WebSocket"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "websocket": "^1.0.23"
+  }
+}

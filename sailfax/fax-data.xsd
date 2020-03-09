@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.fax-data.org"
+            xmlns:fax="http://www.fax-data.org"
+            elementFormDefault="qualified">
+  <xsd:element name="fax-data">
+    <xsd:annotation>
+      <xsd:documentation>
+        A sample element
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="station" maxOccurs="unbounded">
+          <xsd:complexType>
+            <xsd:all>
+              <xsd:element name="name" type="xsd:string"/>
+              <xsd:element name="frequencies">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="frequency" minOccurs="1"
+                                 maxOccurs="unbounded">
+                      <xsd:complexType>
+                        <xsd:all>
+                          <xsd:element name="freq" type="xsd:decimal"/>
+                          <xsd:element name="times" type="xsd:string"/>
+                          <xsd:element name="emission" type="xsd:string"/>
+                          <xsd:element name="power" type="xsd:string"/>
+                        </xsd:all>
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="map-areas">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="map-area" maxOccurs="unbounded">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element name="top" type="xsd:string"/>
+                          <xsd:element name="bottom" type="xsd:string"/>
+                          <xsd:element name="left" type="xsd:string"/>
+                          <xsd:element name="right" type="xsd:string"/>
+                        </xsd:sequence>
+                        <xsd:attribute name="id" type="xsd:string"/>
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="transmissions">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="transmission" maxOccurs="unbounded">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element name="starts"
+                                       type="fax:start-stop-type"/>
+                          <xsd:element name="stops" type="fax:start-stop-type"/>
+                          <xsd:element name="rpm-ioc" type="xsd:string"/>
+                          <xsd:element name="mode" type="fax:mode-type"
+                                       maxOccurs="1" minOccurs="0"/>
+                          <xsd:element name="content" type="xsd:string"/>
+                          <xsd:element name="map-zone" type="xsd:string"
+                                       minOccurs="0"/>
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:all>
+            <xsd:attribute name="call-sign" type="xsd:string"/>
+          </xsd:complexType>
+          <xsd:key name="map-key">
+            <xsd:selector xpath="./fax:map-areas/fax:map-area"/>
+            <xsd:field xpath="@id"/>
+          </xsd:key>
+          <xsd:keyref name="map-refer" refer="fax:map-key">
+            <xsd:selector xpath="./fax:transmissions/fax:transmission/fax:map-zone"/>
+            <xsd:field xpath="."/>
+          </xsd:keyref>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:simpleType name="mode-type">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="fax"/>
+      <xsd:enumeration value="sitor"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="start-stop-type">
+    <xsd:restriction base="xsd:string">
+      <xsd:length value="5"/>
+      <xsd:pattern value="\d{2}:\d{2}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>

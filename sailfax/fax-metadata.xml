@@ -1,0 +1,1827 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  The <start> element is the actual start of the transmission.
+  The Fax program will search for start tone, beginning two minutes 
+  BEFORE the listed start time, if not found by the stop time then 
+  fax is aborted.  
+  In other words, the stop is not the end of the transmission.
+  
+  Example:
+  If you have :
+    <starts>10:00</starts>
+    <stops>10:03</stops>
+  the fax program will be searching for the start signal at 09:58.
+  If the start signal is found before 10:03, the fax will be received 
+  completely, finished with a stop signal.
+  If no start signal has been received by 10:03, then the fax is 
+  aborted.
+  
+  Olivier Le Diouris, January 2007.
+  -->
+<fax-data xmlns="http://www.fax-data.org">
+  <station call-sign="NMC">
+    <name>San Francisco (Pt. Reyes)</name>
+    <frequencies>
+      <frequency>
+        <freq>4346</freq>
+        <times>NIGHT</times>
+        <emission>F3C</emission>
+        <power>4 KW</power>
+      </frequency>
+      <frequency>
+        <freq>8682</freq>
+        <times>CONTINOUS</times>
+        <emission>F3C</emission>
+        <power>4 KW</power>
+      </frequency>
+      <frequency>
+        <freq>12730</freq>
+        <times>CONTINOUS</times>
+        <emission>F3C</emission>
+        <power>4 KW</power>
+      </frequency>
+      <frequency>
+        <freq>17151.2</freq>
+        <times>CONTINOUS</times>
+        <emission>F3C</emission>
+        <power>4 KW</power>
+      </frequency>
+      <frequency>
+        <freq>22527</freq>
+        <times>DAY</times>
+        <emission>F3C</emission>
+        <power>4 KW</power>
+      </frequency>
+    </frequencies>
+    <map-areas>
+      <map-area id="1">
+        <top>70 N</top>
+        <bottom>20 N</bottom>
+        <left>135 E</left>
+        <right>115 W</right>
+      </map-area>
+      <map-area id="2">
+        <top>70 N</top>
+        <bottom>20 N</bottom>
+        <left>175 W</left>
+        <right>115 W</right>
+      </map-area>
+      <map-area id="3">
+        <top>70 N</top>
+        <bottom>20 N</bottom>
+        <left>135 E</left>
+        <right>175 W</right>
+      </map-area>
+      <map-area id="4">
+        <top>30 N</top>
+        <bottom>20 S</bottom>
+        <left>145 W</left>
+        <right>0 E</right>
+      </map-area>
+      <map-area id="5">
+        <top>55 N</top>
+        <bottom>5 N</bottom>
+        <left>180 W</left>
+        <right>0 E</right>
+      </map-area>
+      <map-area id="6">
+        <top>60 N</top>
+        <bottom>23 N</bottom>
+        <left>150 W</left>
+        <right>0 E</right>
+      </map-area>
+      <map-area id="7">
+        <top>32 N</top>
+        <bottom>5 N</bottom>
+        <left>130 W</left>
+        <right>0 E</right>
+      </map-area>
+      <map-area id="8">
+        <top>62 N</top>
+        <bottom>18 N</bottom>
+        <left>157 W</left>
+        <right>0 E</right>
+      </map-area>
+      <map-area id="9">
+        <top>53 N</top>
+        <bottom>40 N</bottom>
+        <left>136 W</left>
+        <right>0 E</right>
+      </map-area>
+      <map-area id="10">
+        <top>40 N</top>
+        <bottom>0 N</bottom>
+        <left>180 W</left>
+        <right>80 W</right>
+      </map-area>
+    </map-areas>
+    <transmissions>
+      <transmission>
+        <starts>01:40</starts>
+        <stops>01:43</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Test Pattern</content>
+      </transmission>
+      <transmission>
+        <starts>14:00</starts>
+        <stops>14:03</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Test Pattern</content>
+      </transmission>
+      <transmission>
+        <starts>01:43</starts>
+        <stops>01:46</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>NE Pacific Goes IR Satellite Image</content>
+        <map-zone>6</map-zone>
+      </transmission>
+      <transmission>
+        <starts>14:03</starts>
+        <stops>14:06</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>NE Pacific Goes IR Satellite Image</content>
+        <map-zone>6</map-zone>
+      </transmission>
+      <transmission>
+        <starts>01:54</starts>
+        <stops>01:57</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Pacific Goes IR Satellite Image</content>
+        <map-zone>5</map-zone>
+      </transmission>
+      <transmission>
+        <starts>14:14</starts>
+        <stops>14:17</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Pacific Goes IR Satellite Image</content>
+        <map-zone>5</map-zone>
+      </transmission>
+      <transmission>
+        <starts>02:05</starts>
+        <stops>02:08</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Tropical Sea State Analysis</content>
+        <map-zone>4</map-zone>
+      </transmission>
+      <transmission>
+        <starts>14:25</starts>
+        <stops>14:28</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Tropical Sea State Analysis</content>
+        <map-zone>4</map-zone>
+      </transmission>
+      <transmission>
+        <starts>02:15</starts>
+        <stops>02:18</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Tropical 24h Wind/Wave Forecast</content>
+        <map-zone>4</map-zone>
+      </transmission>
+      <transmission>
+        <starts>14:35</starts>
+        <stops>14:38</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Tropical 24h Wind/Wave Forecast</content>
+        <map-zone>4</map-zone>
+      </transmission>
+      <transmission>
+        <starts>02:25</starts>
+        <stops>02:28</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Tropical 48h Wind/Wave Forecast</content>
+        <map-zone>4</map-zone>
+      </transmission>
+      <transmission>
+        <starts>02:35</starts>
+        <stops>02:38</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Tropical 72h Wind/Wave Forecast</content>
+        <map-zone>4</map-zone>
+      </transmission>
+      <transmission>
+        <starts>02:45</starts>
+        <stops>02:48</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>500Mb Analysis</content>
+        <map-zone>1</map-zone>
+      </transmission>
+      <transmission>
+        <starts>14:45</starts>
+        <stops>14:48</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>500Mb Analysis</content>
+        <map-zone>1</map-zone>
+      </transmission>
+      <transmission>
+        <starts>02:55</starts>
+        <stops>02:58</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Sea State Analysis, Wind/Wave Analysis</content>
+        <map-zone>1</map-zone>
+      </transmission>
+      <transmission>
+        <starts>14:55</starts>
+        <stops>14:58</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Sea State Analysis, Wind/Wave Analysis</content>
+        <map-zone>1</map-zone>
+      </transmission>            
+      <transmission>
+        <starts>03:05</starts>
+        <stops>03:08</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Prelim Surface Analysis (Part 1 - NE Pac)</content>
+        <map-zone>2</map-zone>
+      </transmission>
+      <transmission>
+        <starts>15:05</starts>
+        <stops>15:08</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Prelim Surface Analysis (Part 1 - NE Pac)</content>
+        <map-zone>2</map-zone>
+      </transmission>
+      <transmission>
+        <starts>03:18</starts>
+        <stops>03:21</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Prelim Surface Analysis (Part 2 - NW Pac)</content>
+        <map-zone>3</map-zone>
+      </transmission>
+      <transmission>
+        <starts>15:18</starts>
+        <stops>15:21</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Prelim Surface Analysis (Part 2 - NW Pac)</content>
+        <map-zone>3</map-zone>
+      </transmission>
+      <transmission>
+        <starts>03:31</starts>
+        <stops>03:34</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Final Surface Analysis (Part 1 - NE Pac)</content>
+        <map-zone>2</map-zone>
+      </transmission>
+      <transmission>
+        <starts>15:31</starts>
+        <stops>15:34</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Final Surface Analysis (Part 1 - NE Pac)</content>
+        <map-zone>2</map-zone>
+      </transmission>
+      <transmission>
+        <starts>03:44</starts>
+        <stops>03:47</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Final Surface Analysis (Part 2 - NW Pac)</content>
+        <map-zone>3</map-zone>
+      </transmission>
+      <transmission>
+        <starts>15:44</starts>
+        <stops>15:47</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Final Surface Analysis (Part 2 - NW Pac)</content>
+        <map-zone>3</map-zone>
+      </transmission>
+      <transmission>
+        <starts>03:57</starts>
+        <stops>04:00</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Cyclone Danger Area or High Wind/Waves</content>
+        <map-zone>10</map-zone>
+      </transmission>
+      <transmission>
+        <starts>15:57</starts>
+        <stops>16:00</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Cyclone Danger Area or High Wind/Waves</content>
+        <map-zone>10</map-zone>
+      </transmission>
+      <transmission>
+        <starts>04:08</starts>
+        <stops>04:11</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Tropical Surface Analysis</content>
+        <map-zone>4</map-zone>
+      </transmission>
+      <transmission>
+        <starts>16:08</starts>
+        <stops>16:11</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Tropical Surface Analysis</content>
+        <map-zone>4</map-zone>
+      </transmission>
+      <transmission>
+        <starts>06:55</starts>
+        <stops>06:58</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Test Pattern</content>
+      </transmission>
+      <transmission>
+        <starts>18:40</starts>
+        <stops>18:43</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Test Pattern</content>
+      </transmission>
+      <transmission>
+        <starts>06:57</starts>
+        <stops>07:00</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>2033Z Rebroadcast (96hr 500Mb)</content>
+        <map-zone>1</map-zone>
+      </transmission>
+      <transmission>
+        <starts>07:07</starts>
+        <stops>07:10</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>2043Z Rebroadcast (96hr Surface)</content>
+        <map-zone>1</map-zone>
+      </transmission>
+      <transmission>
+        <starts>07:17</starts>
+        <stops>07:20</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>2053Z Rebroadcast (96hr Wind/Wave)</content>
+        <map-zone>1</map-zone>
+      </transmission>
+      <transmission>
+        <starts>07:27</starts>
+        <stops>07:30</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>2103Z Rebroadcast (96hr Wave Period)</content>
+        <map-zone>1</map-zone>
+      </transmission>
+      <transmission>
+        <starts>18:42</starts>
+        <stops>18:45</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>SST Analysis</content>
+        <map-zone>9</map-zone>
+      </transmission>
+      <transmission>
+        <starts>18:52</starts>
+        <stops>18:55</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>SST Analysis</content>
+        <map-zone>6</map-zone>
+      </transmission>
+      <transmission>
+        <starts>07:37</starts>
+        <stops>07:40</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Tropical Goes IR Satellite Image</content>
+        <map-zone>7</map-zone>
+      </transmission>
+      <transmission>
+        <starts>19:02</starts>
+        <stops>19:05</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Tropical Goes IR Satellite Image</content>
+        <map-zone>7</map-zone>
+      </transmission>
+      <transmission>
+        <starts>07:48</starts>
+        <stops>07:51</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Wind/Wave Analysis</content>
+        <map-zone>8</map-zone>
+      </transmission>
+      <transmission>
+        <starts>19:13</starts>
+        <stops>19:16</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Wind/Wave Analysis</content>
+        <map-zone>8</map-zone>
+      </transmission>
+      <transmission>
+        <starts>07:58</starts>
+        <stops>08:01</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>24hr 500Mb Forecast</content>
+        <map-zone>1</map-zone>
+      </transmission>
+      <transmission>
+        <starts>19:23</starts>
+        <stops>19:26</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>24hr 500Mb Forecast</content>
+        <map-zone>1</map-zone>
+      </transmission>
+      <transmission>
+        <starts>08:08</starts>
+        <stops>08:11</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>24hr Surface Forecast</content>
+        <map-zone>8</map-zone>
+      </transmission>
+      <transmission>
+        <starts>19:33</starts>
+        <stops>19:36</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>24hr Surface Forecast</content>
+        <map-zone>8</map-zone>
+      </transmission>
+      <transmission>
+        <starts>08:18</starts>
+        <stops>08:21</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>24hr Wind/Wave Forecast</content>
+        <map-zone>8</map-zone>
+      </transmission>
+      <transmission>
+        <starts>19:43</starts>
+        <stops>19:46</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>24hr Wind/Wave Forecast</content>
+        <map-zone>8</map-zone>
+      </transmission>
+      <transmission>
+        <starts>08:28</starts>
+        <stops>08:31</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>48Hr 500Mb Forecast</content>
+        <map-zone>1</map-zone>
+      </transmission>
+      <transmission>
+        <starts>19:53</starts>
+        <stops>19:56</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>48Hr 500Mb Forecast</content>
+        <map-zone>1</map-zone>
+      </transmission>
+      <transmission>
+        <starts>08:38</starts>
+        <stops>08:41</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>48Hr Surface Forecast</content>
+        <map-zone>1</map-zone>
+      </transmission>
+      <transmission>
+        <starts>20:03</starts>
+        <stops>20:06</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>48Hr Surface Forecast</content>
+        <map-zone>1</map-zone>
+      </transmission>
+      <transmission>
+        <starts>08:48</starts>
+        <stops>08:51</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>48Hr Wind/Wave Forecast</content>
+        <map-zone>1</map-zone>
+      </transmission>
+      <transmission>
+        <starts>20:13</starts>
+        <stops>20:16</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>48Hr Wind/Wave Forecast</content>
+        <map-zone>1</map-zone>
+      </transmission>
+      <transmission>
+        <starts>08:58</starts>
+        <stops>09:01</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>48Hr Wave period/Swell Direction</content>
+        <map-zone>1</map-zone>
+      </transmission>
+      <transmission>
+        <starts>20:23</starts>
+        <stops>20:26</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>48Hr Wave period/Swell Direction</content>
+        <map-zone>1</map-zone>
+      </transmission>
+      <transmission>
+        <starts>20:33</starts>
+        <stops>20:36</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>96Hr 500Mb Forecast</content>
+        <map-zone>1</map-zone>
+      </transmission>
+      <transmission>
+        <starts>20:43</starts>
+        <stops>20:46</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>96Hr Surface Forecast</content>
+        <map-zone>1</map-zone>
+      </transmission>
+      <transmission>
+        <starts>20:53</starts>
+        <stops>20:56</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>96Hr Wind/Wave Forecast</content>
+        <map-zone>1</map-zone>
+      </transmission>
+      <transmission>
+        <starts>21:03</starts>
+        <stops>21:06</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>96Hr Wave period/Swell Direction</content>
+        <map-zone>1</map-zone>
+      </transmission>
+      <transmission>
+        <starts>09:08</starts>
+        <stops>09:11</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Pacific Goes IR Satellite Image</content>
+        <map-zone>5</map-zone>
+      </transmission>
+      <transmission>
+        <starts>21:13</starts>
+        <stops>21:16</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Pacific Goes IR Satellite Image</content>
+        <map-zone>5</map-zone>
+      </transmission>
+      <transmission>
+        <starts>09:19</starts>
+        <stops>09:22</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Surface Analysis (Part 1 - NE Pacific)</content>
+        <map-zone>2</map-zone>
+      </transmission>
+      <transmission>
+        <starts>21:24</starts>
+        <stops>21:27</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Surface Analysis (Part 1 - NE Pacific)</content>
+        <map-zone>2</map-zone>
+      </transmission>
+      <transmission>
+        <starts>09:32</starts>
+        <stops>09:35</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Surface Analysis (Part 2 - NW Pacific)</content>
+        <map-zone>3</map-zone>
+      </transmission>
+      <transmission>
+        <starts>21:37</starts>
+        <stops>21:40</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Surface Analysis (Part 2 - NW Pacific)</content>
+        <map-zone>3</map-zone>
+      </transmission>
+      <transmission>
+        <starts>09:45</starts>
+        <stops>09:48</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Tropical Surface Analysis</content>
+        <map-zone>4</map-zone>
+      </transmission>
+      <transmission>
+        <starts>21:50</starts>
+        <stops>21:53</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Tropical Surface Analysis</content>
+        <map-zone>4</map-zone>
+      </transmission>
+      <transmission>
+        <starts>09:59</starts>
+        <stops>10:02</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Tropical 24Hr Wind/Wave Forecast</content>
+        <map-zone>4</map-zone>
+      </transmission>
+      <transmission>
+        <starts>22:04</starts>
+        <stops>22:06</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Tropical 24Hr Wind/Wave Forecast</content>
+        <map-zone>4</map-zone>
+      </transmission>
+      <transmission>
+        <starts>10:09</starts>
+        <stops>10:12</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Cyclone danger ara or High Wind/Waves</content>
+        <map-zone>10</map-zone>
+      </transmission>
+      <transmission>
+        <starts>22:14</starts>
+        <stops>22:17</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Cyclone danger ara or High Wind/Waves</content>
+        <map-zone>10</map-zone>
+      </transmission>
+      <transmission>
+        <starts>11:20</starts>
+        <stops>11:23</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Test Pattern</content>
+      </transmission>
+      <transmission>
+        <starts>23:20</starts>
+        <stops>23:23</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Test Pattern</content>
+      </transmission>
+      <transmission>
+        <starts>11:24</starts>
+        <stops>11:27</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Broadcast Schedule - Part 1</content>
+      </transmission>
+      <transmission>
+        <starts>23:24</starts>
+        <stops>23:27</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Broadcast Schedule - Part 1</content>
+      </transmission>
+      <transmission>
+        <starts>11:35</starts>
+        <stops>11:38</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Broadcast Schedule - Part 2</content>
+      </transmission>
+      <transmission>
+        <starts>23:35</starts>
+        <stops>23:38</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Broadcast Schedule - Part 2</content>
+      </transmission>
+      <transmission>
+        <starts>11:46</starts>
+        <stops>11:49</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Request for Comments</content>
+      </transmission>
+      <transmission>
+        <starts>11:57</starts>
+        <stops>12:00</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Product Notice Bulletin</content>
+      </transmission>
+      <transmission>
+        <starts>12:08</starts>
+        <stops>12:11</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Tropical 48Hr Wind/Wave Forecast</content>
+        <map-zone>4</map-zone>
+      </transmission>
+      <transmission>
+        <starts>12:18</starts>
+        <stops>12:21</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Tropical 72Hr Wind/Wave Forecast</content>
+        <map-zone>4</map-zone>
+      </transmission>
+      <transmission>
+        <starts>12:28</starts>
+        <stops>12:31</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Tropical 48Hr Wave period/Swell dir</content>
+        <map-zone>4</map-zone>
+      </transmission>
+      <transmission>
+        <starts>23:46</starts>
+        <stops>23:49</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Tropical 48Hr Wave period/Swell dir</content>
+        <map-zone>4</map-zone>
+      </transmission>
+      <transmission>
+        <starts>23:56</starts>
+        <stops>23:59</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Tropical 72Hr Wave period/Swell dir</content>
+        <map-zone>4</map-zone>
+      </transmission>
+    </transmissions>
+  </station>
+  <station call-sign="KVM70">
+    <name>Honolulu</name>
+    <frequencies>
+      <frequency>
+        <freq>9982.5</freq>
+        <times>0519-1556</times>
+        <emission>F3C</emission>
+        <power>4 KW</power>
+      </frequency>
+      <frequency>
+        <freq>11090</freq>
+        <times>CONTINUOUS</times>
+        <emission>F3C</emission>
+        <power>4 KW</power>
+      </frequency>
+      <frequency>
+        <freq>16135</freq>
+        <times>1719-0356</times>
+        <emission>F3C</emission>
+        <power>4 KW</power>
+      </frequency>
+    </frequencies>
+    <map-areas>
+      <map-area id="A">
+        <top>50 N</top>
+        <bottom>30 S</bottom>
+        <left>130 E</left>
+        <right>110 W</right>
+      </map-area>
+      <map-area id="B">
+        <top>30 N</top>
+        <bottom>30 S</bottom>
+        <left>130 E</left>
+        <right>110 W</right>
+      </map-area>
+      <map-area id="C">
+        <top>50 N</top>
+        <bottom>0 N</bottom>
+        <left>130 E</left>
+        <right>110 W</right>
+      </map-area>
+      <map-area id="D">
+        <top>50 N</top>
+        <bottom>30 S</bottom>
+        <left>160 E</left>
+        <right>110 W</right>
+      </map-area>
+      <map-area id="E">
+        <top>40 N</top>
+        <bottom>0 N</bottom>
+        <left>170 E</left>
+        <right>80 W</right>
+      </map-area>
+      <map-area id="F">
+        <top>55 N</top>
+        <bottom>0 N</bottom>
+        <left>160 E</left>
+        <right>110 W</right>
+      </map-area>
+      <map-area id="G">
+        <top>55 N</top>
+        <bottom>5 S</bottom>
+        <left>155 E</left>
+        <right>110 W</right>
+      </map-area>
+      <map-area id="H">
+        <top>5 N</top>
+        <bottom>40 S</bottom>
+        <left>165 E</left>
+        <right>130 W</right>
+      </map-area>
+      <map-area id="1">
+        <top>70 N</top>
+        <bottom>20 N</bottom>
+        <left>130 E</left>
+        <right>115 W</right>
+      </map-area>
+      <map-area id="2">
+        <top>70 N</top>
+        <bottom>20 N</bottom>
+        <left>175 W</left>
+        <right>115 W</right>
+      </map-area>
+      <map-area id="3">
+        <top>70 N</top>
+        <bottom>20 N</bottom>
+        <left>135 E</left>
+        <right>175 W</right>
+      </map-area>
+      <map-area id="4">
+        <top>62 N</top>
+        <bottom>18 N</bottom>
+        <left>157 W</left>
+        <right>0 W</right>
+      </map-area>
+      <map-area id="5">
+        <top>55 N</top>
+        <bottom>5 N</bottom>
+        <left>180 W</left>
+        <right>0 W</right>
+      </map-area>
+      <map-area id="Y">
+        <top>32 N</top>
+        <bottom>5 N</bottom>
+        <left>130 W</left>
+        <right>0 W</right>
+      </map-area>
+      <map-area id="Z">
+        <top>30 N</top>
+        <bottom>20 S</bottom>
+        <left>145 W</left>
+        <right>0 W</right>
+      </map-area>
+    </map-areas>
+    <transmissions>
+      <transmission>
+        <starts>05:19</starts>
+        <stops>05:22</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Test Pattern</content>
+      </transmission>
+      <transmission>
+        <starts>17:19</starts>
+        <stops>17:22</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Test Pattern</content>
+      </transmission>
+      <transmission>
+        <starts>05:24</starts>
+        <stops>05:27</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Significant cloud features</content>
+        <map-zone>D</map-zone>
+      </transmission>
+      <transmission>
+        <starts>17:24</starts>
+        <stops>17:27</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Significant cloud features</content>
+        <map-zone>D</map-zone>
+      </transmission>
+      <transmission>
+        <starts>05:35</starts>
+        <stops>05:38</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Cyclone Danger Area</content>
+        <map-zone>E</map-zone>
+      </transmission>
+      <transmission>
+        <starts>17:35</starts>
+        <stops>17:38</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Cyclone Danger Area</content>
+        <map-zone>E</map-zone>
+      </transmission>
+      <transmission>
+        <starts>05:55</starts>
+        <stops>05:58</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Streamline Analysis</content>
+        <map-zone>B</map-zone>
+      </transmission>
+      <transmission>
+        <starts>17:55</starts>
+        <stops>17:58</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Streamline Analysis</content>
+        <map-zone>B</map-zone>
+      </transmission>
+      <transmission>
+        <starts>06:15</starts>
+        <stops>06:18</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Surface Analysis</content>
+        <map-zone>C</map-zone>
+      </transmission>
+      <transmission>
+        <starts>18:15</starts>
+        <stops>18:18</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Surface Analysis</content>
+        <map-zone>C</map-zone>
+      </transmission>
+      <transmission>
+        <starts>06:35</starts>
+        <stops>06:38</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>East Pacific Goes IR Satellite Image</content>
+        <map-zone>G</map-zone>
+      </transmission>
+      <transmission>
+        <starts>18:35</starts>
+        <stops>18:38</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>East Pacific Goes IR Satellite Image</content>
+        <map-zone>G</map-zone>
+      </transmission>
+      <transmission>
+        <starts>06:49</starts>
+        <stops>06:52</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>SW Pacific Goes IR Satellite Image</content>
+        <map-zone>H</map-zone>
+      </transmission>
+      <transmission>
+        <starts>18:49</starts>
+        <stops>18:52</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>SW Pacific Goes IR Satellite Image</content>
+        <map-zone>H</map-zone>
+      </transmission>
+      <transmission>
+        <starts>07:01</starts>
+        <stops>07:04</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>24Hr Surface Forecast</content>
+        <map-zone>A</map-zone>
+      </transmission>
+      <transmission>
+        <starts>19:01</starts>
+        <stops>19:04</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>24Hr Surface Forecast</content>
+        <map-zone>A</map-zone>
+      </transmission>
+      <transmission>
+        <starts>07:14</starts>
+        <stops>07:17</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>48Hr Surface Forecast</content>
+        <map-zone>A</map-zone>
+      </transmission>
+      <transmission>
+        <starts>19:14</starts>
+        <stops>19:17</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>48Hr Surface Forecast</content>
+        <map-zone>A</map-zone>
+      </transmission>
+      <transmission>
+        <starts>07:27</starts>
+        <stops>07:30</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>72Hr Surface Forecast</content>
+        <map-zone>A</map-zone>
+      </transmission>
+      <transmission>
+        <starts>19:27</starts>
+        <stops>19:30</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>72Hr Surface Forecast</content>
+        <map-zone>A</map-zone>
+      </transmission>
+      <transmission>
+        <starts>07:40</starts>
+        <stops>07:43</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Wind/Wave Analysis</content>
+        <map-zone>B</map-zone>
+      </transmission>
+      <transmission>
+        <starts>19:40</starts>
+        <stops>19:43</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Wind/Wave Analysis</content>
+        <map-zone>B</map-zone>
+      </transmission>
+      <transmission>
+        <starts>07:53</starts>
+        <stops>07:56</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>24Hr Wind/Wave Forecast</content>
+        <map-zone>B</map-zone>
+      </transmission>
+      <transmission>
+        <starts>19:53</starts>
+        <stops>19:56</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>24Hr Wind/Wave Forecast</content>
+        <map-zone>B</map-zone>
+      </transmission>
+      <transmission>
+        <starts>08:06</starts>
+        <stops>08:09</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>24Hr Wind/Wave Forecast</content>
+        <map-zone>4</map-zone>
+      </transmission>
+      <transmission>
+        <starts>20:06</starts>
+        <stops>20:09</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>24Hr Wind/Wave Forecast</content>
+        <map-zone>4</map-zone>
+      </transmission>
+      <transmission>
+        <starts>08:16</starts>
+        <stops>08:19</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>48Hr Surface Forecast</content>
+        <map-zone>1</map-zone>
+      </transmission>
+      <transmission>
+        <starts>20:16</starts>
+        <stops>20:19</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>48Hr Surface Forecast</content>
+        <map-zone>1</map-zone>
+      </transmission>
+      <transmission>
+        <starts>08:26</starts>
+        <stops>08:29</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>48Hr Wind/Wave Forecast</content>
+        <map-zone>1</map-zone>
+      </transmission>
+      <transmission>
+        <starts>20:26</starts>
+        <stops>20:29</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>48Hr Wind/Wave Forecast</content>
+        <map-zone>1</map-zone>
+      </transmission>
+      <transmission>
+        <starts>08:36</starts>
+        <stops>08:39</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>48/96Hr Wave Period, Swell Direction</content>
+        <map-zone>1</map-zone>
+      </transmission>
+      <transmission>
+        <starts>20:36</starts>
+        <stops>20:39</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>48/96Hr Wave Period, Swell Direction</content>
+        <map-zone>1</map-zone>
+      </transmission>
+      <transmission>
+        <starts>08:46</starts>
+        <stops>08:49</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Rebroadcast/96Hr Surface Forecast</content>
+        <map-zone>1</map-zone>
+      </transmission>
+      <transmission>
+        <starts>20:46</starts>
+        <stops>20:49</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Rebroadcast/96Hr Surface Forecast</content>
+        <map-zone>1</map-zone>
+      </transmission>
+      <transmission>
+        <starts>08:56</starts>
+        <stops>08:59</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Rebroadcast/96Hr Wind/Wave Forecast</content>
+        <map-zone>1</map-zone>
+      </transmission>
+      <transmission>
+        <starts>20:56</starts>
+        <stops>20:59</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Rebroadcast/96Hr Wind/Wave Forecast</content>
+        <map-zone>1</map-zone>
+      </transmission>
+      <transmission>
+        <starts>09:06</starts>
+        <stops>09:09</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Pacific Goes IR Satellite Image</content>
+        <map-zone>5</map-zone>
+      </transmission>
+      <transmission>
+        <starts>21:06</starts>
+        <stops>21:09</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Pacific Goes IR Satellite Image</content>
+        <map-zone>5</map-zone>
+      </transmission>
+      <transmission>
+        <starts>09:17</starts>
+        <stops>09:20</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Surface Analysis (Part 1 - NE Pacific)</content>
+        <map-zone>2</map-zone>
+      </transmission>
+      <transmission>
+        <starts>21:17</starts>
+        <stops>21:20</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Surface Analysis (Part 1 - NE Pacific)</content>
+        <map-zone>2</map-zone>
+      </transmission>
+      <transmission>
+        <starts>09:30</starts>
+        <stops>09:33</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Surface Analysis (Part 2 - NW Pacific)</content>
+        <map-zone>3</map-zone>
+      </transmission>
+      <transmission>
+        <starts>21:30</starts>
+        <stops>21:33</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Surface Analysis (Part 2 - NW Pacific)</content>
+        <map-zone>3</map-zone>
+      </transmission>
+      <transmission>
+        <starts>09:43</starts>
+        <stops>09:46</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Tropical Goes IR Satellite Image</content>
+        <map-zone>Y</map-zone>
+      </transmission>
+      <transmission>
+        <starts>21:43</starts>
+        <stops>21:46</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Tropical Goes IR Satellite Image</content>
+        <map-zone>Y</map-zone>
+      </transmission>
+      <transmission>
+        <starts>09:54</starts>
+        <stops>09:57</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Tropical Surface Analysis</content>
+        <map-zone>Z</map-zone>
+      </transmission>
+      <transmission>
+        <starts>21:54</starts>
+        <stops>21:57</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Tropical Surface Analysis</content>
+        <map-zone>Z</map-zone>
+      </transmission>
+      <transmission>
+        <starts>10:08</starts>
+        <stops>10:11</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>24 Hr Tropical Wind/Wave forecast</content>
+        <map-zone>Z</map-zone>
+      </transmission>
+      <transmission>
+        <starts>22:08</starts>
+        <stops>22:11</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>24 Hr Tropical Wind/Wave forecast</content>
+        <map-zone>Z</map-zone>
+      </transmission>
+      <transmission>
+        <starts>10:42</starts>
+        <stops>10:45</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Cyclone Danger Area</content>
+        <map-zone>E</map-zone>
+      </transmission>
+      <transmission>
+        <starts>22:42</starts>
+        <stops>22:45</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Cyclone Danger Area</content>
+        <map-zone>E</map-zone>
+      </transmission>
+      <transmission>
+        <starts>11:02</starts>
+        <stops>11:05</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>48Hr Wind/Wave Forecast</content>
+        <map-zone>B</map-zone>
+      </transmission>
+      <transmission>
+        <starts>23:02</starts>
+        <stops>23:05</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>48Hr Wind/Wave Forecast</content>
+        <map-zone>B</map-zone>
+      </transmission>
+      <transmission>
+        <starts>11:15</starts>
+        <stops>11:18</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>72Hr Wind/Wave Forecast</content>
+        <map-zone>B</map-zone>
+      </transmission>
+      <transmission>
+        <starts>23:15</starts>
+        <stops>23:18</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>72Hr Wind/Wave Forecast</content>
+        <map-zone>B</map-zone>
+      </transmission>
+      <transmission>
+        <starts>11:28</starts>
+        <stops>11:31</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Sea surface Temperatures</content>
+        <map-zone>F</map-zone>
+      </transmission>
+      <transmission>
+        <starts>23:28</starts>
+        <stops>23:31</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Sea surface Temperatures</content>
+        <map-zone>F</map-zone>
+      </transmission>
+      <transmission>
+        <starts>11:41</starts>
+        <stops>11:44</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Rebroadcast 24Hr Wind/Waves Forecasts</content>
+        <map-zone>B</map-zone>
+      </transmission>
+      <transmission>
+        <starts>23:41</starts>
+        <stops>23:44</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Rebroadcast 24Hr Wind/Waves Forecasts</content>
+        <map-zone>B</map-zone>
+      </transmission>
+      <transmission>
+        <starts>11:54</starts>
+        <stops>11:57</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Streamline Analysis</content>
+        <map-zone>B</map-zone>
+      </transmission>
+      <transmission>
+        <starts>23:54</starts>
+        <stops>23:57</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Streamline Analysis</content>
+        <map-zone>B</map-zone>
+      </transmission>
+      <transmission>
+        <starts>12:14</starts>
+        <stops>12:17</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Surface Analysis</content>
+        <map-zone>C</map-zone>
+      </transmission>
+      <transmission>
+        <starts>00:14</starts>
+        <stops>00:17</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Surface Analysis</content>
+        <map-zone>C</map-zone>
+      </transmission>
+      <transmission>
+        <starts>12:34</starts>
+        <stops>12:37</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>East Pacific Goes IR Satellite Image</content>
+        <map-zone>G</map-zone>
+      </transmission>
+      <transmission>
+        <starts>00:34</starts>
+        <stops>00:37</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>East Pacific Goes IR Satellite Image</content>
+        <map-zone>G</map-zone>
+      </transmission>
+      <transmission>
+        <starts>12:48</starts>
+        <stops>12:51</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>SW Pacific Goes IR Satellite Image</content>
+        <map-zone>H</map-zone>
+      </transmission>
+      <transmission>
+        <starts>00:48</starts>
+        <stops>00:51</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>SW Pacific Goes IR Satellite Image</content>
+        <map-zone>H</map-zone>
+      </transmission>
+      <transmission>
+        <starts>13:00</starts>
+        <stops>13:03</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Schedule part 1</content>
+      </transmission>
+      <transmission>
+        <starts>01:00</starts>
+        <stops>01:03</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Schedule part 1</content>
+      </transmission>
+      <transmission>
+        <starts>13:20</starts>
+        <stops>13:23</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Schedule part 2</content>
+      </transmission>
+      <transmission>
+        <starts>01:20</starts>
+        <stops>01:23</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Schedule part 2</content>
+      </transmission>
+      <transmission>
+        <starts>13:40</starts>
+        <stops>13:43</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Symbols or product notice bulletin</content>
+      </transmission>
+      <transmission>
+        <starts>01:40</starts>
+        <stops>01:43</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Symbols or product notice bulletin</content>
+      </transmission>
+      <transmission>
+        <starts>14:00</starts>
+        <stops>14:03</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>24Hr Tropical Surface Forecast</content>
+        <map-zone>Z</map-zone>
+      </transmission>
+      <transmission>
+        <starts>02:00</starts>
+        <stops>02:03</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>24Hr Tropical Surface Forecast</content>
+        <map-zone>Z</map-zone>
+      </transmission>
+      <transmission>
+        <starts>14:10</starts>
+        <stops>14:13</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>48Hr Tropical Surface Forecast</content>
+        <map-zone>Z</map-zone>
+      </transmission>
+      <transmission>
+        <starts>02:10</starts>
+        <stops>02:13</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>48Hr Tropical Surface Forecast</content>
+        <map-zone>Z</map-zone>
+      </transmission>
+      <transmission>
+        <starts>14:20</starts>
+        <stops>14:23</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>72Hr Tropical Surface Forecast</content>
+        <map-zone>Z</map-zone>
+      </transmission>
+      <transmission>
+        <starts>02:20</starts>
+        <stops>02:23</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>72Hr Tropical Surface Forecast</content>
+        <map-zone>Z</map-zone>
+      </transmission>
+      <transmission>
+        <starts>14:30</starts>
+        <stops>14:33</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>48/72Hr Tropical Wave preiod/Swell direction</content>
+        <map-zone>Z</map-zone>
+      </transmission>
+      <transmission>
+        <starts>02:30</starts>
+        <stops>02:33</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>48/72Hr Tropical Wave preiod/Swell direction</content>
+        <map-zone>Z</map-zone>
+      </transmission>
+      <transmission>
+        <starts>14:40</starts>
+        <stops>14:43</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Tropical Sea State Analysis</content>
+        <map-zone>Z</map-zone>
+      </transmission>
+      <transmission>
+        <starts>02:40</starts>
+        <stops>02:43</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Tropical Sea State Analysis</content>
+        <map-zone>Z</map-zone>
+      </transmission>
+      <transmission>
+        <starts>14:50</starts>
+        <stops>14:53</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>24Hr Tropical Wind/Wave Forecast</content>
+        <map-zone>Z</map-zone>
+      </transmission>
+      <transmission>
+        <starts>02:50</starts>
+        <stops>02:53</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>24Hr Tropical Wind/Wave Forecast</content>
+        <map-zone>Z</map-zone>
+      </transmission>
+      <transmission>
+        <starts>15:00</starts>
+        <stops>15:03</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>48Hr Tropical Wind/Wave Forecast</content>
+        <map-zone>Z</map-zone>
+      </transmission>
+      <transmission>
+        <starts>03:00</starts>
+        <stops>03:03</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>48Hr Tropical Wind/Wave Forecast</content>
+        <map-zone>Z</map-zone>
+      </transmission>
+      <transmission>
+        <starts>15:10</starts>
+        <stops>15:13</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>72Hr Tropical Wind/Wave Forecast</content>
+        <map-zone>Z</map-zone>
+      </transmission>
+      <transmission>
+        <starts>03:10</starts>
+        <stops>03:13</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>72Hr Tropical Wind/Wave Forecast</content>
+        <map-zone>Z</map-zone>
+      </transmission>
+      <transmission>
+        <starts>15:20</starts>
+        <stops>15:23</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Rebroadcast Sea State Analysis</content>
+        <map-zone>1</map-zone>
+      </transmission>
+      <transmission>
+        <starts>03:20</starts>
+        <stops>03:23</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Rebroadcast Sea State Analysis</content>
+        <map-zone>1</map-zone>
+      </transmission>
+      <transmission>
+        <starts>15:30</starts>
+        <stops>15:33</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Surface Analysis - Part 1 NE Pacific</content>
+        <map-zone>2</map-zone>
+      </transmission>
+      <transmission>
+        <starts>03:30</starts>
+        <stops>03:33</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Surface Analysis - Part 1 NE Pacific</content>
+        <map-zone>2</map-zone>
+      </transmission>
+      <transmission>
+        <starts>15:43</starts>
+        <stops>15:46</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Surface Analysis - Part 2 NW Pacific</content>
+        <map-zone>3</map-zone>
+      </transmission>
+      <transmission>
+        <starts>03:43</starts>
+        <stops>03:46</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Surface Analysis - Part 2 NW Pacific</content>
+        <map-zone>3</map-zone>
+      </transmission>
+      <transmission>
+        <starts>15:56</starts>
+        <stops>15:59</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Tropical Surface Analysis</content>
+        <map-zone>Z</map-zone>
+      </transmission>
+      <transmission>
+        <starts>03:56</starts>
+        <stops>03:59</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Tropical Surface Analysis</content>
+        <map-zone>Z</map-zone>
+      </transmission>
+    </transmissions>
+  </station>
+  <station call-sign="ZKLF">
+    <name>Wellington, New Zealand</name>
+    <frequencies>
+      <frequency>
+        <freq>3247.4</freq>
+        <times>0945-1700</times>
+        <emission>F3C</emission>
+        <power>5 KW</power>
+      </frequency>
+      <frequency>
+        <freq>5807</freq>
+        <times>CONTINUOUS</times>
+        <emission>F3C</emission>
+        <power>5 KW</power>
+      </frequency>
+      <frequency>
+        <freq>9459</freq>
+        <times>CONTINUOUS</times>
+        <emission>F3C</emission>
+        <power>5 KW</power>
+      </frequency>
+      <frequency>
+        <freq>13550.5</freq>
+        <times>CONTINUOUS</times>
+        <emission>F3C</emission>
+        <power>5 KW</power>
+      </frequency>
+      <frequency>
+        <freq>16340.1</freq>
+        <times>2145-0500</times>
+        <emission>F3C</emission>
+        <power>5 KW</power>
+      </frequency>
+    </frequencies>
+    <map-areas>
+      <map-area id="TNZ">
+        <top>25 S</top>
+        <bottom>50 S</bottom>
+        <left>133 E</left>
+        <right>180 E</right>
+      </map-area>
+      <map-area id="SWP">
+        <top>00 S</top>
+        <bottom>40 S</bottom>
+        <left>140 E</left>
+        <right>110 W</right>
+      </map-area>
+    </map-areas>
+    <transmissions>
+      <transmission>
+        <starts>00:00</starts>
+        <stops>00:03</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>SouthWest Pacific 30Hr Surface Prog (MSL)</content>
+        <map-zone>SWP</map-zone>
+      </transmission>
+      <transmission>
+        <starts>12:00</starts>
+        <stops>12:03</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>SouthWest Pacific 30Hr Surface Prog (MSL)</content>
+        <map-zone>SWP</map-zone>
+      </transmission>
+      <transmission>
+        <starts>01:00</starts>
+        <stops>01:03</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>SouthWest Pacific 48Hr Surface Prog (MSL)</content>
+        <map-zone>SWP</map-zone>
+      </transmission>
+      <transmission>
+        <starts>13:00</starts>
+        <stops>13:03</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>SouthWest Pacific 48Hr Surface Prog (MSL)</content>
+        <map-zone>SWP</map-zone>
+      </transmission>
+      <transmission>
+        <starts>02:00</starts>
+        <stops>02:03</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>SouthWest Pacific 72Hr Surface Prog (MSL)</content>
+        <map-zone>SWP</map-zone>
+      </transmission>
+      <transmission>
+        <starts>14:00</starts>
+        <stops>14:03</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>SouthWest Pacific 72Hr Surface Prog (MSL)</content>
+        <map-zone>SWP</map-zone>
+      </transmission>
+      <transmission>
+        <starts>03:00</starts>
+        <stops>03:03</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Tasman - New Zealand MSL Analysis</content>
+        <map-zone>TNZ</map-zone>
+      </transmission>
+      <transmission>
+        <starts>16:00</starts>
+        <stops>16:03</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Tasman - New Zealand MSL Analysis</content>
+        <map-zone>TNZ</map-zone>
+      </transmission>
+      <transmission>
+        <starts>04:00</starts>
+        <stops>04:03</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Southwest Pacific MSL Analysis</content>
+        <map-zone>SWP</map-zone>
+      </transmission>
+      <transmission>
+        <starts>16:00</starts>
+        <stops>16:03</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Southwest Pacific MSL Analysis</content>
+        <map-zone>SWP</map-zone>
+      </transmission>
+      <transmission>
+        <starts>09:00</starts>
+        <stops>09:03</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Tasman - New Zealand MSL Analysis</content>
+        <map-zone>TNZ</map-zone>
+      </transmission>
+      <transmission>
+        <starts>21:00</starts>
+        <stops>21:03</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Tasman - New Zealand MSL Analysis</content>
+        <map-zone>TNZ</map-zone>
+      </transmission>
+      <transmission>
+        <starts>10:00</starts>
+        <stops>10:03</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Southwest Pacific MSL Analysis</content>
+        <map-zone>SWP</map-zone>
+      </transmission>
+      <transmission>
+        <starts>22:00</starts>
+        <stops>22:03</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Southwest Pacific MSL Analysis</content>
+        <map-zone>SWP</map-zone>
+      </transmission>
+      <transmission>
+        <starts>11:00</starts>
+        <stops>11:03</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Transmission Schedule</content>
+      </transmission>
+      <transmission>
+        <starts>23:00</starts>
+        <stops>23:03</stops>
+        <rpm-ioc>120/576</rpm-ioc>
+        <mode>fax</mode>
+        <content>Transmission Schedule</content>
+      </transmission>
+    </transmissions>
+  </station>
+</fax-data>

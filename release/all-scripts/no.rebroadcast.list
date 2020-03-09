@@ -1,0 +1,3 @@
+# Regular expressions for the strings NOT to rebroadcast
+^\$IIMWV,.*
+# ^\$IIRMB,.*

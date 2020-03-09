@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 
+1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--html xmlns="http://www.w3.org/1999/xhtml"-->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>Wind in Google Map</title>
+    <link rel="stylesheet" href="print.css" type="text/css">
+    <style type="text/css">
+    v\:* {
+      behavior:url(#default#VML);
+    }
+    </style>
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAoODkN4W0YAhwwPkCTFcO6xR3muO_BFLsQuvpyhewujSGiI0udBTa4ayEoK33Wss9zbwycXcGhn309Q"
+            type="text/javascript">
+    </script>
+    <script src="script.js" type="text/javascript"></script>
+    <script src="temp/googlewind.js" type="text/javascript"></script>
+    <script type="text/javascript">
+window.onresize = resize;
+
+function resize()
+{
+  var winW = 630, winH = 460;
+  
+//alert("Navigator:" + navigator.appName);
+  
+  if (parseInt(navigator.appVersion) > 3) 
+  {
+    if (navigator.appName == "Netscape") 
+    {
+      winW = window.innerWidth;
+      winH = window.innerHeight;
+
+//    var h = document.getElementById('map').style.height;
+//    var w = document.getElementById('map').style.width;
+      
+      document.getElementById('map').style.height = (winH - 16) + "px";
+      document.getElementById('map').style.width  = (winW * 0.80) + "px";
+    }
+    if (navigator.appName.indexOf("Microsoft") != -1) 
+    {
+      winW = document.documentElement.clientWidth;
+      winH = document.documentElement.clientHeight;
+
+//    document.all("map").style.height = (winH - 20).toString() + "px";
+//    document.all("map").style.width  = (winW * 0.80).toString() + "px";
+      document.getElementById('map').style.height = (winH - 20) + "px";
+      document.getElementById('map').style.width  = (winW * 0.80) + "px";
+      
+//    alert("W:" + document.all("map").style.width + ", H:" + document.all("map").style.height);
+    }
+  }
+}    
+
+// Chart center
+centerlat = centerlatitude;
+centerlng = centerlongitude;
+    </script>
+  </head>
+  <body onload="load(); resize()" onunload="GUnload()">
+    <table width="98%" height="98%" border="0">
+      <tr>
+        <td valign="top" rowspan="5">
+          <div id="map" style="width: 850px; height: 550px"></div>
+        </td>
+        <td valign="top" align="left">
+          <b><script type="text/javascript">document.write(GRIBdate);</script></b>
+        </td>
+      </tr>
+      <tr>
+        <td valign="top" align="right" width="200">
+          <table border="1">
+            <tr><td width="100" bgcolor="#00ffff" align="center">&lt; 10</td></tr>
+            <tr><td width="100" bgcolor="#00ff00" align="center">[10, 20[</td></tr>
+            <tr><td width="100" bgcolor="#ffff00" align="center">[20, 30[</td></tr>
+            <tr><td width="100" bgcolor="#ff8000" align="center">[30, 40[</td></tr>
+            <tr><td width="100" bgcolor="#ff0000" align="center">&gt;= 40</td></tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td valign="top" align="right" width="200">
+          <a href="javascript:plotMarkers();">Plot Marks</a>
+          <br>
+          <a href="javascript:clearChart();">Clear Chart</a>
+          <br>
+          <a href="javascript:drawGRIBWind();">Draw Wind</a>
+          <br>
+        </td>
+      </tr>
+      <tr>
+        <td valign="top">
+          <table width="100%" border="0">
+            <tr>
+              <td colspan="2" align="center"><b>Chart Center</b></td>
+            </tr>
+            <tr>
+              <td align="left">Lat:</td>
+              <td align="right"><div id="center-lat"></div></td>
+            </tr>
+            <tr>
+              <td align="left">Long:</td>
+              <td align="right"><div id="center-lng"></div></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td valign="top">
+          <table width="100%" border="0">
+            <tr>
+              <td colspan="2" align="center"><b>Mouse Position</b></td>
+            </tr>
+            <tr>
+              <td align="left">Lat:</td>
+              <td align="right"><div id="mouse-lat"></div></td>
+            </tr>
+            <tr>
+              <td align="left">Long:</td>
+              <td align="right"><div id="mouse-lng"></div></td>
+            </tr>
+            <tr>
+              <td align="left">Place:</td>
+              <td align="right"><div id="mouse-place"></div></td>
+            </tr>
+            <tr>
+              <td align="left" valign="top">Distance:</td>
+              <td align="right"><div id="mouse-dist"></div></td>
+            </tr>
+            <tr>
+              <td colspan="2"><small>Click the map to get distances. From: first click, to: second click.</small></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

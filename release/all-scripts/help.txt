@@ -1,0 +1,120 @@
++------------------+
+| Oliv Soft, 2007. |
+| Some help...     |
++------------------+
+
+J: CelestJava
+==============
+Some Java utilities for celestial navigation (almanac publishing)
+This starts another menu, which will guide you.
+
+C: GRIB, Faxes and Charts
+=========================
+Superimpose the faxes you've downloaded from SailMail, NOAA Web Site or any 
+other source, superimpose them with charts, GRIB files, etc.
+If you're connected to a GPS, you can also plot the boat's position.
+Some routing capabilities are also available (work in progress).
+This program comes with documentation, and on-line help.
+
+L: Chart Library
+================
+A graphical utility, based on hypersonicSQL to arrange your chart library.
+
+N: NMEA Logger/HttpServer
+=========================
+NMEA Data can be read from the GPS or Nav Station using the RS232 serial port.
+This port has to be accessed exclusively, that means that when an application
+uses it, it cannot be used by any other application.
+This application is reading the NMEA data, and rebroadcasts then through http.
+By default, on http://localhost:6666. That means that any number of other 
+applications can reach the data through the http connection.
+Start this application, and enter the URL mentioned above. Try also
+http://localhost:6666/help for details.
+This application also has a Graphical User Interface (GUI) that allows you to 
+visualize what's read, as well as the validity of the NMEA sentences.
+The sentences to read have to be mentionned in the file named nmea.properties.
+Use notepad or any text editor to modify it.
+This utility can also log the selected NMEA Sentence, for further analysis.
+
+M: Minimal NMEA Viewer
+======================
+Same as above, without http broadcasting or logging capability.
+This is designed to see what the NMEA device is spitting out.
+It displays everything, no reference to nmea.properties is made.
+
+G: NMEA Logger/HttpServer (simulation)
+======================================
+Simulates the option N, data are read from a file (nmea.txt by default).
+You don't need to be connected to a GPS or any Nav Station.
+
+S: Minimal NMEA Server
+======================
+Same as N, but with no GUI. Reads and rebroadcast the NMEA Sentences mentioned 
+in nmea.properties. The http port is mentioned in the command line (edit 
+olivsoft.bat to modify it if necessary).
+
+X: Stop the minimal NMEA Server
+===============================
+Cleanly stops the above, option S.
+
+B: GRIB BatchClient
+====================
+This one is to run on a desktop that stays on all the time.
+It will periodically download faxes from a Web Site (like NOAA), GRIB, or any 
+resources.
+This will allow you to build your own "live" Pilot Charts...
+See how it is called by editing olivsoft.bat.
+
+E: GRIB Email Client
+====================
+When connected to the internet, you can send your own email request to SailDocs
+and get the requested GRIB File from the same UI.
+You can prepare your own GRIB Request in a file named gribrequests.properties.
+The properties of your email server and account have to be placed in a file 
+named gribmail.properties.
+
+F: SailFax (SkedFile.txt)
+=========================
+GetFax can be automated, to download specific faxes from specific stations
+at some specific time. The data driving GetFax have to be stored in a file
+named SkedFile.txt, stored in the same directory as GetFax.
+This program provides a Graphical User Interface to generate this file
+in a user friendly way.
+The generated file then has to be copied in the GetFax directory, see
+option K.
+The data displayed in this application are stored in XML format, in the
+file named pac-fax-data.xml. The file name is a parameter mentioned at 
+runtime (see line 37 of olivsoft.bat). For now, we provide only data
+for the Pacific Ocean. We will provide more later. Feel free to build your
+own data for your own navigation zone, and let me know!
+The XML Schema this file has to comply with is also provided, and named
+fax-data-v2.xsd.
+
+P: Printable Fax Schedule
+=========================
+Print the fax schedule after generated the above.
+
+D: DOS Prompt
+=============
+Opens a DOS Window in the directory you're reading this from.
+
+K: SkedFile.txt to SailMail
+===========================
+Pushes the file SkedFIle.txt into the GetFax directory, atfer you've edited it
+with the option F. For the file to be copied in the right place, you have to 
+edit and modify olivsoft.bat, line 63.
+
+Z: SkedFile.txt from SailMail
+=============================
+Pulls the file SkedFIle.txt from the GetFax directory, before you edit it
+with the option F. For the file to be copied from the right place, you have to 
+edit and modify olivsoft.bat, line 65.
+
+H: Generic Help
+===============
+Displays the current document, help.txt.
+
+Q: Quit
+=======
+Exit the menu.
+

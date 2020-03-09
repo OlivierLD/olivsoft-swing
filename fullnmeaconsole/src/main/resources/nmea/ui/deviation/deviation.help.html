@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></meta>
+    <title>deviation.help</title>
+    <style type='text/css'>
+      body { background : #ffffff; color : #000000; font-size: 12pt; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular } 
+      h1 { color: white; font-style: italic; font-size: 14pt; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; background-color: black; padding-left: 5pt } 
+      h2 { font-size: 12pt; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular } 
+      h3 { font-style: italic; font-weight: bold; font-size: 12pt; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; font-weight: bold  } 
+      li { font-size: 12pt; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular } 
+      p { font-size: 12pt; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular } 
+      td { font-size: 12pt; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular } 
+      small { font-size: 10pt; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular } 
+      blockquote{ font-style: italic; font-size: 12pt; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular }--> 
+      em { font-size: 12pt; font-style: italic; font-weight: bold; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular } 
+      pre { font-size: 11pt; font-family: Courier New, Helvetica, Geneva, Swiss, SunSans-Regular } 
+      address { font-size: 12pt; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular } 
+      a:link { color : #000000}  
+      a:active { color: #000000}  
+      a:visited { color : #000000}
+    </style>  
+  </head>
+  <body>
+    <h1>Deviation Curve</h1>
+    <p>
+      The generic equation of a deviation curve is
+      <pre>
+ a + (b.sin(Z)) + (c.cos(Z)) + (d.sin(2.Z)) + (e.cos(2.Z))      
+      </pre>
+      where <b>Z</b> is the magnetic heading.
+    </p>
+    <p>
+      Use the icon <img src="open.png"> to open an already defined deviation curve.
+    </p>
+    <p>
+      The <font color="red"><b>red points</b></font> on the screen are the one stored as the deviation curve.
+      <br>
+      You can drag the points horizontally on the screen.
+    </p>
+    <p>
+      <h2>To define your own deviation curve</h2>
+      Use the icon <img src="importIcon.png"> to load logged NMEA data. The points must have been looged in a sheltered place, with no current,
+      to make sure that the difference between the Course Over Ground (COG) and Magnetic Heading (HDG) will be the value of the compass deviation (d).
+      <br>
+      The logged data points appear in yellow on the display. <i>Note:</i> The logged values for the heading are Integers.
+      <br>
+      When the "Auto Set" box is cheched, the points in red are representing the <i>average</i> value of the deviation for each heading.
+      <br>
+      Again, the red points are the points stored for the representation and definition of the deviation curve.
+      <br>
+      The red points can be dragged with the mouse (the pointer's shape will change when the point is draggable i.e. when the mouse is on a draggable point).
+      <br>
+      The yellow curve is the result of a smoothing operation (least squares method) based on the logged and sprayed points.
+    </p>
+    <p>
+      You can: 
+      <ul>
+        <li type="disc">Delete unwanted points. Check the "Del." check box, and use the mouse to drag a rectangle around the points you want to drop</li>
+        <li type="disc">Add more points. Check the "Spray" checkbox, and use the mouse (left-click) to spray points on the screen</li>
+        <li type="disc">Suggest a smoothed curve ("Auto Set." checkbox)</li>
+      </ul>
+      When you hit the "Move points" button, you actually move the red points (defining the deviation curve) on the yellow smoothed curve.      
+    </p>
+    <p>
+      <i>Note</i>
+      <br>
+      The boxes "Auto Set", "Spray" and "Del." are visible and available only when logged data have been imported.
+    </p>
+    <p>
+      <p>
+        <b><i>Important</i></b>
+        <br>
+        When you are done, do not forget to <b>save</b> your work, <img src="save.png">.
+        <br>
+        You will give a name to the curve you save; points will be saved as a Comma Separated Values (CSV) file.
+        <br>
+        Once saved, make sure this file is loaded. Use the Open <img src="open.png"> icon to do so, if the name
+        you gave is different from the currently loaded one.
+        <br>
+        For this choice to be persisted and available next time you re-open the console, use the menu File &gt; Save Calibration Parameters. 
+      </p>
+    </p>
+    <hr>
+    <address>&copy; 2012, OlivSoft</address>
+  </body>
+</html>
