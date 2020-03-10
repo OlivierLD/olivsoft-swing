@@ -1,5 +1,5 @@
 # Image DB
- A small exercice, using `HypersonicSQL` relational Database to store images.
+ A small exercise, using `HypersonicSQL` relational Database to store images.
 
  You can tag your images, to retrieve them conveniently, based on the tag values.
 

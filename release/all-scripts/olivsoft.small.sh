@@ -28,9 +28,8 @@ PI4J_HOME=/opt/pi4j
 CP=$CP:/usr/share/java/RXTXcomm.jar
 # echo CLASSPATH=$CP
 #
-function nocase()
-{
-  if [ "`echo $1 | tr [:lower:] [:upper:]`" = "`echo $2 | tr [:lower:] [:upper:]`" ]
+function nocase() {
+  if ][ "`echo $1 | tr [:lower:] [:upper:]`" = "`echo $2 | tr [:lower:] [:upper:]`" ]]
   then
     return 0  # true
   else
@@ -39,7 +38,7 @@ function nocase()
 }
 #
 DIRECT=false
-if [ "$1" != "" ]
+if [[ "$1" != "" ]]
 then
   choice=$1
   DIRECT=true
@@ -47,12 +46,12 @@ fi
 #
 GRAPHIC=false
 EXIT=false
-while [ "$EXIT" = "false" ]
+while [[ "$EXIT" == "false" ]]
 do
   clear
-  if [ "$DIRECT" = "false" ]
+  if [[ "$DIRECT" == "false" ]]
   then
-    if [ "$GRAPHIC" = "true" ]
+    if [[ "$GRAPHIC" == "true" ]]
     then
       echo -e '\e(0\x6c\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x6b\e(B'
       echo -e '\e(0\x78\e(B WH Weather Wizard, headless     \e(0\x78\e(B'
@@ -61,8 +60,8 @@ do
       echo -e '\e(0\x78\e(B HC Headless NMEA Console        \e(0\x78\e(B'
       echo -e '\e(0\x78\e(B KC Stop Headless Console        \e(0\x78\e(B'
       echo -e '\e(0\x78\e(B HU Headless Update              \e(0\x78\e(B'
-      echo -e '\e(0\x74\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x75\e(B'  
-      echo -e '\e(0\x78\e(B Q Quit                          \e(0\x78\e(B'          
+      echo -e '\e(0\x74\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x75\e(B'
+      echo -e '\e(0\x78\e(B Q Quit                          \e(0\x78\e(B'
       echo -e '\e(0\x6d\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x71\e(B\e(0\x6a\e(B'
     else
 #     echo -e 'Warning: Sensors require Admin priv.'
@@ -76,16 +75,16 @@ do
       echo -e '| KC  Stop Headless Console        |'
       echo -e '| HU  Headless Update              |'
       echo -e '| CLI Preferences CLI              |'
-      echo -e '| Q   Quit                         |'          
+      echo -e '| Q   Quit                         |'
       echo -e '+----------------------------------+'
-    fi    
+    fi
 #
     echo -n 'You choose : '
     read choice
   else
     EXIT=true
   fi
-# if [ "$choice" = "J" ] || [ "$choice" = "j" ] 
+# if [ "$choice" = "J" ] || [ "$choice" = "j" ]
   if nocase "$choice" "J"
   then
     java -version
@@ -150,7 +149,7 @@ do
     then
       CHAR=true
     fi
-    if [ "$CHAR" = "true" ]
+    if [[ "$CHAR" == "true" ]]
     then
       JAVA_OPTIONS="$JAVA_OPTIONS -Dchar.console=true"
     fi
@@ -161,7 +160,7 @@ do
     then
       GUI=true
     fi
-    if [ "$GUI" = "true" ]
+    if [[ "$GUI" == "true" ]]
     then
       JAVA_OPTIONS="$JAVA_OPTIONS -Dheadless.gui=yes -Dsmall.ui=true"
     else
@@ -177,9 +176,9 @@ do
       # SERIAL_PORT=/dev/ttyAMA0
       echo -n "Read serial Port ($SERIAL_PORT) ? y|[n] > "
       read a
-      if [ "$a" = "y" ] || [ "$a" = "Y" ]
+      if [[ "$a" = "y" ] || [ "$a" = "Y" ]]
       then
-        echo Reading $SERIAL_PORT
+        echo Reading ${SERIAL_PORT}
         JAVA_OPTIONS="$JAVA_OPTIONS -Dserial.port=$SERIAL_PORT"
       else
         echo -n 'Replay logged data (Nuku-Hiva - Rangi) ? y|[n] > '
@@ -237,7 +236,7 @@ do
     fi
     echo 'Choose your user-exits:'
     DONE=false
-    while [ "$DONE" = "false" ]
+    while [[ "$DONE" = "false" ]]
     do
       echo 'With UserExit:'
       if [[ $UE != *WindWatcher* ]]
@@ -285,14 +284,14 @@ do
       then
         echo Loading User-Exit "NMEASensors"
         UE="$UE -ue:olivsoftdesktopuserexits.Sensor2NMEA"
-        CP=$CP:$PI4J_HOME/lib/pi4j-core.jar
+        CP=${CP}:${PI4J_HOME}/lib/pi4j-core.jar
         JAVA_OPTIONS="$JAVA_OPTIONS -DBMP180=y"
         JAVA_OPTIONS="$JAVA_OPTIONS -DHTU21DF=y"
       elif nocase "$a" "B"
       then
         echo Loading User-Exit "Battery Monitor"
         UE="$UE -ue:olivsoftdesktopuserexits.Voltage2NMEA"
-        CP=$CP:$PI4J_HOME/lib/pi4j-core.jar
+        CP=${CP}:${PI4J_HOME}/lib/pi4j-core.jar
         JAVA_OPTIONS="$JAVA_OPTIONS -Dtune=973:14"
       elif nocase "$a" "C"
       then
@@ -308,7 +307,7 @@ do
         echo Loading User-Exit "WebSocket"
         UE="$UE -ue:olivsoftdesktopuserexits.ws.WSUserExit"
         echo -ne 'verbose for WebSocket server ? [n]|y > '
-        read resp 
+        read resp
         if nocase "$resp" "Y"
         then
           JAVA_OPTIONS="$JAVA_OPTIONS -Dws.verbose=true"
@@ -323,18 +322,18 @@ do
           cd -
         fi
       else
-        echo Done with User-Exit 
+        echo Done with User-Exit
         DONE=true
       fi
     done
     if [[ $JAVA_OPTIONS == *char.console* ]] # Contains chr.console
     then
-      java -client -classpath $CP $JAVA_OPTIONS olivsoftdesktop.OlivSoftDesktop $UE $HEADLESS_OPTIONS 2> hc.log
+      java -client -classpath ${CP} ${JAVA_OPTIONS} olivsoftdesktop.OlivSoftDesktop ${UE} ${HEADLESS_OPTIONS} 2> hc.log
     else
       COMMAND="java -client -classpath $CP $JAVA_OPTIONS olivsoftdesktop.OlivSoftDesktop $UE $HEADLESS_OPTIONS "
       # echo Running [$COMMAND]
       # read a
-      $COMMAND &
+      ${COMMAND} &
     fi
     echo -n Hit [Return]
     read a
@@ -353,7 +352,7 @@ do
     JAVA_OPTIONS="$JAVA_OPTIONS -Dserial.port=$SERIAL_PORT -Dbaud.rate=$BAUD_RATE"
     # JAVA_OPTIONS="$JAVA_OPTIONS -Dlogged.nmea.data=./logged-data/2010-11-08.Nuku-Hiva-Tuamotu.nmea"
     JAVA_OPTIONS="$JAVA_OPTIONS -Dadmin.http.port=8888"
-    if [ "$DIRECT" = "false" ]
+    if [[ "$DIRECT" == "false" ]]
     then
       echo -n INFO: Admin port is 8888 [Hit return]
       read x
@@ -375,7 +374,7 @@ do
       sudo rm ./logged-data/headless.nmea
       echo Log file reset.
     fi
-    if [ "$DIRECT" = "false" ]
+    if [[ "$DIRECT" == "false" ]]
     then
       echo -n 'Pre-selected UserExits [y]|n ? > '
       read a
@@ -393,32 +392,32 @@ do
 #     then
         UE='-ue:olivsoftdesktopuserexits.sample.TrueWindSentenceInsertion'
 #       echo -ne 'verbose for True Wind Insertion ? [n]|y > '
-#       read resp 
+#       read resp
 #       if nocase "$resp" "Y"
 #       then
 #         JAVA_OPTIONS="$JAVA_OPTIONS -Dtw.verbose=true"
 #       fi
 #     fi
-      while [ "$DONE" = "false" ]
+      while [[ "$DONE" == "false" ]]
       do
         echo 'With UserExit:'
-        if [[ $UE != *Sensor2NMEA* ]]
+        if [[ ${UE} != *Sensor2NMEA* ]]
         then
           echo '   [N]  NMEASensors '
         fi
-        if [[ $UE != *FONA* ]]
+        if [[ ${UE} != *FONA* ]]
         then
           echo '   [F]  FONA '
         fi
-        if [[ $UE != *Voltage2NMEA* ]]
+        if [[ ${UE} != *Voltage2NMEA* ]]
         then
           echo '   [B]  Battery Monitor '
         fi
-        if [[ $UE != *CurrentCalculator* ]]
+        if [[ ${UE} != *CurrentCalculator* ]]
         then
           echo '   [C]  Current Calc '
         fi
-        if [[ $UE != *WSUserExit* ]]
+        if [[ ${UE} != *WSUserExit* ]]
         then
           echo '   [WS] WebSocket server '
         fi
@@ -434,7 +433,7 @@ do
           JAVA_OPTIONS="$JAVA_OPTIONS -DBMP180=y"
           JAVA_OPTIONS="$JAVA_OPTIONS -DHTU21DF=y"
           echo -ne 'verbose for NMEA Sensors ? [n]|y > '
-          read resp 
+          read resp
           if nocase "$resp" "Y"
           then
             JAVA_OPTIONS="$JAVA_OPTIONS -Dsensor.verbose=true"
@@ -448,7 +447,7 @@ do
           CP=$CP:$PI4J_HOME/lib/pi4j-core.jar
           JAVA_OPTIONS="$JAVA_OPTIONS -Dtune=973:14"
           echo -ne 'verbose for Battery Sensors ? [n]|y > '
-          read resp 
+          read resp
           if nocase "$resp" "Y"
           then
             JAVA_OPTIONS="$JAVA_OPTIONS -Dbat.verbose=true"
@@ -459,7 +458,7 @@ do
           UE="$UE -ue:olivsoftdesktopuserexits.LongTimeCurrentCalculator"
           JAVA_OPTIONS="$JAVA_OPTIONS -Dbuffer.length=300000" # 5 minutes
           echo -ne 'verbose for Current Calculator ? [n]|y > '
-          read resp 
+          read resp
           if nocase "$resp" "Y"
           then
             JAVA_OPTIONS="$JAVA_OPTIONS -Dcurrent.verbose=true" # Current
@@ -470,7 +469,7 @@ do
           CP=$CP:$PI4J_HOME/lib/pi4j-core.jar
           UE="$UE -ue:olivsoftdesktopuserexits.FONAUserExit"
           echo -ne 'verbose for FONA ? [n]|y > '
-          read resp 
+          read resp
           if nocase "$resp" "Y"
           then
             JAVA_OPTIONS="$JAVA_OPTIONS -Dfona.verbose=true"
@@ -480,7 +479,7 @@ do
           echo Loading User-Exit "WebSocket"
           UE="$UE -ue:olivsoftdesktopuserexits.ws.WSUserExit"
           echo -ne 'verbose for WebSocket server ? [n]|y > '
-          read resp 
+          read resp
           if nocase "$resp" "Y"
           then
             JAVA_OPTIONS="$JAVA_OPTIONS -Dws.verbose=true"
@@ -496,7 +495,7 @@ do
             cd -
           fi
         else
-          echo Done with User-Exit 
+          echo Done with User-Exit
           DONE=true
         fi
       done
@@ -506,14 +505,14 @@ do
       UE="$UE -ue:olivsoftdesktopuserexits.Voltage2NMEA"
       UE="$UE -ue:olivsoftdesktopuserexits.LongTimeCurrentCalculator"
       echo Loading: True Wind Insertion, NMEA Sensors, Battery and Current
-      CP=$CP:$PI4J_HOME/lib/pi4j-core.jar
+      CP=${CP}:${PI4J_HOME}/lib/pi4j-core.jar
       JAVA_OPTIONS="$JAVA_OPTIONS -DBMP180=y"
       JAVA_OPTIONS="$JAVA_OPTIONS -DHTU21DF=y"
       JAVA_OPTIONS="$JAVA_OPTIONS -Dbuffer.length=300000" # 5 minutes
     fi
     COMMAND="java -client -classpath $CP $JAVA_OPTIONS olivsoftdesktop.OlivSoftDesktop $UE $HEADLESS_OPTIONS"
     # sudo $COMMAND
-    if [ "$DIRECT" = "false" ]
+    if [[ "$DIRECT" == "false" ]]
     then
       echo -n INFO:Program log file is hcb.log. Hit [Return]
       read a
@@ -521,7 +520,7 @@ do
     echo Command is $COMMAND >hcb.log
     echo =================== >>hcb.log
     sudo $COMMAND >>hcb.log 2>&1 &
-    if [ "$DIRECT" = "true" ]
+    if [[ "$DIRECT" == "true" ]]
     then
       echo "HCB is on its way."
     fi
@@ -543,7 +542,7 @@ do
     read x
     # echo Classpath is [$CP]
     # echo Java options are $JAVA_OPTIONS
-    java -client -classpath $CP $JAVA_OPTIONS olivsoftdesktop.OlivSoftDesktop $HEADLESS_OPTIONS 2>hcc.log
+    java -client -classpath ${CP} ${JAVA_OPTIONS} olivsoftdesktop.OlivSoftDesktop $HEADLESS_OPTIONS 2>hcc.log
     # echo -n Hit [Return]
     # read a
   elif nocase "$choice" "KC"
@@ -552,14 +551,14 @@ do
     echo Terminating the Headless Console:
     PID=`ps -ef | grep -v grep | grep Dheadless=yes | awk '{ print $2 }'`
     PID_NODE=`ps -ef | grep -v grep | grep node-nmea | awk '{ print $2 }'`
-    if [ "$PID" != "" ]
+    if [[ "$PID" != "" ]]
     then
-      echo -n 'Killing process ' $PID $PID_NODE ', proceed [n]|y > '
+      echo -n 'Killing process ' ${PID} ${PID_NODE} ', proceed [n]|y > '
       read a
       if nocase "$a" "Y"
       then
       # sudo kill -SIGTERM $PID
-        sudo kill -9 $PID $PID_NODE
+        sudo kill -9 ${PID} ${PID_NODE}
       fi
     else
       echo Found no console...
@@ -571,9 +570,9 @@ do
     # Looking for the headless console
     echo Looking for the Headless Console:
     PID=`ps -ef | grep -v grep | grep Dheadless=yes | awk '{ print $2 }'`
-    if [ "$PID" != "" ]
+    if [[ "$PID" != "" ]]
     then
-      echo Found process $PID
+      echo Found process ${PID}
     else
       echo Found no console...
     fi
@@ -584,10 +583,10 @@ do
     # Kills the headless console
     echo Terminating the Headless Console:
     PID=`ps -ef | grep -v grep | grep 'Dheadless=true.*Splasher' | awk '{ print $2 }'`
-    if [ "$PID" != "" ]
+    if [[ "$PID" != "" ]]
     then
-      echo Killing process $PID
-      kill -SIGTERM $PID
+      echo Killing process ${PID}
+      kill -SIGTERM ${PID}
     else
       echo Found no headless weather wizard...
     fi
@@ -595,31 +594,31 @@ do
     read a
   elif nocase "$choice" "CLI"
   then
-    java -client -classpath $CP $JAVA_OPTIONS olivsoftdesktop.PreferencesCLI
+    java -client -classpath ${CP} ${JAVA_OPTIONS} olivsoftdesktop.PreferencesCLI
     echo -n Hit [return]
     read a
   elif nocase "$choice" "HU"
   then
     JAVA_OPTIONS="$JAVA_OPTIONS -Dheadless=yes"
-    java -client -classpath $CP $JAVA_OPTIONS olivsoftdesktop.OlivSoftDesktop --check-update
+    java -client -classpath ${CP} ${JAVA_OPTIONS} olivsoftdesktop.OlivSoftDesktop --check-update
     echo -n Hit [return]
     read a
   elif nocase "$choice" "S"
   then
-    java -Djava.library.path=/usr/lib/jni -classpath $CP nmeasniffer.gui.NMEASniffer
+    java -Djava.library.path=/usr/lib/jni -classpath ${CP} nmeasniffer.gui.NMEASniffer
     read a
   elif nocase "$choice" "POL"
   then
-    java -classpath $CP polarmaker.polars.main.PolarSmoother
+    java -classpath ${CP} polarmaker.polars.main.PolarSmoother
   elif nocase "$choice" "Q"
   then
     EXIT=true
   else
-    echo Command [$choice] Not supported yet..., hit [return]
+    echo Command \[${choice}\] Not supported yet..., hit [return]
     read a
   fi
 done
-if [ "$DIRECT" = "false" ]
+if [[ "$DIRECT" = "false" ]]
 then
   echo Bye now...
 fi
