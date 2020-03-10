@@ -1,3 +1,4 @@
 build/
 db/IMAGES.script
-*.lck
+db/*.lck
+db/*.log
