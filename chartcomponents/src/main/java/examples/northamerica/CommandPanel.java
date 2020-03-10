@@ -1,6 +1,6 @@
 // Decompiled by Jad v1.5.8f. Copyright 2001 Pavel Kouznetsov.
 // Jad home page: http://www.kpdus.com/jad.html
-// Decompiler options: packimports(3) 
+// Decompiler options: packimports(3)
 // Source File Name:   CommandPanel.java
 
 package examples.northamerica;
@@ -48,7 +48,7 @@ public class CommandPanel extends JPanel
     public void run()
     {
       videoElement = 0;
-      while(videoOn) 
+      while(videoOn)
       {
         try
         {
@@ -130,11 +130,11 @@ public class CommandPanel extends JPanel
 
     });
     jScrollPane1.getViewport().add(chartPanel, null);
-    add(jScrollPane1, "Center");
+    add(jScrollPane1, BorderLayout.CENTER);
     bottomPanel.add(zoomInButton, null);
     bottomPanel.add(zoomOutButton, null);
     bottomPanel.add(travelButton, null);
-    add(bottomPanel, "South");
+    add(bottomPanel, BorderLayout.SOUTH);
     double nLat = 60D;
     double sLat = -5D;
     double wLong = -160D;
@@ -275,25 +275,25 @@ public class CommandPanel extends JPanel
     return ret;
   }
 
-  private void drawRhumbLine(Graphics g, double ls, double gs, double lf, 
+  private void drawRhumbLine(Graphics g, double ls, double gs, double lf,
       double gf)
   {
     drawRhumbLine(g, ls, gs, lf, gf, null, 0x80000000);
   }
 
-  private void drawRhumbLine(Graphics g, double ls, double gs, double lf, 
+  private void drawRhumbLine(Graphics g, double ls, double gs, double lf,
       double gf, Date date)
   {
     drawRhumbLine(g, ls, gs, lf, gf, date, 0x80000000);
   }
 
-  private void drawRhumbLine(Graphics g, double ls, double gs, double lf, 
+  private void drawRhumbLine(Graphics g, double ls, double gs, double lf,
       double gf, int ptNum)
   {
     drawRhumbLine(g, ls, gs, lf, gf, null, ptNum);
   }
 
-  private void drawRhumbLine(Graphics g, double ls, double gs, double lf, 
+  private void drawRhumbLine(Graphics g, double ls, double gs, double lf,
       double gf, Date date, int ptNum)
   {
     java.awt.Point start = chartPanel.getPanelPoint(ls, gs);
@@ -323,19 +323,19 @@ public class CommandPanel extends JPanel
     }
   }
 
-  private double plotGreatCircle(Graphics g, double ls, double gs, double lf, 
+  private double plotGreatCircle(Graphics g, double ls, double gs, double lf,
       double gf)
   {
     return plotGreatCircle(g, ls, gs, lf, gf, true);
   }
 
-  private double plotGreatCircle(Graphics g, double ls, double gs, double lf, 
+  private double plotGreatCircle(Graphics g, double ls, double gs, double lf,
       double gf, boolean plot)
   {
     return plotGreatCircle(g, ls, gs, lf, gf, plot, 0x80000000);
   }
 
-  private double plotGreatCircle(Graphics g, double ls, double gs, double lf, 
+  private double plotGreatCircle(Graphics g, double ls, double gs, double lf,
       double gf, boolean plot, int maxPlot)
   {
     double distance = 0.0D;

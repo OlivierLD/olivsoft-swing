@@ -29,7 +29,7 @@ public class SampleFrame extends JFrame
     setTitle("Example 6 - North America");
     commandPanel1.setPreferredSize(new Dimension(400, 637));
     commandPanel1.setSize(new Dimension(400, 637));
-    getContentPane().add(commandPanel1, "Center");
+    getContentPane().add(commandPanel1, BorderLayout.CENTER);
   }
 
   private BorderLayout borderLayout1;

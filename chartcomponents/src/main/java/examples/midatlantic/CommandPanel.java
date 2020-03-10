@@ -1,6 +1,6 @@
 // Decompiled by Jad v1.5.8f. Copyright 2001 Pavel Kouznetsov.
 // Jad home page: http://www.kpdus.com/jad.html
-// Decompiler options: packimports(3) 
+// Decompiler options: packimports(3)
 // Source File Name:   CommandPanel.java
 
 package examples.midatlantic;
@@ -63,10 +63,10 @@ public class CommandPanel extends JPanel
 
     });
     jScrollPane1.getViewport().add(chartPanel, null);
-    add(jScrollPane1, "Center");
+    add(jScrollPane1, BorderLayout.CENTER);
     bottomPanel.add(zoomInButton, null);
     bottomPanel.add(zoomOutButton, null);
-    add(bottomPanel, "South");
+    add(bottomPanel, BorderLayout.SOUTH);
     double nLat = 45D;
     double sLat = 35D;
     double wLong = -55D;

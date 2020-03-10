@@ -30,7 +30,7 @@ public class SampleFrame extends JFrame
     setTitle("Example - Increasing Latitude");
     this.setBackground(new Color(190, 220, 216));
     getContentPane().setBackground(this.getBackground());
-    getContentPane().add(commandPanel1, "Center");
+    getContentPane().add(commandPanel1, BorderLayout.CENTER);
   }
 
   private BorderLayout borderLayout1;

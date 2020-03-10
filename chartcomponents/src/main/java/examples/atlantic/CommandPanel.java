@@ -68,10 +68,10 @@ public class CommandPanel extends JPanel
 
     });
     jScrollPane1.getViewport().add(chartPanel, null);
-    add(jScrollPane1, "Center");
+    add(jScrollPane1, BorderLayout.CENTER);
     bottomPanel.add(zoomInButton, null);
     bottomPanel.add(zoomOutButton, null);
-    add(bottomPanel, "South");
+    add(bottomPanel, BorderLayout.SOUTH);
     double nLat = 67D;
     double sLat = -60D;
     double wLong = -100D;
@@ -164,7 +164,7 @@ public class CommandPanel extends JPanel
     plotGreatCircle(gr, ls, gs, lf, gf);
   }
 
-  private void drawRhumbLine(Graphics g, double ls, double gs, double lf, 
+  private void drawRhumbLine(Graphics g, double ls, double gs, double lf,
       double gf)
   {
     g.setColor(Color.red);
@@ -174,7 +174,7 @@ public class CommandPanel extends JPanel
       g.drawLine(start.x, start.y, finish.x, finish.y);
   }
 
-  private GreatCircle plotGreatCircle(Graphics g, double ls, double gs, double lf, 
+  private GreatCircle plotGreatCircle(Graphics g, double ls, double gs, double lf,
       double gf)
   {
     g.setColor(Color.blue);

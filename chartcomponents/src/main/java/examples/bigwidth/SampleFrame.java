@@ -27,7 +27,7 @@ public class SampleFrame extends JFrame
     getContentPane().setLayout(borderLayout1);
     setSize(new Dimension(600, 400));
     setTitle("Example - North Pacific & Atlantic");
-    getContentPane().add(commandPanel1, "Center");
+    getContentPane().add(commandPanel1, BorderLayout.CENTER);
   }
 
   private BorderLayout borderLayout1;
