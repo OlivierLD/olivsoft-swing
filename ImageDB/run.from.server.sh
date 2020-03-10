@@ -1,5 +1,5 @@
 #!/bin/bash
-echo Image Database. Server version
+echo Image Database. Server version, requires the sc ript db/startDBServer.sh to run.
 CP=./build/libs/ImageDB-4.0.0.0-all.jar
 #
 # JAVA_OPTIONS=-Dverbose=false -Xmx1024m
