@@ -32,7 +32,7 @@ dependencies {
   testCompile 'junit:junit:4.8.2'
   compile     'hsql:db:1.8.0'
   compile project(':coreutilities')
-  compile project(':chartcomponents')
+//  compile project(':chartcomponents')
 }
 
 //task copyResources(type: Copy) {
