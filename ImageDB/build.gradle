@@ -31,6 +31,7 @@ repositories {
 dependencies {
   testCompile 'junit:junit:4.8.2'
   compile     'hsql:db:1.8.0'
+//  compile     'org.hsqldb:hsqldb:2.4.0'
   compile project(':coreutilities')
 //  compile project(':chartcomponents')
 }

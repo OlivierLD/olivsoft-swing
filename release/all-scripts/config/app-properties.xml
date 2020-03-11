@@ -9,7 +9,7 @@
    <param id="7">24.0</param>
    <param id="8">true</param>
    <param id="9">./GRIBFiles</param>
-   <param id="10">/dev/tty.HC-05-DevB</param>
+   <param id="10">./WeatherFaxes</param>
    <param id="11">./composites</param>
    <param id="12">1</param>
    <param id="13">0.75</param>
@@ -36,7 +36,7 @@
    <param id="34">true</param>
    <param id="35">false</param>
    <param id="36">2</param>
-   <param id="37">./patterns/01.Favorites/01.1.Pacific.Sfc.500.Tropic.GRIB.ptrn</param>
+   <param id="37">./patterns/new.patterns/FullPac.ptrn</param>
    <param id="38">0;0;0</param>
    <param id="39">10, 20, 30, 40, 60, 15, 25, 35, 5</param>
    <param id="40">1.01</param>
