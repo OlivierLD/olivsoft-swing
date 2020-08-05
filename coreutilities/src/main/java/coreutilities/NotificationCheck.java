@@ -75,7 +75,7 @@ public class NotificationCheck {
                     XMLElement xe = (XMLElement) messageList.item(i);
 
                     String nDate = xe.getAttribute("date");
-                    String content = xe.getTextContent();
+                    String content = xe.getNodeValue(); // .getTextContent();
                     map.put(SDF.parse(nDate), content);
                 }
             } else

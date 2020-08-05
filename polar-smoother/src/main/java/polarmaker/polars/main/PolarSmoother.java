@@ -136,7 +136,7 @@ public class PolarSmoother
     parser.setPreserveWhitespace(true);
     XSDBuilder xsdBuilder = new XSDBuilder();
     InputStream is = validatorStream.openStream();
-    XMLSchema xmlSchema = /*(XMLSchema)*/xsdBuilder.build(is, null);
+    XMLSchema xmlSchema = (XMLSchema) xsdBuilder.build(is, null);
     parser.setXMLSchema(xmlSchema);
 
     URL doc = docToValidate;

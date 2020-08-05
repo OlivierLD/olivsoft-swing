@@ -10,6 +10,7 @@ import oracle.xml.parser.v2.NSResolver;
 import oracle.xml.parser.v2.XMLDocument;
 import oracle.xml.parser.v2.XMLElement;
 import oracle.xml.parser.v2.DOMParser;
+import oracle.xml.parser.schema.XMLSchema;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Element;
@@ -98,7 +99,7 @@ public class ObjMaker
             parser.setPreserveWhitespace(true);
             XSDBuilder xsdBuilder = new XSDBuilder();
             java.io.InputStream is = validatorStream.openStream();
-            oracle.xml.parser.schema.XMLSchema xmlSchema = xsdBuilder.build(is, null);
+            XMLSchema xmlSchema = (XMLSchema)xsdBuilder.build(is, null);
             parser.setXMLSchema(xmlSchema);
             URL doc = docToValidate;
             parser.parse(doc);

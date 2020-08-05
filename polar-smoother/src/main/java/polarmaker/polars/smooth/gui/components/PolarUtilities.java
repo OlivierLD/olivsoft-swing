@@ -94,7 +94,7 @@ public class PolarUtilities
                     System.out.println("Invalid coeff degree");
                   else
                   {
-                    double d = Double.parseDouble(coeff.getTextContent());
+                    double d = Double.parseDouble(coeff.getNodeValue() /*.getTextContent() */);
                     coeffDeg[j][k] = d;
                   }
                 }

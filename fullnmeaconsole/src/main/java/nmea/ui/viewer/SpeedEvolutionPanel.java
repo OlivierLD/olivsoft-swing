@@ -1,9 +1,6 @@
 package nmea.ui.viewer;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
+import java.awt.*;
 
 import java.util.Date;
 
@@ -25,13 +22,14 @@ import ocss.nmea.parser.Speed;
 
 import ocss.nmea.parser.TrueWindSpeed;
 
-import oracle.jdeveloper.layout.VerticalFlowLayout;
+//import oracle.jdeveloper.layout.VerticalFlowLayout;
 
 
 public class SpeedEvolutionPanel
   extends JPanel
 {
-  private VerticalFlowLayout verticalFlowLayout = new VerticalFlowLayout();
+//  private VerticalFlowLayout verticalFlowLayout = new VerticalFlowLayout();
+  private GridBagLayout verticalFlowLayout = new GridBagLayout();
 
   private SpeedEvolutionDisplay bspLoggingDisplay = new SpeedEvolutionDisplay("BSP",  "Boat Speed", 36);
   private SpeedEvolutionDisplay awsLoggingDisplay = new SpeedEvolutionDisplay("AWS",  "Apparent Wind Speed", 36);
