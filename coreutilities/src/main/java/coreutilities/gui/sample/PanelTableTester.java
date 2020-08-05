@@ -6,37 +6,29 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 
-public class PanelTableTester
-{
-  public PanelTableTester()
-  {
-    JFrame frame = new TestFrame();
-    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-    Dimension frameSize = frame.getSize();
-    if (frameSize.height > screenSize.height)
-    {
-      frameSize.height = screenSize.height;
+public class PanelTableTester {
+    public PanelTableTester() {
+        JFrame frame = new TestFrame();
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension frameSize = frame.getSize();
+        if (frameSize.height > screenSize.height) {
+            frameSize.height = screenSize.height;
+        }
+        if (frameSize.width > screenSize.width) {
+            frameSize.width = screenSize.width;
+        }
+        frame.setLocation((screenSize.width - frameSize.width) / 2, (screenSize.height - frameSize.height) / 2);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
     }
-    if (frameSize.width > screenSize.width)
-    {
-      frameSize.width = screenSize.width;
-    }
-    frame.setLocation( ( screenSize.width - frameSize.width ) / 2, ( screenSize.height - frameSize.height ) / 2 );
-    frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
-    frame.setVisible(true);
-  }
 
-  public static void main(String[] args)
-  {
-    try
-    {
-      if (System.getProperty("swing.defaultlaf") == null)
-        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+    public static void main(String[] args) {
+        try {
+            if (System.getProperty("swing.defaultlaf") == null)
+                UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        new PanelTableTester();
     }
-    catch (Exception e)
-    {
-      e.printStackTrace();
-    }
-    new PanelTableTester();
-  }
 }
