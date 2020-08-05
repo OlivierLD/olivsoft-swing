@@ -7,19 +7,6 @@ plugins {
 group = 'oliv.cool.stuff'
 version = '4.0.0.0'
 
-//sourceSets {
-//  main {
-//    java {
-//      srcDir 'src'
-//    }
-//  }
-//  test {
-//    java {
-//      srcDir 'tests'
-//    }
-//  }
-//}
-
 repositories {
   mavenCentral()
   maven { url "http://lediouris.net/maven2" }
