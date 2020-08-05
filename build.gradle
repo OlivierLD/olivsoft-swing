@@ -1,6 +1,6 @@
 plugins {
   id 'java'
-  id 'scala'
+//  id 'scala'
   id 'idea'
   id 'maven'
   id 'com.github.johnrengelman.shadow' version '5.0.0'
@@ -37,6 +37,9 @@ dependencies {
 
 repositories {
   mavenCentral()
+  maven { url "https://raw.githubusercontent.com/OlivierLD/raspberry-coffee/repository" }
+  maven { url "http://www.datanucleus.org/downloads/maven2" }
+  maven { url "https://oss.sonatype.org/content/groups/public" }
   maven { url "http://lediouris.net/maven2" }
   mavenLocal()
 }

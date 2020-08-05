@@ -31,8 +31,8 @@ repositories {
 
 dependencies {
   testCompile 'junit:junit:4.8.2'
-//compile 'oracle:xmlparser:v2'
-  compile 'jansi:ansi:1.9'
+//compile 'oracle:xmlparser:2.0'
+  compile 'org.fusesource.jansi:jansi:1.11'
   compile 'org.json:json:20090211'
   compile project(':almanac-related-tools')
   compile project(':chart-library')

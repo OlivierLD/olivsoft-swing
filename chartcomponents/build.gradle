@@ -7,31 +7,19 @@ apply plugin: 'maven'
 group = 'oliv.cool.stuff'
 version = '4.0.0.0'
 
-//sourceSets {
-//  main {
-//    java {
-//      srcDir 'src/java'
-//    }
-//    resources {
-//      srcDir 'src/resources'
-//    }
-//  }
-//  test {
-//    java {
-//      srcDir 'tests'
-//    }
-//  }
-//}
-
 repositories {
-  mavenCentral()
-  maven { url "http://lediouris.net/maven2" }
   mavenLocal()
+  mavenCentral()
+  maven { url "https://raw.githubusercontent.com/OlivierLD/raspberry-coffee/repository" }
+  maven { url "http://www.datanucleus.org/downloads/maven2" }
+  maven { url "http://maven.icm.edu.pl/artifactory/repo/" }
+  maven { url "https://oss.sonatype.org/content/groups/public" }
+  maven { url "http://lediouris.net/maven2" }
 }
 
 dependencies {
   testCompile 'junit:junit:4.8.2'
-  compile     'oracle:xmlparser:v2'
+  compile     'oracle:xmlparser:2.0'
   compile project(':javanmeaparser')
 }
 

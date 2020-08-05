@@ -7,30 +7,21 @@ apply plugin: 'maven'
 group = 'oliv.cool.stuff'
 version = '4.0.0.0'
 
-//sourceSets {
-//  main {
-//    java {
-//      srcDir 'src'
-//    }
-//  }
-//  test {
-//    java {
-//      srcDir 'tests'
-//    }
-//  }
-//}
-
 repositories {
-  mavenCentral()
-  maven { url "http://lediouris.net/maven2" }
   mavenLocal()
+  mavenCentral()
+  maven { url "https://raw.githubusercontent.com/OlivierLD/raspberry-coffee/repository" }
+  maven { url "http://www.datanucleus.org/downloads/maven2" }
+  maven { url "http://maven.icm.edu.pl/artifactory/repo/" }
+  maven { url "https://oss.sonatype.org/content/groups/public" }
+  maven { url "http://lediouris.net/maven2" }
 }
 
 dependencies {
   testCompile 'junit:junit:4.8.2'
-  compile     'oracle:xmlparser:v2'
-  compile     'sqlite:jdbc:v056'
-  compile     'hsql:db:1.8.0'
+  compile     'oracle:xmlparser:2.0'
+//  compile     'sqlite:sqlitejdbc:0.56.0'
+  compile     'org.hsqldb:hsqldb:1.8.0.10'
 }
 
 //task copyResources(type: Copy) {

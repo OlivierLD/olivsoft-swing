@@ -28,8 +28,8 @@ repositories {
 
 dependencies {
   testCompile 'junit:junit:4.8.2'
-  compile     'oracle:xmlparser:v2'
-  compile     'jdev:rt:1.0'
+  compile     'oracle:xmlparser:2.0'
+//  compile     'jdev:rt:1.0'
   compile     project(':geomutils')
   compile     project(':javanauticalalmanac')
   compile     project(':coreutilities')
