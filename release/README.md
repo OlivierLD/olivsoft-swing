@@ -25,7 +25,7 @@ In the commands below, the orientation of the slashes (`/`) is intentional, even
 
 Then (on Windows, in the git bash shell) run the following command:
 ```
- release> ../../gradlew --daemon shadowJar
+ release> ../gradlew [--daemon] clean shadowJar
 ```
 This will generate a _fat_ jar in `build/libs`, named `release-4.0.0.0-all.jar`.
 This jar contains pretty much _everything_ you need, including the **Maven** dependencies.
