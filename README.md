@@ -24,5 +24,6 @@ $ ./olivsoft.sh
 Other scripts are available, depending on your system.
 
 ## Some notes
-> _Warning:_ This is a bit too demanding for a Raspberry Pi, even the Raspberry 4 B.
+> _Warning:_ The graphical mode is too demanding for a Raspberry Pi, even the Raspberry 4 B.
+> Headless mode would be preferred in this case. 
  
