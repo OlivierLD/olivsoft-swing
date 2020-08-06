@@ -7,21 +7,11 @@ apply plugin: 'maven'
 group = 'oliv.cool.stuff'
 version = '4.0.0.0'
 
-//sourceSets {
-//  main {
-//    java {
-//      srcDir 'src'
-//    }
-//  }
-//  test {
-//    java {
-//      srcDir 'tests'
-//    }
-//  }
-//}
-
 repositories {
   mavenCentral()
+  maven { url "https://raw.githubusercontent.com/OlivierLD/raspberry-coffee/repository" }
+  maven { url "http://www.datanucleus.org/downloads/maven2" }
+  maven { url "https://oss.sonatype.org/content/groups/public" }
   maven { url "http://lediouris.net/maven2" }
   mavenLocal()
 }
