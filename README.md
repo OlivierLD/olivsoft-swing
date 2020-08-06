@@ -23,3 +23,6 @@ $ ./olivsoft.sh
 ```
 Other scripts are available, depending on your system.
 
+## Some notes
+> _Warning:_ This is a bit too demanding for a Raspberry Pi, even the Raspberry 4 B.
+ 
