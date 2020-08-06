@@ -4,7 +4,7 @@ apply plugin: 'maven'
 
 //def userprofile = System.getenv()['USERPROFILE'] // On Windows...
 
-group = 'oliv.pi4j.samples'
+group = 'oliv.cool.stuff'
 version = '4.0.0.0'
 
 repositories {
