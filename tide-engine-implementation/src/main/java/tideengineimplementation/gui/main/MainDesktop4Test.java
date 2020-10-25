@@ -14,78 +14,66 @@ import javax.swing.UIManager;
 import tideengineimplementation.gui.TideInternalFrame;
 
 public class MainDesktop4Test
-     extends JFrame
-{
-  @SuppressWarnings("compatibility:2842122687839437386")
-  public final static long serialVersionUID = 1L;
-  public MainDesktop4Test()
-  {
-    try
-    {
-      jbInit();
+        extends JFrame {
+    public MainDesktop4Test() {
+        try {
+            jbInit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
-    catch (Exception e)
-    {
-      e.printStackTrace();
-    }
-  }
 
-  private void jbInit()
-    throws Exception
-  {
-    this.getContentPane().setLayout( null );
-    this.setSize(new Dimension(1672, 879));
-    this.setTitle( "Oliv" );
-    
-    TideInternalFrame tides = new TideInternalFrame(null);
-    tides.setIconifiable(true);
-    tides.setClosable(true);
-    tides.setMaximizable(true);
-    tides.setResizable(true);
-    this.add(tides);
-    tides.setVisible(true);
-    tides.setBounds(new Rectangle(70, 35, 1200, 800));
-  }
-  
-  public static void main(String[] args)
-  {
-    String lnf = null;
-    try { lnf = System.getProperty("swing.defaultlaf"); } catch (Exception ignore) { System.err.println(ignore.getLocalizedMessage()); }
-    //  System.out.println("LnF:" + lnf);
-    if (lnf == null) // Let the -Dswing.defaultlaf do the job.
-    {
-      try
-      {
-        if (System.getProperty("swing.defaultlaf") == null)
-          UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-      }
-      catch(Exception e)
-      {
-        e.printStackTrace();
-      }
-    }
-    JFrame.setDefaultLookAndFeelDecorated(true);
-    JFrame frame = new MainDesktop4Test();
-    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-    Dimension frameSize = frame.getSize();
-    if (frameSize.height > screenSize.height)
-    {
-      frameSize.height = screenSize.height;
-    }
-    if (frameSize.width > screenSize.width)
-    {
-      frameSize.width = screenSize.width;
-    }
-    frame.setLocation( ( screenSize.width - frameSize.width ) / 2, ( screenSize.height - frameSize.height ) / 2 );
+    private void jbInit()
+            throws Exception {
+        this.getContentPane().setLayout(null);
+        this.setSize(new Dimension(1672, 879));
+        this.setTitle("Oliv");
 
-    frame.addWindowListener(new WindowAdapter()
-    {
-      public void windowClosing(WindowEvent e)
-      {
-        System.exit(0);
-      }
-    });    
-    //  frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
-    frame.setVisible(true);    
-  }
+        TideInternalFrame tides = new TideInternalFrame(null);
+        tides.setIconifiable(true);
+        tides.setClosable(true);
+        tides.setMaximizable(true);
+        tides.setResizable(true);
+        this.add(tides);
+        tides.setVisible(true);
+        tides.setBounds(new Rectangle(70, 35, 1200, 800));
+    }
+
+    public static void main(String[] args) {
+        String lnf = null;
+        try {
+            lnf = System.getProperty("swing.defaultlaf");
+        } catch (Exception ignore) {
+            System.err.println(ignore.getLocalizedMessage());
+        }
+        //  System.out.println("LnF:" + lnf);
+        if (lnf == null) // Let the -Dswing.defaultlaf do the job.
+        {
+            try {
+                if (System.getProperty("swing.defaultlaf") == null)
+                    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        JFrame.setDefaultLookAndFeelDecorated(true);
+        JFrame frame = new MainDesktop4Test();
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension frameSize = frame.getSize();
+        if (frameSize.height > screenSize.height) {
+            frameSize.height = screenSize.height;
+        }
+        if (frameSize.width > screenSize.width) {
+            frameSize.width = screenSize.width;
+        }
+        frame.setLocation((screenSize.width - frameSize.width) / 2, (screenSize.height - frameSize.height) / 2);
+
+        frame.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                System.exit(0);
+            }
+        });
+        //  frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+        frame.setVisible(true);
+    }
 }
