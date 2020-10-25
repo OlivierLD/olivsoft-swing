@@ -1,8 +1,10 @@
-apply plugin: 'java'
-compileJava.options.encoding = 'ISO-8859-1'
-apply plugin: 'maven'
-
-//def userprofile = System.getenv()['USERPROFILE'] // On Windows...
+plugins {
+  id 'java'
+  id 'idea'
+  id 'maven'
+  id 'com.github.johnrengelman.shadow' // version '5.2.0'
+  id 'application'
+}
 
 group = 'oliv.cool.stuff'
 version = '4.0.0.0'
@@ -26,22 +28,10 @@ dependencies {
   compile project(':fullnmeaconsole')
 }
 
-//task copyResources(type: Copy) {
-//  description = 'Copies non-java resources in the output directory before the jar task (png, xml, xsd, ttf, properties, etc)'
-//  from 'src'
-//  into 'build/classes/main'
-//  include '**/*.xml', '**/*.xsd', '**/*.png', '**/*.gif', '**/*.jpg', '**/*.properties', '**/*.ttf', '**/*.html'
-//}
-//
-//jar.dependsOn(copyResources)
+mainClassName = "tideengineimplementation.gui.main.MainDesktop4Test"
 
-//task tellMeProxy (description: "Spits out the proxy settings.") << {
-//  try {
-//    println "Accessing resources with proxy $proxyHost:$proxyPort"
-//    println "UserProfile: " + System.getenv()['USERPROFILE']
-//  } catch (Exception e) {
-//    println "No proxy"
-//  }
-//}
-//
-//compileJava.dependsOn(tellMeProxy)
+shadowJar {
+  zip64 true
+  // to create an executable jar-file. Requires mainClassName.
+  mergeServiceFiles()
+}

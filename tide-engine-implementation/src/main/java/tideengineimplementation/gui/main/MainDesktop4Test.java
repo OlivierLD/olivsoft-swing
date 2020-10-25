@@ -39,7 +39,7 @@ public class MainDesktop4Test
         tides.setBounds(new Rectangle(70, 35, 1200, 800));
     }
 
-    public static void main(String[] args) {
+    public static void main(String... args) {
         String lnf = null;
         try {
             lnf = System.getProperty("swing.defaultlaf");
@@ -47,8 +47,7 @@ public class MainDesktop4Test
             System.err.println(ignore.getLocalizedMessage());
         }
         //  System.out.println("LnF:" + lnf);
-        if (lnf == null) // Let the -Dswing.defaultlaf do the job.
-        {
+        if (lnf == null) { // Let the -Dswing.defaultlaf do the job.
             try {
                 if (System.getProperty("swing.defaultlaf") == null)
                     UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
