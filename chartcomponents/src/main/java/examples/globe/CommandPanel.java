@@ -83,47 +83,23 @@ public class CommandPanel
         }
         setLayout(borderLayout);
         zoomInButton.setText("Zoom In");
-        zoomInButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                zoomInActionPerformed(e);
-            }
-        });
+        zoomInButton.addActionListener(e -> zoomInActionPerformed(e));
         zoomOutButton.setText("Zoom Out");
-        zoomOutButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                zoomOutActionPerformed(e);
-            }
-        });
+        zoomOutButton.addActionListener(e -> zoomOutActionPerformed(e));
         tripButton.setText("Trip");
-        tripButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                tripActionPerformed(e);
-            }
-        });
+        tripButton.addActionListener(e -> tripActionPerformed(e));
         spinButton.setText("Spin");
-        spinButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                spinActionPerformed(e);
-            }
-        });
+        spinButton.addActionListener(e -> spinActionPerformed(e));
         transparentCheckBox.setText("Transparent");
         transparentCheckBox.setSelected(true);
-        transparentCheckBox.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                transparentActionPerformed(e);
-            }
-        });
+        transparentCheckBox.addActionListener(e -> transparentActionPerformed(e));
 
         leftRight.setText("23.0");
         leftRight.setToolTipText("Left-Right tilt (degrees)");
         foreAft.setText("40.0");
         foreAft.setToolTipText("Latitude of the eye (degrees)");
         setValuesButton.setText("Set");
-        setValuesButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                setValuesActionPerformed(e);
-            }
-        });
+        setValuesButton.addActionListener(e -> setValuesActionPerformed(e));
         jScrollPane.getViewport().add(chartPanel, null);
         add(jScrollPane, BorderLayout.CENTER);
         bottomPanel.add(zoomInButton, null);
@@ -230,31 +206,31 @@ public class CommandPanel
     GeoPoint to = null;
 
     // For video
-    GeoPoint[] gpa =
-            {
-                    new GeoPoint(GeomUtil.sexToDec("37", "56"), -GeomUtil.sexToDec("123", "4")), // SF
-                    new GeoPoint(GeomUtil.sexToDec("34", "0"), -GeomUtil.sexToDec("120", "0")), // Channel Islands
-                    new GeoPoint(-GeomUtil.sexToDec("9", "0"), -GeomUtil.sexToDec("140", "0")), // Marquesas
-                    new GeoPoint(-GeomUtil.sexToDec("15", "29"), -GeomUtil.sexToDec("145", "44")), // Tuamotus
-                    new GeoPoint(-GeomUtil.sexToDec("18", "0"), -GeomUtil.sexToDec("149", "0")), // Tahiti
-                    new GeoPoint(-GeomUtil.sexToDec("19", "0"), -GeomUtil.sexToDec("160", "0")), // Cook Islands
-                    new GeoPoint(-GeomUtil.sexToDec("18", "30"), -GeomUtil.sexToDec("173", "0")), // Tonga
-                    new GeoPoint(-GeomUtil.sexToDec("18", "0"), -GeomUtil.sexToDec("180", "0")), // Fiji
-                    new GeoPoint(GeomUtil.sexToDec("21", "15"), -GeomUtil.sexToDec("157", "40")), // Hawaii
+    GeoPoint[] gpa = {
+        new GeoPoint(GeomUtil.sexToDec("37", "56"), -GeomUtil.sexToDec("123", "4")), // SF
+        new GeoPoint(GeomUtil.sexToDec("34", "0"), -GeomUtil.sexToDec("120", "0")), // Channel Islands
+        new GeoPoint(-GeomUtil.sexToDec("9", "0"), -GeomUtil.sexToDec("140", "0")), // Marquesas
+        new GeoPoint(-GeomUtil.sexToDec("15", "29"), -GeomUtil.sexToDec("145", "44")), // Tuamotus
+        new GeoPoint(-GeomUtil.sexToDec("18", "0"), -GeomUtil.sexToDec("149", "0")), // Tahiti
+        new GeoPoint(-GeomUtil.sexToDec("19", "0"), -GeomUtil.sexToDec("160", "0")), // Cook Islands
+        new GeoPoint(-GeomUtil.sexToDec("18", "30"), -GeomUtil.sexToDec("173", "0")), // Tonga
+        new GeoPoint(-GeomUtil.sexToDec("18", "0"), -GeomUtil.sexToDec("180", "0")), // Fiji
+        new GeoPoint(GeomUtil.sexToDec("21", "15"), -GeomUtil.sexToDec("157", "40")), // Hawaii
 //    new GeoPoint(-GeomUtil.sexToDec("15", "0"), GeomUtil.sexToDec("168", "0")), // Vanuatu
 //    new GeoPoint(-GeomUtil.sexToDec("8", "0"), GeomUtil.sexToDec("159", "0")), // Solomon
 //    new GeoPoint(GeomUtil.sexToDec("9", "0"), GeomUtil.sexToDec("155", "0")), // Caroline
 //    new GeoPoint(GeomUtil.sexToDec("13", "15"), GeomUtil.sexToDec("144", "45")), // Guam
 //    new GeoPoint(GeomUtil.sexToDec("35", "0"),  GeomUtil.sexToDec("140", "0")), // Tokyo
-                    new GeoPoint(GeomUtil.sexToDec("50", "0"), -GeomUtil.sexToDec("127", "0")), // Vancouver
-                    new GeoPoint(GeomUtil.sexToDec("37", "56"), -GeomUtil.sexToDec("123", "4")) // SF
-            };
+        new GeoPoint(GeomUtil.sexToDec("50", "0"), -GeomUtil.sexToDec("127", "0")), // Vancouver
+        new GeoPoint(GeomUtil.sexToDec("37", "56"), -GeomUtil.sexToDec("123", "4")) // SF
+    };
 
     private boolean isVisible(double l, double g) {
         boolean plot = true;
         if (chartPanel.getProjection() == ChartPanelInterface.GLOBE_VIEW) {
-            if (!chartPanel.isTransparentGlobe() && chartPanel.isBehind(l, g - chartPanel.getGlobeViewLngOffset()))
+            if (!chartPanel.isTransparentGlobe() && chartPanel.isBehind(l, g - chartPanel.getGlobeViewLngOffset())) {
                 plot = false;
+            }
         }
         return plot;
     }

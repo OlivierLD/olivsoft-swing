@@ -71,11 +71,7 @@ public class DistancePanel
 		speedTextField.setText("5.0");
 		knotsLabel.setText(GnlUtilities.buildMessage("knot"));
 		recalcButton.setText(GnlUtilities.buildMessage("see"));
-		recalcButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				recalcButton_actionPerformed(e);
-			}
-		});
+		recalcButton.addActionListener(e -> recalcButton_actionPerformed(e));
 		dotDotDotLabel.setText("...");
 		gcResultLabel.setText("...");
 		rhumblineResultLabel.setText("...");
@@ -155,8 +151,9 @@ public class DistancePanel
 		} catch (NumberFormatException nfe) {
 			JOptionPane.showMessageDialog(this, nfe.toString(), GnlUtilities.buildMessage("bsp-val-error"), JOptionPane.ERROR_MESSAGE);
 		}
-		if (bsp < 0D)
+		if (bsp < 0D) {
 			JOptionPane.showMessageDialog(this, GnlUtilities.buildMessage("bsp-positive-please"), GnlUtilities.buildMessage("bsp-val-error"), JOptionPane.ERROR_MESSAGE);
+		}
 		if (bsp > 0D) {
 			double gcTime = gcDist / bsp;
 			double rlTime = rlDist / bsp;

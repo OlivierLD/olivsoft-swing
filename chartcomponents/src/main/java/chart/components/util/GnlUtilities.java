@@ -17,6 +17,7 @@ public class GnlUtilities {
 		return mess;
 	}
 
+	// TODO Use String.replace
 	public static String replaceString(String orig, String oldStr, String newStr) {
 		String ret = orig;
 		int indx = 0;

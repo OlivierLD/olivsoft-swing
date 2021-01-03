@@ -32,8 +32,9 @@ public class Main4Tests {
 
 	public static void main(String... args) {
 		try {
-			if (System.getProperty("swing.defaultlaf") == null)
+			if (System.getProperty("swing.defaultlaf") == null) {
 				UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
