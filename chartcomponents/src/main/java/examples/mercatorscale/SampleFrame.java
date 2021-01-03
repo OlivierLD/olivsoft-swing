@@ -5,8 +5,8 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 
 public class SampleFrame extends JFrame {
-	private BorderLayout borderLayout;
-	private PlottingSheetImpl psi;
+	private final BorderLayout borderLayout;
+	private final PlottingSheetImpl psi;
 
 	public SampleFrame() {
 		borderLayout = new BorderLayout();
