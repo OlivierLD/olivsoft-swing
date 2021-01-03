@@ -1,6 +1,16 @@
-apply plugin: 'java'
+plugins {
+  id 'java'
+  id 'idea'
+  id 'maven'
+  id 'com.github.johnrengelman.shadow' // version '5.2.0'
+}
+
+//apply plugin: 'java'
+//compileJava.options.encoding = 'ISO-8859-1'
+//apply plugin: 'maven'
+
 compileJava.options.encoding = 'ISO-8859-1'
-apply plugin: 'maven'
+compileJava.options.compilerArgs += ["-Xlint:unchecked"]
 
 //def userprofile = System.getenv()['USERPROFILE'] // On Windows...
 

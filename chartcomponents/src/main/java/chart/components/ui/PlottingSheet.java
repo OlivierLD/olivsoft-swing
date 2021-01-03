@@ -9,7 +9,6 @@ import java.awt.Point;
 import java.awt.Rectangle;
 import java.text.DecimalFormat;
 
-@SuppressWarnings("serial")
 public class PlottingSheet
 		extends ChartPanel {
 	private double chartLatitudeSpan = 1d;
