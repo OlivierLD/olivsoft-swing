@@ -241,7 +241,7 @@ public class GRIBSlug
   
   private static boolean standalone = false;
   // For standalone tests
-  public static void main(String[] args) throws Exception
+  public static void main(String... args) throws Exception
   {
     standalone = true;
     GRIBSlug gs = new GRIBSlug();

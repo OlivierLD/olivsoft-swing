@@ -85,8 +85,7 @@ public class SearchPanel
         }
     }
 
-    private void jbInit()
-            throws Exception {
+    private void jbInit() throws Exception {
         this.setLayout(gridBagLayout1);
         this.setSize(new Dimension(588, 249));
         if (this.station != null) {

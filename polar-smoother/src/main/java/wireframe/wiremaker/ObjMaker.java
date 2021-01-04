@@ -651,7 +651,7 @@ public class ObjMaker {
         return startFrom;
     }
 
-    public static void main(String args[]) {
+    public static void main(String... args) {
         if (args.length != 1) {
             System.err.println("Invalid number of arguments");
             System.exit(1);

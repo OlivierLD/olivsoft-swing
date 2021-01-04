@@ -30,7 +30,7 @@ import olivsoftdesktop.DesktopUserExitInterface;
  * Injects True Wind speed and direction
  *         Current speed and direction
  *
- * to be used with -ue:olivsoftdesktopuserexits.sample.TrueWindSentenceInsertion
+ * to be used with -ue:olivsoftdesktopuserexits.coreutilities.sample.TrueWindSentenceInsertion
  */
 public class TrueWindSentenceInsertion
   implements DesktopUserExitInterface

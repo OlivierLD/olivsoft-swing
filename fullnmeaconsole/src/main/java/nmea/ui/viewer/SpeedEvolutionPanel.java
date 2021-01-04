@@ -46,8 +46,7 @@ public class SpeedEvolutionPanel
         }
     }
 
-    private void jbInit()
-            throws Exception {
+    private void jbInit() throws Exception {
         this.setSize(new Dimension(450, 350));
         this.setLayout(verticalFlowLayout);
 

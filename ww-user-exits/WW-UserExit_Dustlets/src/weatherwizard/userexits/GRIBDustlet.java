@@ -577,7 +577,7 @@ public class GRIBDustlet
   }
   
   // For standalone tests
-//  public static void main(String[] args) throws Exception
+//  public static void main(String... args) throws Exception
 //  {
 //    GRIBDustlet gb = new GRIBDustlet();
 //    String gribFileName = "GRIB_2009_02_25_Sample.grb";

@@ -182,7 +182,7 @@ public class ChartAdjust
     
     ParamPanel.setUserValues();
     // Might also try this:
-    // java -Dswing.aatext=true -Dswing.plaf.metal.controlFont=Tahoma -Dswing.plaf.metal.userFont=Tahoma …
+    // java -Dswing.aatext=true -Dswing.plaf.metal.controlFont=Tahoma -Dswing.plaf.metal.userFont=Tahoma ï¿½
     Font defaultFont = null;
     try 
     { 
@@ -727,7 +727,7 @@ public class ChartAdjust
     memoryProbeThread.start();
   }
   
-  public static void main(String args[])
+  public static void main(String... args)
   {
     System.out.println("-------------------------------------");
     System.out.println("Starting: " + WWContext.PRODUCT_ID);

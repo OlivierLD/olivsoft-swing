@@ -14,7 +14,7 @@ import java.text.SimpleDateFormat;
 
 public class SQLTests
 {
-  public static void main(String[] args) throws Exception
+  public static void main(String... args) throws Exception
   {
     System.out.println("Running in " + System.getProperty("user.dir"));
     Connection connection = SQLUtil.getConnection(".", "LOG", "log", "log");

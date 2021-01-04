@@ -110,7 +110,7 @@ public class NMEAConsole {
         System.exit(0);
     }
 
-    public static void main(String[] args) {
+    public static void main(String... args) {
         System.out.println("Usage:");
         System.out.println(" java nmea.main.NMEAConsole [-config [configfile]] [-verb [y|n]] [[-simul [filename]] | [-serial [COM1] -br [4800]] | [-tcp [80]] | [-udp [8000]] | [-host [localhost]] [-http.port [80]]");
         String fName = null;

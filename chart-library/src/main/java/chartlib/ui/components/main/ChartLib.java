@@ -62,7 +62,7 @@ public class ChartLib
     try { SQLUtil.shutdown(conn); } catch (Exception ex) { ex.printStackTrace(); }
   }
 
-  public static void main(String[] args)
+  public static void main(String... args)
   {
     String lnf = System.getProperty("swing.defaultlaf");
 //  System.out.println("LnF:" + lnf);

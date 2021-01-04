@@ -427,8 +427,8 @@ set HEADLESS_OPTIONS=%HEADLESS_OPTIONS% -output=UDP:230.0.0.1:8001
 ::
 set HEADLESS_OPTIONS=%HEADLESS_OPTIONS% -ue:olivsoftdesktopuserexits.ws.WSUserExit
 :: set COMMAND=java %JAVA_OPTIONS% -classpath %CP% olivsoftdesktop.OlivSoftDesktop %HEADLESS_OPTIONS% -ue:olivsoftdesktopuserexits.WindWatcher
-:: set JAVA_OPTIONS=%JAVA_OPTIONS% -Dcustom.nmea.parser=olivsoftdesktopuserexits.sample.CustomRNDParser
-:: set COMMAND=java %JAVA_OPTIONS% -classpath %CP% olivsoftdesktop.OlivSoftDesktop %HEADLESS_OPTIONS% -ue:olivsoftdesktopuserexits.sample.CustomSentenceInsertion
+:: set JAVA_OPTIONS=%JAVA_OPTIONS% -Dcustom.nmea.parser=olivsoftdesktopuserexits.coreutilities.sample.CustomRNDParser
+:: set COMMAND=java %JAVA_OPTIONS% -classpath %CP% olivsoftdesktop.OlivSoftDesktop %HEADLESS_OPTIONS% -ue:olivsoftdesktopuserexits.coreutilities.sample.CustomSentenceInsertion
 set COMMAND=java %JAVA_OPTIONS% -classpath %CP% olivsoftdesktop.OlivSoftDesktop %HEADLESS_OPTIONS% 
 :: echo CP=%CP%
 :: echo Starting %COMMAND%
@@ -514,7 +514,7 @@ if /i [%ALL_NOTIFICATIONS%] == [Y] set JAVA_OPTIONS=%JAVA_OPTIONS% -Dnotificatio
 :: java %JAVA_OPTIONS% -classpath %CP% olivsoftdesktop.OlivSoftDesktop -ue:olivsoftdesktopuserexits.StellariumPosition -ue:olivsoftdesktopuserexits.ws.WSUserExit
 if [%RAW%] == [false] (
   set UE=-ue:olivsoftdesktopuserexits.StellariumPosition
-  set UE=%UE% -ue:olivsoftdesktopuserexits.sample.TrueWindSentenceInsertion
+  set UE=%UE% -ue:olivsoftdesktopuserexits.coreutilities.sample.TrueWindSentenceInsertion
   set UE=%UE% -ue:olivsoftdesktopuserexits.LongTimeCurrentCalculator
 )
 set COMMAND=java %JAVA_OPTIONS% -classpath %CP% olivsoftdesktop.OlivSoftDesktop %UE%

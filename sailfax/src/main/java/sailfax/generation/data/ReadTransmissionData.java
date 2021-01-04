@@ -182,7 +182,7 @@ public class ReadTransmissionData
     public String map;
   }
 
-  public static void main(String[] args) throws Exception
+  public static void main(String... args) throws Exception
   {
     List data = readFaxSchedule();
 

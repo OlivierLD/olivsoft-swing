@@ -1997,7 +1997,7 @@ public class Utils {
         bw.close();
     }
 
-    public static void main(String[] args) {
+    public static void main(String... args) {
         speakUp = false;
 //  displayNMEADetails("D:\\OlivSoft\\all-scripts\\logged-data\\2011-01-29.strait.to.tongareva.for.DR.small.nmea");  
 //  displayNMEADetails("D:\\OlivSoft\\all-scripts\\logged-data\\2012-06-10.china.camp-oyster.point.nmea");

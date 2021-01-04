@@ -27,8 +27,7 @@ public class SampleFrame extends JFrame {
         }
     }
 
-    private void jbInit()
-            throws Exception {
+    private void jbInit() throws Exception {
         getContentPane().setLayout(new BorderLayout());
         setSize(new Dimension(600, 400));
         setTitle("Tide Stations");

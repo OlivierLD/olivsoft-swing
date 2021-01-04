@@ -134,7 +134,7 @@ public class MinimalReader
       System.out.println("Read :[" + payload + "]");
   }
 
-  public static void main(String[] args)
+  public static void main(String... args)
   {
     System.out.println("Usage:");
     System.out.println(" java ui.launcher.MinimalReader [-config [configfile]] [-verb [y|n]] [[-simul [filename]] | [[-serial [COM1] -br [4800]] | [-tcp [80]] ");

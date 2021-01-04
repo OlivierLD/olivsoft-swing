@@ -43,7 +43,7 @@ public class LunarDistanceSample_01
 
   private static double eye = Util.feetToMeters(10);
 
-  public static void main(String[] args)
+  public static void main(String... args)
   {
     double hSun = 0d, appHSun = 0d;
     double hMoon = 0d, appHMoon = 0d;

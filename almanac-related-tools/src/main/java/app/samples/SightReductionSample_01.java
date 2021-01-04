@@ -26,7 +26,7 @@ public class SightReductionSample_01
   private static double latitude  =   37d;
   private static double longitude = -123d;
   
-  public static void main(String[] args)  
+  public static void main(String... args)
   {
     boolean verbose = false;
     // Sun

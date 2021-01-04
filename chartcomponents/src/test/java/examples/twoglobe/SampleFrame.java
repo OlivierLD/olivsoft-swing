@@ -20,8 +20,7 @@ public class SampleFrame extends JFrame {
         }
     }
 
-    private void jbInit()
-            throws Exception {
+    private void jbInit() throws Exception {
         getContentPane().setLayout(borderLayout);
         setSize(new Dimension(800, 600));
         setTitle("Two-Globes!");

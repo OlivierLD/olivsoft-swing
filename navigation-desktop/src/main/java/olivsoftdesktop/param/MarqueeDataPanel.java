@@ -388,7 +388,7 @@ public final class MarqueeDataPanel
   }
   
   /** For tests */
-  public static void main(String[] args)
+  public static void main(String... args)
   {
     MarqueeDataPanel mdp = new MarqueeDataPanel("BSP,HDG,TWD,TWS,TWA,AWS,AWA,DBT,MWT,LOG,MAT,PRS,XTE,BAT,CDR,CDS,NWP,COG,SOG");
 

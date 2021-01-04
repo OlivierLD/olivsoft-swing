@@ -6,9 +6,6 @@ import java.awt.Point;
 
 public final class MercatorUtil {
 
-    public MercatorUtil() {
-    }
-
     /**
      * Computes the Increasing Latitude. Mercator formula.
      *

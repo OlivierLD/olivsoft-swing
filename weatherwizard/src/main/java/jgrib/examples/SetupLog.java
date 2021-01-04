@@ -82,7 +82,7 @@ public class SetupLog
    *
    * @param args - Totally ignored
    */
-  public static void main(String[] args)
+  public static void main(String... args)
   {
 
     // Define logging system

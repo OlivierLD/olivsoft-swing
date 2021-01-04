@@ -448,7 +448,7 @@ public class StringGenerator
     return padded;
   }
   
-  public static void main(String[] args)
+  public static void main(String... args)
   {
     String rmc = generateRMC("II", new Date(), 38.2500, -122.5, 6.7, 210, 3d);
     System.out.println("Generated RMC:" + rmc);

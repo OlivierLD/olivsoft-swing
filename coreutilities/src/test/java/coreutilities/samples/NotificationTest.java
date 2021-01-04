@@ -19,7 +19,7 @@ public class NotificationTest {
     //private final static SimpleDateFormat SDF = new SimpleDateFormat("E dd MMM yyyy, HH:mm:ss z");
     private final static String NOTIFICATION_PROP_FILE_NAME = "notification.properties";
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String... args) throws Exception {
         String notificationDate = "";
         Calendar now = new GregorianCalendar();
         now.setTimeZone(TimeZone.getTimeZone("America/Los_Angeles"));

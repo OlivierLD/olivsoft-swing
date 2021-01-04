@@ -58,7 +58,7 @@ public class DumpUtil
     return s;
   }
   
-  public static void main(String[] args)
+  public static void main(String... args)
   {
     String s = "ABCDEFGHIJKLMNO\r\r\n\000PQakeu\000coucou!$%&&*^#";
     

@@ -25,7 +25,7 @@ public class SightReductionSample_03
 {
   private static final DecimalFormat df = new DecimalFormat("##0.000");
 
-  public static void main(String[] args)
+  public static void main(String... args)
   {
     boolean verbose = true;
 

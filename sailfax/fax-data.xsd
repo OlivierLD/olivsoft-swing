@@ -6,7 +6,7 @@
   <xsd:element name="fax-data">
     <xsd:annotation>
       <xsd:documentation>
-        A sample element
+        A coreutilities.sample element
       </xsd:documentation>
     </xsd:annotation>
     <xsd:complexType>

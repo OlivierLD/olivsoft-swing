@@ -455,7 +455,7 @@ public final class GreatCircle
     return new GeoPoint(l2, g2);
   }
 
-  public static void main(String[] args)
+  public static void main(String... args)
   {
     GeoPoint dr = dr(new GeoPoint(Math.toRadians(45D), Math.toRadians(-130D)), 55, 270);
     System.out.println("Reaching " + new GeoPoint(Math.toDegrees(dr.getL()), Math.toDegrees(dr.getG())).toString());

@@ -161,8 +161,7 @@ public class JTreeFilePanel
         }
     }
 
-    private void jbInit()
-            throws Exception {
+    private void jbInit() throws Exception {
         this.setLayout(borderLayout1);
         jScrollPane1.getViewport().add(jTree, null);
         jTree.addTreeSelectionListener(treeMonitor);

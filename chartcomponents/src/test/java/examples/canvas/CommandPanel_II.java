@@ -87,8 +87,7 @@ public class CommandPanel_II
         }
     }
 
-    private void jbInit()
-            throws Exception {
+    private void jbInit() throws Exception {
         setLayout(borderLayout1);
         setPreferredSize(new Dimension(CANVAS_WIDTH, CANVAS_HEIGHT));
         setSize(new Dimension(CANVAS_WIDTH, CANVAS_HEIGHT));

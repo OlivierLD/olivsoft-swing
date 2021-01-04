@@ -1606,8 +1606,7 @@ public class DesktopFrame
     ImageIcon bgImage = null;
     JLabel bgLabel = null;
 
-    private void jbInit()
-            throws Exception {
+    private void jbInit() throws Exception {
         if (liveWallPaper.booleanValue())
             startDataGrabber();
 

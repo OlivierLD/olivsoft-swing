@@ -78,7 +78,7 @@ public class TimeUtil {
     return (new SimpleDateFormat("z")).format(new Date());
   }
 
-  public static void main(String args[]) {
+  public static void main(String... args) {
     SimpleDateFormat sdf = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss");
     BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
     String retString = "";

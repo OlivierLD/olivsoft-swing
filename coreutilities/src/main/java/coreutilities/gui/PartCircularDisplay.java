@@ -194,8 +194,7 @@ public class PartCircularDisplay
         }
     }
 
-    private void jbInit()
-            throws Exception {
+    private void jbInit() throws Exception {
         this.addMouseMotionListener(this);
         this.setLayout(null);
         if (!WITH_TEXTURE) {

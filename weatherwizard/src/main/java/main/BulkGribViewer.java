@@ -7,7 +7,7 @@ import javax.swing.JFileChooser;
 
 public class BulkGribViewer
 {
-  public static void main(String[] args) throws Exception
+  public static void main(String... args) throws Exception
   {
     String fName = WWGnlUtilities.chooseFile(null, 
                                            JFileChooser.FILES_ONLY, 

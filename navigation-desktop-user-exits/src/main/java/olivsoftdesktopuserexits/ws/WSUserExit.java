@@ -490,7 +490,7 @@ public class WSUserExit
   }
   
   // Sample main, for tests
-  public static void main(String[] args) throws Exception
+  public static void main(String... args) throws Exception
   {
     String uri = "ws://" + System.getProperty("ws.host", "localhost") + ":" + System.getProperty("ws.port", "9876") + "/";
     System.out.println("Connecting to " + uri);

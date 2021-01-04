@@ -2203,8 +2203,7 @@ public class TideInternalFrame
         }
     }
 
-    private void jbInit()
-            throws Exception {
+    private void jbInit() throws Exception {
         try {
 //      String flavor = "sqlite";
 //      try { flavor = System.getProperty("tide.flavor", "xml"); }

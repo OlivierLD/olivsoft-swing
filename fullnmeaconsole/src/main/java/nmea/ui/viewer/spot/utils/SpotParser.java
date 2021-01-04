@@ -145,7 +145,7 @@ public class SpotParser
   /*
    * For tests
    */
-  public static void main(String[] args) throws Exception
+  public static void main(String... args) throws Exception
   {
     String spot = "Data extracted from file gfs130702-12z.grb dated 2013/07/02 16:42:32\n" + 
     "request code: spot:37.5N,122.5W|5,3|PRMSL,WIND,RAIN,LFTX\n" + 

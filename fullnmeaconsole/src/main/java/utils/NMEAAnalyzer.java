@@ -361,7 +361,7 @@ public class NMEAAnalyzer
     this.fullData = this.getDataMap(fileName);
   }
   
-  public static void main(String[] args) throws Exception
+  public static void main(String... args) throws Exception
   {
     String fileName = "D:\\OlivSoft\\all-scripts\\logged-data\\2014-09-01.headless.labor.day.week.end.nmea";
     NMEAAnalyzer na = new NMEAAnalyzer(fileName, null);

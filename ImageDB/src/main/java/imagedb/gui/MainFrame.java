@@ -53,8 +53,7 @@ public class MainFrame
 		}
 	}
 
-	private void jbInit()
-			throws Exception {
+	private void jbInit() throws Exception {
 		setJMenuBar(this.menuBar);
 		getContentPane().setLayout(this.layoutMain);
 		this.panelCenter.setLayout(this.borderLayout1);

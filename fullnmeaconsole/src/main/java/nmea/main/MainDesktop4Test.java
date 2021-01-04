@@ -71,7 +71,7 @@ public class MainDesktop4Test
         nmeaFrame.setBounds(new Rectangle(70, 35, 1200, 800));
     }
 
-    public static void main(String[] args) {
+    public static void main(String... args) {
         String fName = null;
         String pfile = null;
         boolean verb = false;

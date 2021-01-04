@@ -1,9 +1,8 @@
-package coreutilities.gui.sample;
+package coreutilities.sample;
 
 import coreutilities.Utilities;
 
 import coreutilities.gui.HeadingPanel;
-import coreutilities.gui.JumboDisplay;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -47,8 +46,7 @@ public class TestFrame
         }
     }
 
-    private void jbInit()
-            throws Exception {
+    private void jbInit() throws Exception {
         this.getContentPane().setLayout(new BorderLayout());
         this.getContentPane().add(panel, BorderLayout.CENTER);
         this.setSize(new Dimension(400, 300));

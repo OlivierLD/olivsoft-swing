@@ -63,7 +63,7 @@ public class PreferencesCLI
     }
   }
   
-  public static void main(String[] args)
+  public static void main(String... args)
   {
     Map<Integer, OldNew> changes = new HashMap<>();
     Object[] prefsByCat = ParamPanel.getPrefsByCategory();

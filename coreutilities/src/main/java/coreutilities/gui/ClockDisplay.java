@@ -1,5 +1,8 @@
 package coreutilities.gui;
 
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import java.awt.AlphaComposite;
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -15,25 +18,16 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.Point;
 import java.awt.RenderingHints;
-
 import java.awt.Stroke;
-
 import java.io.IOException;
 import java.io.InputStream;
-
 import java.text.SimpleDateFormat;
-
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.TimeZone;
 
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.SwingConstants;
-
-public class ClockDisplay
-        extends JPanel {
+public class ClockDisplay extends JPanel {
     private static ClockDisplay instance = null;
     private Font digiFont = null;
     private GridBagLayout gridBagLayout1 = new GridBagLayout();
@@ -94,17 +88,17 @@ public class ClockDisplay
 
     private int fontSize = 36;
 
-    private void jbInit()
-            throws Exception {
+    private void jbInit() throws Exception {
         try {
             digiFont = tryToLoadFont("ds-digi.ttf", this);
         } catch (Exception ex) {
             System.err.println(ex.getMessage());
         }
-        if (digiFont == null)
+        if (digiFont == null) {
             digiFont = new Font("Courier New", Font.BOLD, fontSize);
-        else
+        } else {
             digiFont = digiFont.deriveFont(Font.BOLD, fontSize);
+        }
         digiFont = loadDigiFont();
         this.setLayout(gridBagLayout1);
         this.setBackground(Color.black);
@@ -117,8 +111,9 @@ public class ClockDisplay
 //  this.setPreferredSize(new Dimension(120, 65));
         dataNameLabel.setText(origName);
         dataValueLabel.setText(origValue);
-        if (toolTipText != null)
+        if (toolTipText != null) {
             this.setToolTipText(toolTipText);
+        }
         this.add(dataNameLabel,
                 new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.NONE,
                         new Insets(0, 0, 20, 0), 0, 0));
@@ -154,10 +149,11 @@ public class ClockDisplay
         } catch (Exception ex) {
             System.err.println(ex.getMessage());
         }
-        if (f == null)
+        if (f == null) {
             f = new Font("Courier New", Font.BOLD, fontSize);
-        else
+        } else {
             f = f.deriveFont(Font.BOLD, fontSize);
+        }
         return f;
     }
 
@@ -166,17 +162,19 @@ public class ClockDisplay
         try {
             String fontRes = RESOURCE_PATH + fontName;
             InputStream fontDef = null;
-            if (parent != null)
+            if (parent != null) {
                 fontDef = parent.getClass().getResourceAsStream(fontRes);
-            else
+            } else {
                 fontDef = ClockDisplay.class.getResourceAsStream(fontRes);
+            }
             if (fontDef == null) {
                 throw new NullPointerException("Could not find font resource \"" + fontName +
                         "\"\n\t\tin \"" + fontRes +
                         "\"\n\t\tfor \"" + parent.getClass().getName() +
                         "\"\n\t\ttry: " + parent.getClass().getResource(fontRes));
-            } else
+            } else {
                 return Font.createFont(Font.TRUETYPE_FONT, fontDef);
+            }
         } catch (FontFormatException e) {
             System.err.println("getting font " + fontName);
             e.printStackTrace();
@@ -223,14 +221,14 @@ public class ClockDisplay
             ((Graphics2D) g).setPaint(gradient);
             g.fillRect(0, 0, this.getWidth(), this.getHeight());
         }
-        if (withGlossyBG)
+        if (withGlossyBG) {
             drawGlossyDisplay((Graphics2D) g,
                     new Point(0, 0),
                     new Point(this.getWidth(), this.getHeight()),
                     Color.gray,
                     Color.black,
                     1f);
-        else {
+        } else {
             // Use customBGColor
             drawFlatDisplay((Graphics2D) g,
                     new Point(0, 0),
@@ -321,7 +319,6 @@ public class ClockDisplay
             g2d.setStroke(originalStroke);
             //  g2d.setFont(origFont);
         }
-
         g2d.setComposite(comp);
     }
 
@@ -357,8 +354,9 @@ public class ClockDisplay
             int m = cal.get(Calendar.MINUTE);
             int s = cal.get(Calendar.SECOND);
             float decHour = h + (m / 60f) + (s / 3600f);
-            if (decHour > 12)
+            if (decHour > 12) {
                 decHour -= 12;
+            }
             //  System.out.println("H:" + decHour + ", M:" + m + ", S:" + s);
 
             int xCenter = (dim.width / 2);

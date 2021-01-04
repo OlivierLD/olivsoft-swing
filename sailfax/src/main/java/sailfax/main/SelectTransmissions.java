@@ -31,7 +31,7 @@ public class SelectTransmissions
     frame.setVisible(true);
   }
 
-  public static void main(String[] args)
+  public static void main(String... args)
   {
     String lnf = System.getProperty("swing.defaultlaf");
     if (lnf == null) // Let the -Dswing.defaultlaf do the job.

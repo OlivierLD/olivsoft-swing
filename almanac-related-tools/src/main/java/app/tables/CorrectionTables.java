@@ -168,7 +168,7 @@ public class CorrectionTables
     out.println("</planets-stars-corrections>");
   }  
   
-  public static void main(String[] args) throws Exception
+  public static void main(String... args) throws Exception
   {
 //  out = System.out;
     out = new PrintStream(new FileOutputStream("corrections.xml"));

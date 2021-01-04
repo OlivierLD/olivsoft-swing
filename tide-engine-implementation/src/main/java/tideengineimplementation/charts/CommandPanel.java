@@ -162,8 +162,7 @@ public class CommandPanel
         }
     }
 
-    private void jbInit()
-            throws Exception {
+    private void jbInit() throws Exception {
         tel = new TideEventListener() {
             @Override
             public void filterList(String pattern) {

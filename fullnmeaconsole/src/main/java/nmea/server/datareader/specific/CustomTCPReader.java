@@ -234,7 +234,7 @@ public class CustomTCPReader extends NMEAReader implements DataReader
   public void setTimeout(long timeout)
   { /* Not used for TCP */  }
   
-  public static void main(String[] args)
+  public static void main(String... args)
   {
     String host = "192.168.1.136";
     int port = 7001; // 2947

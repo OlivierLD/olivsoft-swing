@@ -92,7 +92,7 @@ public class JgribDemoAFWA {
     * @param  args Filename of gribfile to read
     *
     *************************************************************************/
-   public static void main(String args[]) {
+   public static void main(String... args) {
 
       int recordCount;
 

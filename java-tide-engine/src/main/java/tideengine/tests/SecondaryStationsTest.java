@@ -40,10 +40,10 @@ public class SecondaryStationsTest
   private final static int SECONDARY_STATION_NAME_START_OFFSET = 164;
   private final static int SECONDARY_STATION_NAME_END_OFFSET = 253;
   
-  public static void main(String[] args) throws Exception
+  public static void main(String... args) throws Exception
   {
     String datFileName = "2Wxtide32.dat";
-                         // "3Base de donnée personelle.dat";
+                         // "3Base de donnï¿½e personelle.dat";
     File datFile = new File(datFileName);
     FileInputStream br = new FileInputStream(datFile);
     boolean go = true;

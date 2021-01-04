@@ -8,7 +8,6 @@ import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-// TODO Coordinates seem to be upside down...
 public class Main4Tests {
 
     public Main4Tests() {

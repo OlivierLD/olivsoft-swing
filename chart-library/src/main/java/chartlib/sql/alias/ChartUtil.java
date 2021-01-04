@@ -110,7 +110,7 @@ public class ChartUtil
     return (d<0.0?-1:1);
   }
   
-  public static void main(String[] args)
+  public static void main(String... args)
   {
     boolean b = inTrack(38.50, -124.0, 36.50, -122.0,
                         38.0833333, -123.5,

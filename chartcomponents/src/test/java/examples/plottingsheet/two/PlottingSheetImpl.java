@@ -68,8 +68,7 @@ public class PlottingSheetImpl
         }
     }
 
-    private void jbInit()
-            throws Exception {
+    private void jbInit() throws Exception {
         setLayout(borderLayout1);
         parent.setTitle(plottingSheet.getWidth() + " x " + plottingSheet.getHeight());
 
@@ -177,7 +176,7 @@ public class PlottingSheetImpl
         plottingSheet.zoomIn();
         plottingSheet.setZoomFactor(saveZoom);
 
-        // Specific sample goes here
+        // Specific coreutilities.sample goes here
         GeoPoint[] groundData = new GeoPoint[]{
                 new GeoPoint(37d, -122.0),
                 new GeoPoint(36.85d, -122.1),

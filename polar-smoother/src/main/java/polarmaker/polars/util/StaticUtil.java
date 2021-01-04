@@ -28,7 +28,7 @@ public class StaticUtil
     return result;
   }
   
-  public static void main(String[] args) throws Exception
+  public static void main(String... args) throws Exception
   {
     String str = "123,45";
     if (args.length > 0)

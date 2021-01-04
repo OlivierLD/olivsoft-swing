@@ -37,8 +37,7 @@ public class DatePanel
         }
     }
 
-    private void jbInit()
-            throws Exception {
+    private void jbInit() throws Exception {
         SpinnerModel sm = new SpinnerNumberModel(GregorianCalendar.getInstance().get(Calendar.YEAR), 1970, 2037, 1);
         yearSpinner = new JSpinner(sm);
         yearSpinner.addMouseWheelListener(new MouseWheelListener() {

@@ -1,6 +1,8 @@
 package coreutilities.gui;
 
-
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -16,19 +18,12 @@ import java.awt.Point;
 import java.awt.Polygon;
 import java.awt.RadialGradientPaint;
 import java.awt.RenderingHints;
-
 import java.io.IOException;
 import java.io.InputStream;
-
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.SwingConstants;
-
-public class CircularDisplay
-        extends JPanel {
+public class CircularDisplay extends JPanel {
     public static final NumberFormat speedFmt = new DecimalFormat("00.00");
     public static final NumberFormat angleFmt = new DecimalFormat("000");
 
@@ -78,8 +73,7 @@ public class CircularDisplay
 
     private int jumboFontSize = 20;
 
-    private void jbInit()
-            throws Exception {
+    private void jbInit() throws Exception {
         try {
             jumboFont = JumboDisplay.tryToLoadFont("TRANA___.TTF", this);
             bgJumboFont = JumboDisplay.tryToLoadFont("TRANGA__.TTF", this);
@@ -95,8 +89,9 @@ public class CircularDisplay
 //  this.setPreferredSize(new Dimension(120, 120));
         dataNameLabel.setText(origName);
         dataValueLabel.setText(origValue);
-        if (toolTipText != null)
+        if (toolTipText != null) {
             this.setToolTipText(toolTipText);
+        }
         //  this.add(dataNameLabel, new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0, GridBagConstraints.NORTHWEST, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
         this.add(dataValueLabel, new GridBagConstraints(0, 1, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
 
@@ -128,10 +123,11 @@ public class CircularDisplay
         } catch (Exception ex) {
             System.err.println(ex.getMessage());
         }
-        if (f == null)
+        if (f == null) {
             f = new Font("Courier New", Font.BOLD, 20);
-        else
+        } else {
             f = f.deriveFont(Font.BOLD, 20);
+        }
         return f;
     }
 
@@ -142,8 +138,9 @@ public class CircularDisplay
             InputStream fontDef = parent.getClass().getResourceAsStream(fontRes);
             if (fontDef == null) {
                 throw new NullPointerException("Could not find font resource \"" + fontName + "\"\n\t\tin \"" + fontRes + "\"\n\t\tfor \"" + parent.getClass().getName() + "\"\n\t\ttry: " + parent.getClass().getResource(fontRes));
-            } else
+            } else {
                 return Font.createFont(Font.TRUETYPE_FONT, fontDef);
+            }
         } catch (FontFormatException e) {
             System.err.println("getting font " + fontName);
             e.printStackTrace();
@@ -199,8 +196,7 @@ public class CircularDisplay
         radius = 0.9 * (Math.min(dim.width, dim.height) - 10d) / 2d;
         if (true) {
             center = new Point((dim.width / 2), (dim.height / 2));
-            if (true) // With shaded bevel
-            {
+            if (true) { // With shaded bevel
                 RadialGradientPaint rgp = new RadialGradientPaint(center,
                         (int) (radius * 1.15),
                         new float[]{0f, 0.9f, 1f},

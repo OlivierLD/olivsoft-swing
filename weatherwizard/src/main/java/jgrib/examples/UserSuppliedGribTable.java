@@ -69,7 +69,7 @@ public class UserSuppliedGribTable
    * Standard generated main method
    * @param args - Not checked anyway
    */
-  public static void main(String[] args)
+  public static void main(String... args)
   {
     System.setProperty(PROPERTY_GRIBFILEPATH, 
                        "C:\\_myWork\\_ForExport\\dev-corner\\olivsoft\\all-scripts\\GRIBFiles\\2008\\GRIB_2008_02_26_09_06_49_PST.grb");

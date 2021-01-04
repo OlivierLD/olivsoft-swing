@@ -9,8 +9,7 @@ import java.awt.Point;
 import java.awt.Rectangle;
 import java.text.DecimalFormat;
 
-public class PlottingSheet
-		extends ChartPanel {
+public class PlottingSheet extends ChartPanel {
 	private double chartLatitudeSpan = 1d;
 
 	private double centerLat = 37d;

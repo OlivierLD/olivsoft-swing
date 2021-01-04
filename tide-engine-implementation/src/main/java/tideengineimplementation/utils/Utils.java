@@ -189,7 +189,7 @@ public class Utils {
         System.out.println(formatTimeDiff(8094701L / 1000L));
     }
 
-    public static void main(String[] args) {
+    public static void main(String... args) {
         SimpleDateFormat sdf = new SimpleDateFormat("E dd-MMM-yyyy HH:mm Z (z)");
         Calendar cal = GregorianCalendar.getInstance();
 //  cal.set(Calendar.MONTH, 11);

@@ -276,7 +276,7 @@ public class SearchUtil
     return ret;
   }
 
-  public static void main(String[] args)
+  public static void main(String... args)
   {
     new ParamPanel(); // For substitution
     verbose = true;

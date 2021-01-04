@@ -235,7 +235,7 @@ public class ServerStop
     return result;
   }
 
-  public static void main(String[] args)
+  public static void main(String... args)
   {
     System.out.println("Usage:");
     System.out.println("java -Dhttp.port=6666 -Dhttp.host=localhost " + new ServerStop().getClass().getName());

@@ -866,7 +866,7 @@ public class CharacterModeConsole
   }
   
   // Propeties test 
-  public static void main(String[] args) throws Exception
+  public static void main(String... args) throws Exception
   {
     String propFileName = System.getProperty("console.definition", "char.console.properties"); // "D:\\_mywork\\dev-corner\\olivsoft\\OlivSoftDesktop\\char.console.properties"
     Map<String, ConsoleData> consoleData = new HashMap<String, ConsoleData>();

@@ -73,8 +73,7 @@ public class HeadingPanel
         }
     }
 
-    private void jbInit()
-            throws Exception {
+    private void jbInit() throws Exception {
         this.setLayout(null);
         this.setSize(new Dimension(200, 50));
         this.setMinimumSize(new Dimension(200, 50));

@@ -427,7 +427,7 @@ public class TablePanel
     }
   }
   
-  public static void main(String[] args)
+  public static void main(String... args)
   {
     String str = "12:34";
     System.out.println(str + "=" + getStartIntValue(str));

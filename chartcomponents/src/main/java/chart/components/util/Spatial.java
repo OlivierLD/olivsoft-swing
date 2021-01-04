@@ -17,7 +17,7 @@ import java.util.StringTokenizer;
 // Referenced classes of package chart.components.util:
 //      GeoPoint
 
-public class Spatial {
+public final class Spatial {
     public enum Chart {
         WEST_COAST("US West Coast", "CaliforniaCoast.xml"),
         BAY_AREA("SF Bay Area", "bayArea.xml");

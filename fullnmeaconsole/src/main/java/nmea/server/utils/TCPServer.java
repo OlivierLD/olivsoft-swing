@@ -113,7 +113,7 @@ public class TCPServer
     tcpListenerThread.start();
   }
   
-  public static void main(String[] args)
+  public static void main(String... args)
   {
     TCPServer server = new TCPServer("2947");
   }

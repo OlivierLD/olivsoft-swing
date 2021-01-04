@@ -105,8 +105,7 @@ public class CoeffTable
         this.setStatusLabel(Integer.toString(nbl) + " coefficient(s)");
     }
 
-    private void jbInit()
-            throws Exception {
+    private void jbInit() throws Exception {
         this.setLayout(borderLayout1);
         this.setSize(new Dimension(210, 430));
         this.setPreferredSize(new Dimension(210, 430));

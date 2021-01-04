@@ -15,14 +15,14 @@ public class ChartComponentsResourceBundle {
         if (resourceBundle == null) {
             try {
                 resourceBundle = ResourceBundle.getBundle(baseName);
-//      System.out.println("ResourceBundle created");
+//              System.out.println("ResourceBundle created");
             } catch (MissingResourceException mre) {
                 if (true) // verbose of some sort...
                     System.err.println("Missing Resource:" + mre.getMessage());
             }
+//        } else {
+//            System.out.println("ResourceBundle reused");
         }
-//  else
-//    System.out.println("ResourceBundle reused");
         return resourceBundle;
     }
 }

@@ -446,7 +446,7 @@ public class ProcessingGRIBPApplet
     return (float) Math.toDegrees(f);
   }
 
-  static public void main(String[] args)
+  static public void main(String... args)
   {
     PApplet.main(new String[]
         { "--bgcolor=#ece9d8", "chartadjustmentuserexits.ProcessingGRIBPApplet" });

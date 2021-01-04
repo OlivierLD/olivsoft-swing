@@ -3,7 +3,7 @@ package astro.calc;
 public class Samples
 {
   // Examples of distances and directions calculations
-  public static void main(String[] args)
+  public static void main(String... args)
   {
     GeoPoint from = new GeoPoint(37.501282801564244, -122.48082160949707); // the boat
     GeoPoint to   = new GeoPoint(37.49403906867881,  -122.48468399047852);  // HMB Entrance

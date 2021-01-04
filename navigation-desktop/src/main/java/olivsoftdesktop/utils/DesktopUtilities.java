@@ -351,7 +351,7 @@ public class DesktopUtilities
     }
   }
 
-  public static void main(String[] args)
+  public static void main(String... args)
   {
     byte[] ba = { 0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x0d, 0x0a };
     String s = new String(ba);

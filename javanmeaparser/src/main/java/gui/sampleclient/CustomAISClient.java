@@ -13,7 +13,7 @@ import ocss.nmea.ais.AISParser;
 
 public class CustomAISClient
 {
-  public static void main(String[] args)
+  public static void main(String... args)
   {
     try
     {

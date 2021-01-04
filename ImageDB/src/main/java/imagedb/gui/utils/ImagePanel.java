@@ -53,8 +53,7 @@ public class ImagePanel
 		dropTarget = new DropTarget(this,new DropTargetImplementation(this));
 	}
 
-	private void jbInit()
-			throws Exception {
+	private void jbInit() throws Exception {
 		AppContext.getInstance().addApplicationListener(new ImageAppListener() {
 			public void displayImage(String imgName) {
 				display(imgName);

@@ -204,8 +204,7 @@ public class SpeedoPanel
         }
     }
 
-    private void jbInit()
-            throws Exception {
+    private void jbInit() throws Exception {
         this.addMouseMotionListener(this);
         this.setLayout(null);
         if (!WITH_TEXTURE) {

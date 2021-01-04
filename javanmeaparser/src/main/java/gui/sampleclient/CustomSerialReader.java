@@ -206,7 +206,7 @@ public class CustomSerialReader
       System.out.println("ownership changed:" + type);
   }
   
-  public static void main(String[] args)
+  public static void main(String... args)
   {
     new CustomSerialReader().read();
   }

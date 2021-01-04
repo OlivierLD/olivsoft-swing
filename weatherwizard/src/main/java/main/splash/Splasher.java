@@ -27,7 +27,7 @@ public class Splasher
                                                      }
                                                    });
   }
-  public static void main(String[] args)
+  public static void main(String... args)
   {
     boolean headlessMode = ("true".equals(System.getProperty("headless", "false")) || "yes".equals(System.getProperty("headless", "false")));
     if (!headlessMode)

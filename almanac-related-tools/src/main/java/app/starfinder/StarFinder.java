@@ -59,7 +59,7 @@ public class StarFinder {
 		}
 	}
 
-	public static void main(String[] args) {
+	public static void main(String... args) {
 		String lnf = System.getProperty("swing.defaultlaf");
 //  System.out.println("LnF:" + lnf);
 		if (lnf == null) { // Let the -Dswing.defaultlaf do the job.

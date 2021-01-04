@@ -26,8 +26,7 @@ public class MainFrame_AboutBoxPanel
 		}
 	}
 
-	private void jbInit()
-			throws Exception {
+	private void jbInit() throws Exception {
 		setLayout(this.layoutMain);
 		setBorder(this.border);
 		this.labelTitle.setText("Image Database");

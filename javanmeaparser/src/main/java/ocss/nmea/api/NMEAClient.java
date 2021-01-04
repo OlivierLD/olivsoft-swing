@@ -14,7 +14,7 @@ import java.util.List;
  *     super(s, sa);
  *   }
  *
- *   public static void main(String[] args)
+ *   public static void main(String... args)
  *   {
  *     String prefix = "II";
  *     String[] array = {"HDM", "GLL", "XTE", "MWV", "VHW"};

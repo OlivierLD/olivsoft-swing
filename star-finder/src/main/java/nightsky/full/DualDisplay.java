@@ -21,7 +21,7 @@ public class DualDisplay {
 		frame.setVisible(true);
 	}
 
-	public static void main(String[] args) {
+	public static void main(String... args) {
 		try {
 			if (System.getProperty("swing.defaultlaf") == null)
 				UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());

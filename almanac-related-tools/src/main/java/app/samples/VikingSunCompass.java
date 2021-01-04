@@ -292,7 +292,7 @@ public class VikingSunCompass extends JFrame
   private final static String SIZE_PRM = "-size";
   private final static String HELP_PRM = "-help";
   
-  public static void main(String[] args)
+  public static void main(String... args)
   {
 //  latitude  = 38; // Must be positive
     longitude =  0;

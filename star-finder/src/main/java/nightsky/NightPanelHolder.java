@@ -77,8 +77,7 @@ public class NightPanelHolder
         }
     }
 
-    private void jbInit()
-            throws Exception {
+    private void jbInit() throws Exception {
         this.setLayout(new BorderLayout());
         this.setSize(new Dimension(650, 650));
 

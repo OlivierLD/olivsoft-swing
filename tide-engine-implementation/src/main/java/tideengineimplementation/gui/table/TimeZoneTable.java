@@ -79,8 +79,7 @@ public class TimeZoneTable
         this.setStatusLabel(Integer.toString(nbl) + " time zone(s)");
     }
 
-    private void jbInit()
-            throws Exception {
+    private void jbInit() throws Exception {
         this.setLayout(borderLayout1);
         centerPanel.setLayout(borderLayout2);
         bottomPanel.setLayout(borderLayout3);

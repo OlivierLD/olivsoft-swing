@@ -44,7 +44,7 @@ public class Samples
     heading = firstPoint.getZ().doubleValue();
     System.out.println("Satellite: Alt:" + alt + " , true heading " + heading);
   }
-  public static void main(String[] args)
+  public static void main(String... args)
   {
     GreatCircle gc = new GreatCircle();
     // Find satellite heading (direction), and altitude

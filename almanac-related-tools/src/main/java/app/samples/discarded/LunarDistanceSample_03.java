@@ -39,7 +39,7 @@ public class LunarDistanceSample_03
 
   private static double eye = 8 * 0.3048; // 8 feet, in meters
 
-  public static void main(String[] args)
+  public static void main(String... args)
   {
     double hSun = 0d;
     double hMoon = 0d;

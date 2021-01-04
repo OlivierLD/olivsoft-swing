@@ -104,7 +104,7 @@ public final class GeoPoint
     return new GeoPoint(Math.toDegrees(this.getL()), Math.toDegrees(this.getG()));
   }
   
-  public static void main(String[] args)
+  public static void main(String... args)
   {
     GeoPoint p1 = new GeoPoint(37, -122);
     GeoPoint p2 = new GeoPoint(38, -121);    

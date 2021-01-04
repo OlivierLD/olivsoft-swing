@@ -32,7 +32,7 @@ public class VenusTransit
   private final static double CURRENT_LATITUDE  =   37.6642737d;
   private final static double CURRENT_LONGITUDE = -122.3802127d;
   
-  public static void main(String[] args)
+  public static void main(String... args)
   {
     double minDeltaH = Double.MAX_VALUE;
     double minDeltaZ = Double.MAX_VALUE;

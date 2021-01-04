@@ -800,7 +800,7 @@ public class AdminHttpServer
   }
     
   //  For dev tests
-  public static void main(String[] args) throws Exception
+  public static void main(String... args) throws Exception
   {
 //  System.setProperty("admin.http.port", "7070");
     int port = 8080;

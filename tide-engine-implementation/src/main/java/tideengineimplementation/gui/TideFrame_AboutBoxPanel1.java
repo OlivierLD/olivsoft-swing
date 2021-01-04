@@ -29,8 +29,7 @@ public class TideFrame_AboutBoxPanel1
         }
     }
 
-    private void jbInit()
-            throws Exception {
+    private void jbInit() throws Exception {
         this.setLayout(layoutMain);
         this.setBorder(border);
         this.setBackground(Color.white);

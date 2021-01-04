@@ -20,7 +20,7 @@ public class CustomClient extends NMEAClient
 
   private static CustomClient customClient = null;  
   
-  public static void main(String[] args)
+  public static void main(String... args)
   {
     System.out.println("CustomClient invoked with " + args.length + " Parameter(s).");
     for (String s : args)

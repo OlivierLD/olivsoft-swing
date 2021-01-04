@@ -27,7 +27,7 @@
  * GribTables.java  1.0  01/01/2001
  *
  * (C) Benjamin Stark
- * Updated Kjell Røang, 18/03/2002
+ * Updated Kjell Rï¿½ang, 18/03/2002
  */
 
 package jgrib;
@@ -514,7 +514,7 @@ public class GribTables
 //
 //   };
 
-//   public static void main(String[] args)
+//   public static void main(String... args)
 //   {
 //
 //      String fileName = args[0];

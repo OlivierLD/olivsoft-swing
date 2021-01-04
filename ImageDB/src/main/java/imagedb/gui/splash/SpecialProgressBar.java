@@ -34,8 +34,7 @@ public class SpecialProgressBar
 		}
 	}
 
-	private void jbInit()
-			throws Exception {
+	private void jbInit() throws Exception {
 		setLayout(null);
 		setSize(new Dimension(350, 25));
 	}

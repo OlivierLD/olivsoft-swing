@@ -73,7 +73,7 @@ public class AlmanacComputer
    * An example of a main.
    * Generates the xml output for the requested period.
    */
-  public static void main(String[] args)
+  public static void main(String... args)
   {
     String help = getPrm(args, "-help");
     if (help != null)

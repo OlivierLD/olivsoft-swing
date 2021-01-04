@@ -16,7 +16,7 @@ import olivsoftdesktop.DesktopUserExitInterface;
  * An example.
  * Shows how to inject a custom NMEA Sentence in the cache.
  *
- * to be used with -ue:olivsoftdesktopuserexits.sample.CustomSentenceInsertion
+ * to be used with -ue:olivsoftdesktopuserexits.coreutilities.sample.CustomSentenceInsertion
  */
 public class CustomSentenceInsertion
   implements DesktopUserExitInterface

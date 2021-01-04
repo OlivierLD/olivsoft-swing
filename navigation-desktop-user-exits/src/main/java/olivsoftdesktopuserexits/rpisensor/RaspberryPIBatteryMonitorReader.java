@@ -191,7 +191,7 @@ public class RaspberryPIBatteryMonitorReader
   private static boolean tuning    = false;
   
   // A main for the calibration and scale.
-  public static void main(String[] args)
+  public static void main(String... args)
   {
     // test 
     if (false)

@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 
 public class Test
 {
-  public static void main(String[] args)
+  public static void main(String... args)
   {
     UpdatePanel up = new UpdatePanel();
     up.setTopLabel("Akeu");

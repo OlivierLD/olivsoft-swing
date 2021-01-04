@@ -21,7 +21,7 @@ public class SampleTCPClientMain
     return false;
   }
   
-  public static void main(String[] args) throws Exception
+  public static void main(String... args) throws Exception
   {
     SampleTCPClientMain me = new SampleTCPClientMain();
 //  CustomNMEAClient cnc = new CustomNMEAClient(me, CustomNMEAClient.TCP_OPTION, "127.0.0.1", 7001) //, 10000L)

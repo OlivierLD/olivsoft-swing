@@ -72,7 +72,7 @@ public class BlindRouting implements RoutingClientInterface
    * -speedCoeff       default 1.0 used to multiply the speed computed with the polars.
    */
   
-  public static void main(String[] args) throws Exception
+  public static void main(String... args) throws Exception
   {
     BlindRouting br = new BlindRouting();
     br.calculate(args);

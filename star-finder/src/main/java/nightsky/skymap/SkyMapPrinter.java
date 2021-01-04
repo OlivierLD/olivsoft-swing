@@ -44,7 +44,7 @@ public class SkyMapPrinter
 //  try { Thread.sleep(1000L); } catch (Exception ex) {}
   }
 
-  public static void main(String[] args)
+  public static void main(String... args)
   {
     System.setProperty("for.print", "true");
     NightSkyPanel nsp = new NightSkyPanelWithConstellations(NightSkyPanel.SKY_CHART_OPTION);

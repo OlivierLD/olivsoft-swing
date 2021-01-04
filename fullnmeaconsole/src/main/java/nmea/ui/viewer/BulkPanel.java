@@ -102,8 +102,7 @@ public class BulkPanel
         }
     }
 
-    private void jbInit()
-            throws Exception {
+    private void jbInit() throws Exception {
         this.setLayout(borderLayout1);
         centerDataPanel.setBackground(Color.white);
         centerDataPanel.setFont(new Font("Courier New", Font.PLAIN, 14));

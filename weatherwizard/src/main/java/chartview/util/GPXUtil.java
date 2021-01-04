@@ -152,7 +152,7 @@ public class GPXUtil {
         return date;
     }
 
-    public static void main(String[] args) {
+    public static void main(String... args) {
         try {
             String testData = // "C:\\_stage\\2010-11-13.gpx";
                     "C:\\OlivWork\\olivsoft\\ChartAdjustment\\leg.02.gpx";

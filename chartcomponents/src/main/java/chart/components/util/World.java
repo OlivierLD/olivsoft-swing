@@ -17,7 +17,7 @@ import java.awt.geom.Area;
 import java.util.ArrayList;
 import java.util.List;
 
-public class World {
+public final class World {
     private static DOMParser parser = null;
     private static List<Polygon> lp = null;
 
@@ -43,28 +43,24 @@ public class World {
             }
             NodeList nl = doc.selectNodes("//section");
 
-//      double minL = Double.MAX_VALUE,
-//             maxL = -Double.MAX_VALUE,
-//             minG = Double.MAX_VALUE,
-//             maxG = -Double.MAX_VALUE;
-//      int minX = Integer.MAX_VALUE,
-//          maxX = Integer.MIN_VALUE,
-//          minY = Integer.MAX_VALUE,
-//          maxY = Integer.MIN_VALUE;
+//            double minL = Double.MAX_VALUE,
+//                    maxL = -Double.MAX_VALUE,
+//                    minG = Double.MAX_VALUE,
+//                    maxG = -Double.MAX_VALUE;
+//            int minX = Integer.MAX_VALUE,
+//                    maxX = Integer.MIN_VALUE,
+//                    minY = Integer.MAX_VALUE,
+//                    maxY = Integer.MIN_VALUE;
 
             for (int i = 0; i < nl.getLength(); i++) {
                 gr.setColor(origColor);
-//        if (c != null && i == sect)
-//        {
-//          System.out.println("Section " + sect + " in RED");
-//          gr.setColor(c);
-//        }
                 XMLElement section = (XMLElement) nl.item(i);
-        /*
-        String id = section.getAttribute("id");
-        if ("148".equals(id))
-          gr.setColor(Color.red);
-        */
+
+//                String id = section.getAttribute("id");
+//                if ("148".equals(id)) {
+//                    gr.setColor(Color.red);
+//                }
+
                 NodeList nl2 = section.selectNodes("./point");
                 Point previous = null;
                 Point first = null;
@@ -77,19 +73,9 @@ public class World {
                     for (g = Double.parseDouble(lngValue); g > 180D; g -= 180D) ;
                     for (; g < -180D; g += 360D) ;
 
-//          if (g < minG) minG = g;
-//          if (g > maxG) maxG = g;
-//          if (l < minL) minL = l;
-//          if (l > maxL) maxL = l;
-
                     Point gpt = cpi.getPanelPoint(l, g); // Get the point, based on the projection
                     int w = cpi.getWidth();
                     int h = cpi.getHeight();
-
-//          if (gpt.x > maxX) maxX = gpt.x;
-//          if (gpt.x < minX) minX = gpt.x;
-//          if (gpt.y > maxY) maxY = gpt.y;
-//          if (gpt.y < minY) minY = gpt.y;
 
                     boolean drawIt = true;
                     if (cpi.getProjection() == ChartPanelInterface.GLOBE_VIEW && !cpi.isTransparentGlobe() && cpi.isBehind(l, g - cpi.getGlobeViewLngOffset())) {
@@ -104,7 +90,6 @@ public class World {
                     }
                     if (!drawIt) {
                         previous = null;
-//          first = null;
                     } else {
                         if (previous != null && (cpi.contains(new astro.calc.GeoPoint(l, g)) &&
                                 Math.abs(gpt.x - previous.x) < w / 2 &&
@@ -128,15 +113,6 @@ public class World {
                     }
                 }
             }
-//      System.out.println("----------------");
-//      System.out.println("Min Lat :" + minL);
-//      System.out.println("Max Lat :" + maxL);
-//      System.out.println("Min Long:" + minG);
-//      System.out.println("Max Long:" + maxG);
-//      System.out.println("Min X   :" + minX);
-//      System.out.println("Max X   :" + maxX);
-//      System.out.println("Min Y   :" + minY);
-//      System.out.println("Max Y   :" + maxY);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -357,10 +333,10 @@ public class World {
             Point p = new Point(fromX + (int) (i * ((double) width / NB_ITERATION)),
                     fromY + (int) (i * ((double) height / NB_ITERATION)));
             if (poly.contains(p.x, p.y)) {
-//        GeoPoint gp = new GeoPoint((double)p.y / 1000D, (double)p.x / 1000D);
-//        System.out.print(" (i=" + i + ", " + gp.toString() + ") ");
-//        System.out.print(" fromX:" + fromX + ", fromY:" + fromY + ", w:" + width + ", h:" + height + " ");
-//        System.out.print("FromPt:" + from + ", ToPt:" + to + " CurrPt:" + p + " ");
+//                GeoPoint gp = new GeoPoint((double) p.y / 1000D, (double) p.x / 1000D);
+//                System.out.print(" (i=" + i + ", " + gp.toString() + ") ");
+//                System.out.print(" fromX:" + fromX + ", fromY:" + fromY + ", w:" + width + ", h:" + height + " ");
+//                System.out.print("FromPt:" + from + ", ToPt:" + to + " CurrPt:" + p + " ");
                 pg = poly;
                 break;
             }

@@ -28,8 +28,7 @@ public class SnifferNMEAReader
         }
     }
 
-    private void jbInit()
-            throws Exception {
+    private void jbInit() throws Exception {
         try {
             if (((this.serial != null ? 1 : 0) & (this.serial.trim().length() > 0 ? 1 : 0)) != 0) {
                 read(this.serial, this.br);

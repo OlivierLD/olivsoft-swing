@@ -64,8 +64,7 @@ public class CommandPanel
         }
     }
 
-    private void jbInit()
-            throws Exception {
+    private void jbInit() throws Exception {
         setLayout(borderLayout);
         zoomInButton.setText("Zoom In");
         zoomInButton.addActionListener(e -> zoomInActionPerformed(e));

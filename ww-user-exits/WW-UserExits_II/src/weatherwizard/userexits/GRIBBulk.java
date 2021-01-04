@@ -253,7 +253,7 @@ public class GRIBBulk
   }
 
   // For standalone tests
-  public static void main(String[] args) throws Exception
+  public static void main(String... args) throws Exception
   {
     GRIBBulk gb = new GRIBBulk();
     String gribFileName = "GRIB_2009_02_25_Sample.grb";

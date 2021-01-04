@@ -108,7 +108,7 @@ public class Sniffer {
         JOptionPane.showMessageDialog(null, mess, "NMEA Serial Port Sniffer", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String... args) throws Exception {
         if (args.length > 0)
             System.out.println(new StringBuilder().append(args.length).append(" arg(s).").toString());
         String[] serialPorts = listSerialPorts();

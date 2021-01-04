@@ -39,7 +39,7 @@ public class HSQLPlus {
     private static String username = "";
     private static String password = "";
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String... args) throws Exception {
         if (args.length > 0) {
             if (args.length > 0) database = args[0];
             if (args.length > 1) username = args[1];

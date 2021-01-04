@@ -21,7 +21,7 @@ public class SampleUDPClientMain
     return false;
   }
   
-  public static void main(String[] args) throws Exception
+  public static void main(String... args) throws Exception
   {
     SampleUDPClientMain me = new SampleUDPClientMain();
     CustomNMEAClient cnc = new CustomNMEAClient(me, CustomNMEAClient.UDP_OPTION, "230.0.0.1", 8001) //, 10000L)

@@ -23,8 +23,7 @@ public class MainDesktop4Test
         }
     }
 
-    private void jbInit()
-            throws Exception {
+    private void jbInit() throws Exception {
         this.getContentPane().setLayout(null);
         this.setSize(new Dimension(1672, 879));
         this.setTitle("Oliv's Tide");

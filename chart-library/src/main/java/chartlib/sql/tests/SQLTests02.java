@@ -11,7 +11,7 @@ import java.sql.Statement;
 
 public class SQLTests02
 {
-  public static void main(String[] args)
+  public static void main(String... args)
     throws Exception
   {
     System.out.println("Running in " + System.getProperty("user.dir"));

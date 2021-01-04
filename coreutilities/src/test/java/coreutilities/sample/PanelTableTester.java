@@ -1,4 +1,4 @@
-package coreutilities.gui.sample;
+package coreutilities.sample;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -22,10 +22,11 @@ public class PanelTableTester {
         frame.setVisible(true);
     }
 
-    public static void main(String[] args) {
+    public static void main(String... args) {
         try {
-            if (System.getProperty("swing.defaultlaf") == null)
+            if (System.getProperty("swing.defaultlaf") == null) {
                 UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

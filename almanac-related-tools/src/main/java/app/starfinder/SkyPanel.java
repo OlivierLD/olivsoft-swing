@@ -216,8 +216,7 @@ public class SkyPanel
 		}
 	};
 
-	private void jbInit()
-			throws Exception {
+	private void jbInit() throws Exception {
 		try {
 			Properties props = new Properties();
 			props.load(new FileReader(POSITION_PROPRTIES_FILE_NAME));

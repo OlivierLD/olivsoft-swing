@@ -68,8 +68,9 @@ public class Utilities {
      * @return
      */
     public static String makeSureExtensionIsOK(String filename, String extension) {
-        if (!filename.toLowerCase().endsWith(extension))
+        if (!filename.toLowerCase().endsWith(extension)) {
             filename += extension;
+        }
         return filename;
     }
 
@@ -133,8 +134,7 @@ public class Utilities {
         try {
             //  System.out.println("Opening in browser:[" + uri.toString() + "]");
             Desktop.getDesktop().browse(uri);
-        } catch (Exception ex) // UnsupportedOperationException ex)
-        {
+        } catch (Exception ex) { // UnsupportedOperationException ex)
             String mess = ex.getMessage();
             mess += ("\n\nUnsupported operation on your system. URL [" + uri.toString() + "] is in the clipboard.\nOpen your browser manually, and paste it in there (Ctrl+V).");
             Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
@@ -210,7 +210,7 @@ public class Utilities {
         }
     }
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String... args) throws Exception {
 //  System.setProperty("os.name", "Mac OS X");
 //  showFileSystem(System.getProperty("user.dir"));
         long elapsed = 123456L; // 231234567890L;

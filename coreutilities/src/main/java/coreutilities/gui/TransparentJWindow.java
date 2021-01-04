@@ -1,7 +1,8 @@
 package coreutilities.gui;
 
+import javax.swing.JPanel;
+import javax.swing.JWindow;
 import java.awt.AWTException;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Point;
@@ -16,9 +17,6 @@ import java.awt.event.MouseMotionAdapter;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
-
-import javax.swing.JPanel;
-import javax.swing.JWindow;
 
 public abstract class TransparentJWindow extends JWindow {
     private Robot robot = null; //new Robot();

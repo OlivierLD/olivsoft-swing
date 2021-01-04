@@ -69,7 +69,7 @@ public class StringParsersTest
     Assertions.assertTrue(b, str + " is invalid");
   }
 
-//  public static void main(String[] args)
+//  public static void main(String... args)
 //  {
 //    StringParsersTest spt = new StringParsersTest();
 //    spt.testDurationToDate();

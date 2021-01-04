@@ -334,7 +334,7 @@ public final class ContourLineTablePanel
   }
   
   // For tests
-  public static void main(String[] args)
+  public static void main(String... args)
   {
     ContourLineTablePanel cltp = new ContourLineTablePanel();
     cltp.setRenderedValue("1008, 1012, [1016], 1020");    

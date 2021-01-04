@@ -76,7 +76,7 @@ public class JgribDemo
    * @param  args Filename of gribfile to read
    *
    *************************************************************************/
-  public static void main(String[] args)
+  public static void main(String... args)
   {
 
     // Test usage

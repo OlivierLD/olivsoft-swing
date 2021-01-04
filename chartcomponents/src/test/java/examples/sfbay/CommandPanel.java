@@ -38,8 +38,7 @@ public class CommandPanel extends JPanel
         }
     }
 
-    private void jbInit()
-            throws Exception {
+    private void jbInit() throws Exception {
         setLayout(borderLayout1);
         setPreferredSize(new Dimension(800, 600));
         setSize(new Dimension(800, 600));

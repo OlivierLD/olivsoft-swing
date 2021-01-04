@@ -33,8 +33,7 @@ public class ClosestStationPanel
         }
     }
 
-    private void jbInit()
-            throws Exception {
+    private void jbInit() throws Exception {
         this.setLayout(gridBagLayout1);
         titleLabel.setText("Find closest Stations from");
         titleLabel.setHorizontalTextPosition(SwingConstants.CENTER);

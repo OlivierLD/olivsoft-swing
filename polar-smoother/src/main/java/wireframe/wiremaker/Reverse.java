@@ -23,7 +23,7 @@ public class Reverse
   private final static int WATERLINE = 6;
   private final static int MODULE    = 7;
   
-  public static void main(String[] args)
+  public static void main(String... args)
   {
     int currentType = 0;
     try

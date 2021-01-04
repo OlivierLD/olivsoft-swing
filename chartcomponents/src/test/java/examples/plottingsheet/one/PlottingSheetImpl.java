@@ -68,8 +68,7 @@ public class PlottingSheetImpl
         }
     }
 
-    private void jbInit()
-            throws Exception {
+    private void jbInit() throws Exception {
         setLayout(borderLayout1);
         parent.setTitle(plottingSheet.getWidth() + " x " + plottingSheet.getHeight());
 

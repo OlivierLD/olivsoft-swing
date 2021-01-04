@@ -63,7 +63,7 @@ public class NMEAApplet
     }
   }
 
-  public static void main(String[] args)
+  public static void main(String... args)
   {
     NMEAApplet applet = new NMEAApplet();
     JFrame frame = new JFrame();

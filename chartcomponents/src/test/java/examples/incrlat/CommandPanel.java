@@ -32,8 +32,7 @@ public class CommandPanel extends JPanel
         }
     }
 
-    private void jbInit()
-            throws Exception {
+    private void jbInit() throws Exception {
         setLayout(borderLayout1);
         this.setBackground(new Color(174, 220, 211));
         zoomInButton.setText("Zoom In");

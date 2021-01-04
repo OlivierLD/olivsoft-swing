@@ -108,7 +108,7 @@ public class XSLUtil
     return Double.toString(d);
   }
   
-  public static void main(String[] args)
+  public static void main(String... args)
   {
     System.out.println(initCap("akeu coucou"));
     System.out.println(initAllCap("akeu coucou larigou"));

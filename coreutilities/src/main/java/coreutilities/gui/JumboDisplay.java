@@ -77,8 +77,7 @@ public class JumboDisplay
 
     private int jumboFontSize = 36;
 
-    private void jbInit()
-            throws Exception {
+    private void jbInit() throws Exception {
         try {
             digiFont = tryToLoadFont("ds-digi.ttf", this);
         } catch (Exception ex) {

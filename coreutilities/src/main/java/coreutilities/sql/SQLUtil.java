@@ -17,8 +17,7 @@ public class SQLUtil {
         return getConnection(".");
     }
 
-    public static Connection getConnection(String dbLoc)
-            throws Exception {
+    public static Connection getConnection(String dbLoc) throws Exception {
         return getConnection(dbLoc, dbName, userName, password);
     }
 
@@ -63,9 +62,9 @@ public class SQLUtil {
         return cConnection;
     }
 
-    public static Connection getServerConnection(String dburl, String user, String pwd)
+    public static Connection getServerConnection(String dbUrl, String user, String pwd)
             throws Exception {
-        dbURL = dburl;
+        dbURL = dbUrl;
         userName = user;
         password = pwd;
         Connection cConnection = null;

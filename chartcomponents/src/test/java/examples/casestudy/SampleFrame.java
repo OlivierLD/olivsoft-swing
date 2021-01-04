@@ -19,8 +19,7 @@ public class SampleFrame extends JFrame {
         }
     }
 
-    private void jbInit()
-            throws Exception {
+    private void jbInit() throws Exception {
         getContentPane().setLayout(borderLayout);
         setSize(new Dimension(816, 547));
         setTitle("Case Study");

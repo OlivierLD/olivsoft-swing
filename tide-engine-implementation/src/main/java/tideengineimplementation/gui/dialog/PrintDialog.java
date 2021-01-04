@@ -63,8 +63,7 @@ public class PrintDialog
         }
     }
 
-    private void jbInit()
-            throws Exception {
+    private void jbInit() throws Exception {
         this.setLayout(gridBagLayout1);
         this.setSize(new Dimension(492, 300));
         stationNameLabel.setText("Station Name");
@@ -249,7 +248,7 @@ public class PrintDialog
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String... args) {
         SimpleDateFormat sdf = new SimpleDateFormat("E yyyy-MMM-dd HH:mm:ss.SSS Z");
         Calendar cal = GregorianCalendar.getInstance();
         System.out.println("Current time zone:" + cal.getTimeZone().getID());

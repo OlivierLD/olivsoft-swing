@@ -23,12 +23,12 @@ import nmea.ui.deviation.deviationcurve.util.SystemUtil;
 public class DeviationCurve
 {
   /**
-   * Just a sample.
+   * Just a coreutilities.sample.
    * 
    * @param args the CSV file containing the deviation data,
    * like C:\_mywork\dev-corner\olivsoft\all-scripts\config\deviation.donpedro.csv
    */
-  public static void main(String[] args) throws Exception
+  public static void main(String... args) throws Exception
   {
     double[] f = calculateCurve(args[0]);
     for (int i=0; i<5; i++)

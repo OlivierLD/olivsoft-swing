@@ -19,8 +19,7 @@ public class SkyApplet extends JApplet {
 	public SkyApplet() {
 	}
 
-	private void jbInit()
-			throws Exception {
+	private void jbInit() throws Exception {
 //  NightSkyPanel panelOne = new NightSkyPanelWithConstellations();
 //  NightSkyPanel panelTwo = new NightSkyPanelWithConstellations(NightSkyPanel.SKY_CHART_OPTION);
 		nphOne = new NightPanelHolder(NightSkyPanel.STAR_FINDER_OPTION, null, NightPanelHolder.WITHOUT_CONSTELLATIONS);

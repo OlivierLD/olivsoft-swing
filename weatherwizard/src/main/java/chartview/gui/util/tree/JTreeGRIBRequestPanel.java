@@ -289,7 +289,7 @@ public class JTreeGRIBRequestPanel
             twentyfourRadioButton_actionPerformed(e);
           }
         });
-    oneRadioButton.setText("1º x 1º");
+    oneRadioButton.setText("1ï¿½ x 1ï¿½");
     oneRadioButton.addActionListener(new ActionListener()
         {
           public void actionPerformed(ActionEvent e)
@@ -297,7 +297,7 @@ public class JTreeGRIBRequestPanel
             oneRadioButton_actionPerformed(e);
           }
         });
-    twoRadioButton.setText("2º x 2º");
+    twoRadioButton.setText("2ï¿½ x 2ï¿½");
     twoRadioButton.setSelected(true);
     twoRadioButton.addActionListener(new ActionListener()
         {
@@ -306,7 +306,7 @@ public class JTreeGRIBRequestPanel
             twoRadioButton_actionPerformed(e);
           }
         });
-    fourRadioButton.setText("4º x 4º");
+    fourRadioButton.setText("4ï¿½ x 4ï¿½");
 
     fourRadioButton.addActionListener(new ActionListener()
         {
@@ -758,7 +758,7 @@ public class JTreeGRIBRequestPanel
     fillUpTree();    
   }
 
-  public static void main(String[] args)
+  public static void main(String... args)
   {
     System.out.println("Escape:[" + WWGnlUtilities.escapeXML("<That's for \"test\">") + "]");
     System.out.println("Unescape:[" + WWGnlUtilities.unescapeXML("&lt;That&apos;s for &quot;test&quot;&gt;") + "]");

@@ -25,8 +25,7 @@ public class SPOTDesktop4Test
         }
     }
 
-    private void jbInit()
-            throws Exception {
+    private void jbInit() throws Exception {
         this.getContentPane().setLayout(null);
         this.setSize(new Dimension(1400, 900));
         this.setTitle("SPOT Desktop");
@@ -41,7 +40,7 @@ public class SPOTDesktop4Test
         nmeaFrame.setBounds(new Rectangle(70, 35, 1200, 800));
     }
 
-    public static void main(String[] args) {
+    public static void main(String... args) {
         String lnf = null;
         try {
             lnf = System.getProperty("swing.defaultlaf");

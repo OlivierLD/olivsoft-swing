@@ -232,7 +232,7 @@ do
     read a
     if nocase  "$a" "Y"
     then
-      UE='-ue:olivsoftdesktopuserexits.sample.TrueWindSentenceInsertion'
+      UE='-ue:olivsoftdesktopuserexits.coreutilities.sample.TrueWindSentenceInsertion'
     fi
     echo 'Choose your user-exits:'
     DONE=false
@@ -390,7 +390,7 @@ do
 #     read a
 #     if nocase  "$a" "Y"
 #     then
-        UE='-ue:olivsoftdesktopuserexits.sample.TrueWindSentenceInsertion'
+        UE='-ue:olivsoftdesktopuserexits.coreutilities.sample.TrueWindSentenceInsertion'
 #       echo -ne 'verbose for True Wind Insertion ? [n]|y > '
 #       read resp
 #       if nocase "$resp" "Y"

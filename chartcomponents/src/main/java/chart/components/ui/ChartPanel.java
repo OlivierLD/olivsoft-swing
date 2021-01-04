@@ -66,9 +66,8 @@ import javax.swing.ToolTipManager;
 
 import user.util.GeomUtil;
 
-public class ChartPanel
-        extends JPanel
-        implements Scrollable,
+public class ChartPanel extends JPanel
+                        implements Scrollable,
         ChartPanelInterface,
         EventListener,
         MouseListener,
@@ -251,8 +250,7 @@ public class ChartPanel
         this.h = h;
     }
 
-    private void jbInit()
-            throws Exception {
+    private void jbInit() throws Exception {
         setLayout(null);
         addMouseListener(this);
         addMouseMotionListener(this);
@@ -3405,7 +3403,7 @@ public class ChartPanel
     }
 
     // For tests
-    public static void main(String[] args) {
+    public static void main(String... args) {
         ChartPanel c = new ChartPanel(null);
 
         c.setGlobeViewLngOffset(0D);
@@ -3435,7 +3433,7 @@ public class ChartPanel
         System.out.println("For 45 Returned Z:" + df.format(d));
     }
 
-    public static void main3(String[] args) {
+    public static void main3(String... args) {
         ChartPanel cp = new ChartPanel(null);
         double semiAngle = cp.getSatelliteSemiEyeWidth();
         System.out.println("Calculated: " + semiAngle);
@@ -3444,7 +3442,7 @@ public class ChartPanel
         double[] xy = cp.getSatelliteViewXY(10D, 10D);
     }
 
-    public static void main_(String[] args) {
+    public static void main_(String... args) {
         double[] rotated = null;
         double newX = 1;
         double newY = 1;
@@ -3453,7 +3451,7 @@ public class ChartPanel
         double angle = Math.toRadians(45D);
         double theta = Math.toRadians(45D);
 
-        // rotation yz (for stellite latitude)
+        // rotation yz (for satellite latitude)
         if (false) {
             rotated = rotation(new double[]{newX, newY, newZ},
                     new double[][]{{1D, 0D, 0D},
@@ -3478,7 +3476,7 @@ public class ChartPanel
     }
 
     public static class PointList<T> extends ArrayList<T> {
-        @SuppressWarnings("compatibility:8215775402129893116")
+
         private final static long serialVersionUID = 1L;
 
         private Color lineColor = Color.red;

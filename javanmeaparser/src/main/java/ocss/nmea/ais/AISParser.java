@@ -453,7 +453,7 @@ AIS Message type 2:
     }
   }
   
-  public static void main(String[] args) throws Exception
+  public static void main(String... args) throws Exception
   {
     String dataFileName = "data/ais.nmea"; // "nmea.dump.txt" , "ais.txt"
     if (args.length > 0)

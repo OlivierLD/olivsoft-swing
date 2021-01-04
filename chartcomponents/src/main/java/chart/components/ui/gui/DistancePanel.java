@@ -13,12 +13,10 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
-public class DistancePanel
-		extends JPanel {
+public class DistancePanel extends JPanel {
 	private double gcDist = 0D, rlDist = 0D;
 	private final static NumberFormat df22 = new DecimalFormat("##0.00");
 
@@ -51,8 +49,7 @@ public class DistancePanel
 		}
 	}
 
-	private void jbInit()
-			throws Exception {
+	private void jbInit() throws Exception {
 		this.setLayout(gridBagLayout1);
 		distanceLabel.setText(GnlUtilities.buildMessage("distance-between", null));
 		fromLabel.setText("");

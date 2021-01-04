@@ -20,7 +20,7 @@ public class DayLight
   private final static NumberFormat     DF22 = new DecimalFormat("#0.00");
   private final static NumberFormat     DF2  = new DecimalFormat("00");
 
-  public static void main(String[] args)
+  public static void main(String... args)
   {
     Calendar utcCal = GregorianCalendar.getInstance();
     utcCal.setTimeZone(TimeZone.getTimeZone("Etc/UTC"));

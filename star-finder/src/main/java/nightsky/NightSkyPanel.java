@@ -234,8 +234,7 @@ public class NightSkyPanel extends JPanel {
 		}
 	}
 
-	private void jbInit()
-			throws Exception {
+	private void jbInit() throws Exception {
 		this.setLayout(null);
 //  this.setBackground(new Color(255, 165, 165));
 	}
@@ -502,7 +501,7 @@ public class NightSkyPanel extends JPanel {
 		g2d.fillOval(center.x - 2, center.y - 2, 4, 4);
 		// Equateur celeste
 		g2d.drawOval(center.x - (radius / 2), center.y - (radius / 2), radius, radius);
-		// Pole abaissé
+		// Pole abaissï¿½
 		g2d.drawOval(center.x - radius, center.y - radius, 2 * radius, 2 * radius);
 		// Horizontal axis
 		g2d.drawLine(0, center.y, this.getWidth(), center.y);

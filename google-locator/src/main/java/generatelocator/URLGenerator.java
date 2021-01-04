@@ -26,7 +26,7 @@ public class URLGenerator
     frame.setVisible(true);
   }
 
-  public static void main(String[] args)
+  public static void main(String... args)
   {
     try
     {

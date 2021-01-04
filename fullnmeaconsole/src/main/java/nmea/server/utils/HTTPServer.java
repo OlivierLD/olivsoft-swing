@@ -1071,8 +1071,8 @@ public class HTTPServer
   //        try { str += ("  <pos>" + URLEncoder.encode(((GeoPos)cached).toString(), "UTF-8") + "</pos>\n"); }
             try 
             { 
-  //          str += ("  <pos>" + ((GeoPos)cached).toString().replaceAll("°","&deg;") + "</pos>\n"); 
-              str += (((!first && output == JSON_OUTPUT)?",\n":"") + "  " + dataFormat(((GeoPos)cached).toString().replaceAll("°","&deg;"), "pos", output, CHARACTER_OPTION) + ((output != JSON_OUTPUT)?"\n":""));
+  //          str += ("  <pos>" + ((GeoPos)cached).toString().replaceAll("ï¿½","&deg;") + "</pos>\n"); 
+              str += (((!first && output == JSON_OUTPUT)?",\n":"") + "  " + dataFormat(((GeoPos)cached).toString().replaceAll("ï¿½","&deg;"), "pos", output, CHARACTER_OPTION) + ((output != JSON_OUTPUT)?"\n":""));
             }
             catch (Exception ex) { ex.printStackTrace(); }
           }        
@@ -1528,7 +1528,7 @@ public class HTTPServer
   }
   
   //  For dev tests
-  public static void main(String[] args) throws Exception
+  public static void main(String... args) throws Exception
   {
   //System.setProperty("http.port", "9999");
     new HTTPServer(new String[] { "-verbose=y", "-fmt=xml" }, null, null);

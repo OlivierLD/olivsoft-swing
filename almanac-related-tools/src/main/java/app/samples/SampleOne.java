@@ -112,7 +112,7 @@ public class SampleOne
     System.out.println();
   }
 
-  public static void main(String[] args)
+  public static void main(String... args)
   {
     year = 2011;
     month = 12;
