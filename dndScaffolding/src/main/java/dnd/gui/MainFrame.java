@@ -19,26 +19,26 @@ import javax.swing.JToolBar;
 
 public class MainFrame
 		extends JFrame {
-	private BorderLayout layoutMain = new BorderLayout();
-	private JPanel panelCenter = new JPanel();
-	private JMenuBar menuBar = new JMenuBar();
-	private JMenu menuFile = new JMenu();
-	private JMenuItem menuFileExit = new JMenuItem();
-	private JMenu menuHelp = new JMenu();
-	private JMenuItem menuHelpAbout = new JMenuItem();
-	private JLabel statusBar = new JLabel();
-	private JToolBar toolBar = new JToolBar();
+	private final BorderLayout layoutMain = new BorderLayout();
+	private final JPanel panelCenter = new JPanel();
+	private final JMenuBar menuBar = new JMenuBar();
+	private final JMenu menuFile = new JMenu();
+	private final JMenuItem menuFileExit = new JMenuItem();
+	private final JMenu menuHelp = new JMenu();
+	private final JMenuItem menuHelpAbout = new JMenuItem();
+	private final JLabel statusBar = new JLabel();
+	private final JToolBar toolBar = new JToolBar();
 
-	private JButton buttonHelp = new JButton();
+	private final JButton buttonHelp = new JButton();
 
-	private ImageIcon imageHelp = new ImageIcon(MainFrame.class.getResource("help.gif"));
-	private JSplitPane jSplitPane1 = new JSplitPane();
-	private BorderLayout borderLayout1 = new BorderLayout();
+	private final ImageIcon imageHelp = new ImageIcon(MainFrame.class.getResource("help.gif"));
+	private final JSplitPane jSplitPane1 = new JSplitPane();
+	private final BorderLayout borderLayout1 = new BorderLayout();
 
-	private ImageTable imageTable = null;
-	private ImagePanel imagePanel = new ImagePanel();
+	private final ImageTable imageTable = null;
+	private final ImagePanel imagePanel = new ImagePanel();
 
-	private MainFrame instance = this;
+	private final MainFrame instance = this;
 
 	public MainFrame() {
 		try {
@@ -83,7 +83,7 @@ public class MainFrame
 		this.jSplitPane1.setContinuousLayout(true);
 		this.panelCenter.add(this.jSplitPane1, BorderLayout.CENTER);
 
-		this.jSplitPane1.setLeftComponent(this.imageTable);
+		this.jSplitPane1.setLeftComponent(this.imageTable); // I know... do something here.
 		this.jSplitPane1.setRightComponent(this.imagePanel);
 
 		getContentPane().add(this.panelCenter, BorderLayout.CENTER);

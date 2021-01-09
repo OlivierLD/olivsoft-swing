@@ -13,7 +13,7 @@ import javax.swing.TransferHandler;
 
 class FSTransfer
 		extends TransferHandler {
-	private ImagePanel parent;
+	private final ImagePanel parent;
 
 	public FSTransfer(ImagePanel caller)
 	{
@@ -71,8 +71,8 @@ class FSTransfer
 
 	public boolean canImport(JComponent comp, DataFlavor[] transferFlavors) {
 		if ((comp instanceof ImagePanel)) {
-			for (int i = 0; i < transferFlavors.length; i++) {
-				if (!transferFlavors[i].equals(DataFlavor.javaFileListFlavor)) {
+			for (DataFlavor transferFlavor : transferFlavors) {
+				if (!transferFlavor.equals(DataFlavor.javaFileListFlavor)) {
 					return false;
 				}
 			}

@@ -15,8 +15,8 @@ public class ImageDefinition
 	private int h;
 	private String created;
 	private String tags;
-	private transient VetoableChangeSupport vetoableChangeSupport = new VetoableChangeSupport(this);
-	private transient PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
+	private final transient VetoableChangeSupport vetoableChangeSupport = new VetoableChangeSupport(this);
+	private final transient PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
 
 	public ImageDefinition(String name, String type, int w, int h, String created, String tags) {
 		this.name = name;

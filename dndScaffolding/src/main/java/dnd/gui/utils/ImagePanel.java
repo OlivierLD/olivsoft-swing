@@ -34,14 +34,12 @@ import javax.swing.JScrollPane;
 public class ImagePanel
 		extends JPanel {
 
-	private BorderLayout borderLayout1 = new BorderLayout();
-	private JScrollPane jScrollPane1 = new JScrollPane();
-	private JPanel bottomPanel = new JPanel();
-	private JRadioButton scaleRadioButton = new JRadioButton("Re-scale");
-	private JRadioButton noScaleRadioButton = new JRadioButton("As-is");
-	private ButtonGroup group = new ButtonGroup();
-
-	private DropTarget dropTarget;
+	private final BorderLayout borderLayout1 = new BorderLayout();
+	private final JScrollPane jScrollPane1 = new JScrollPane();
+	private final JPanel bottomPanel = new JPanel();
+	private final JRadioButton scaleRadioButton = new JRadioButton("Re-scale");
+	private final JRadioButton noScaleRadioButton = new JRadioButton("As-is");
+	private final ButtonGroup group = new ButtonGroup();
 
 	public ImagePanel() {
 		try {
@@ -49,10 +47,10 @@ public class ImagePanel
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		dropTarget = new DropTarget(this,new DropTargetImplementation(this));
+		DropTarget dropTarget = new DropTarget(this, new DropTargetImplementation(this));
 	}
 
-	private void jbInit() throws Exception {
+	private void jbInit() {
 		AppContext.getInstance().addApplicationListener(new ImageAppListener() {
 			public void displayImage(String imgName) {
 				display(imgName);
@@ -81,7 +79,7 @@ public class ImagePanel
 	}
 
 	public void display(String in) {
-		System.out.println("Display " + in);
+		System.out.println(">> Displaying " + in);
 		BufferedImage bi = null; // ImageDBUtils.getImage(in, AppContext.getInstance().getConn());
 		display(bi);
 	}
