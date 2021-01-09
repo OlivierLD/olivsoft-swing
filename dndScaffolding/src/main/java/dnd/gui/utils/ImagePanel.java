@@ -131,7 +131,7 @@ public class ImagePanel
 
 		this.jScrollPane1.getViewport().removeAll();
 		JPanel imgPanel = new JPanel() {
-
+			@Override
 			public void paintComponent(Graphics g) {
 				Graphics2D g2d = (Graphics2D) g;
 				if (noScaleRadioButton.isSelected()) {
