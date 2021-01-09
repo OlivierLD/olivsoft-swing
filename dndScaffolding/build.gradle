@@ -1,0 +1,39 @@
+plugins {
+  id 'java'
+  id 'maven'
+  id 'com.github.johnrengelman.shadow' // version '5.2.0'
+}
+
+group = 'oliv.cool.stuff'
+version = '4.0.0.0'
+
+repositories {
+  mavenCentral()
+//  maven { url "http://lediouris.net/maven2" }
+//  maven { url "http://www.datanucleus.org/downloads/maven2" }
+//  maven { url "https://oss.sonatype.org/content/groups/public" }
+  mavenLocal()
+}
+
+dependencies {
+  testCompile group: 'junit', name: 'junit', version: '4.11'
+//  compile     group: 'org.hsqldb', name: 'hsqldb', version: '2.5.1'
+//  compile     'org.hsqldb:hsqldb:2.4.0'
+  compile project(':coreutilities')
+//  compile project(':chartcomponents')
+}
+
+//task copyResources(type: Copy) {
+//  description = 'Copies non-java resources in the output directory before the jar task (png, xml, xsd, ttf, properties, etc)'
+//  from 'src'
+//  into 'build/classes/main'
+//  include '**/*.xml', '**/*.xsd', '**/*.png', '**/*.gif', '**/*.jpg', '**/*.properties', '**/*.ttf', '**/*.html'
+//}
+//
+//jar.dependsOn(copyResources)
+
+shadowJar {
+  zip64 true
+}
+
+shadowJar.dependsOn(jar)

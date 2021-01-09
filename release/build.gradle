@@ -43,6 +43,7 @@ task runWW(type: JavaExec, dependsOn: build, description: "Weather Wizard test r
 //  classpath sourceSets.main.output.classesDir
 }
 
+// Same as gradlew run
 task runDesktop(type: JavaExec, dependsOn: build, description: "Desktop test run.") {
   main = 'olivsoftdesktop.OlivSoftDesktop'
 //jvmArgs "-verbose"
