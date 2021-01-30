@@ -155,6 +155,7 @@ public class Utils {
             try {
                 tideStations = BackEndTideComputer.getStationData();
             } catch (Exception ex) {
+                // TODO Do something with it!
             }
         }
         if (tideStations != null) {

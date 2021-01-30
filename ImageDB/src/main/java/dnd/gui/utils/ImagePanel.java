@@ -62,8 +62,8 @@ public class ImagePanel
 		setTransferHandler(new FSTransfer(this));
 
 		setLayout(this.borderLayout1);
-		this.jScrollPane1.setHorizontalScrollBarPolicy(30);
-		this.jScrollPane1.setVerticalScrollBarPolicy(20);
+		this.jScrollPane1.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		this.jScrollPane1.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 		add(this.jScrollPane1, BorderLayout.CENTER);
 		this.group.add(this.scaleRadioButton);
 		this.group.add(this.noScaleRadioButton);

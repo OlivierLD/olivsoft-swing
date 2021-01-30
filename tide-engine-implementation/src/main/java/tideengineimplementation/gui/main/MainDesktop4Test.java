@@ -33,9 +33,13 @@ public class MainDesktop4Test
         tides.setClosable(true);
         tides.setMaximizable(true);
         tides.setResizable(true);
-        tides.setMaximum(true); // Maximize in the parent
 //        tides.setBounds(new Rectangle(70, 35, 1200, 800));
         this.add(tides);
+        try {
+            tides.setMaximum(true); // Maximize in the parent, AFTER adding it to the parent
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
         tides.setVisible(true);
     }
 
