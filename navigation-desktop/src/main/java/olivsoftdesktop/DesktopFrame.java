@@ -220,7 +220,6 @@ public class DesktopFrame
     private TideStation closestTideStation = null;
     private List<Coefficient> constSpeed = null;
 
-    @SuppressWarnings("compatibility:5264052920075352797")
     private final static long serialVersionUID = 1L;
     private final static String LISTENER_FAMILY = "DESKTOP_SERIALPORT_BROADCASTER";
 

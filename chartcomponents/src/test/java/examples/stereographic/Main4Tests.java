@@ -12,10 +12,10 @@ public class Main4Tests {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         Dimension frameSize = frame.getSize();
         if (frameSize.height > screenSize.height) {
-          frameSize.height = screenSize.height;
+            frameSize.height = screenSize.height;
         }
         if (frameSize.width > screenSize.width) {
-          frameSize.width = screenSize.width;
+            frameSize.width = screenSize.width;
         }
         frame.setLocation((screenSize.width - frameSize.width) / 2, (screenSize.height - frameSize.height) / 2);
         frame.addWindowListener(new WindowAdapter() {
@@ -31,7 +31,7 @@ public class Main4Tests {
     public static void main(String... args) {
         try {
             if (System.getProperty("swing.defaultlaf") == null) {
-              UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+                UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
             }
         } catch (Exception e) {
             e.printStackTrace();

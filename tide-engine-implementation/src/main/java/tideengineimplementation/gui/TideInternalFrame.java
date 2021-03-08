@@ -557,8 +557,7 @@ public class TideInternalFrame
                         // Decompose
                         if (decomposeCheckBox.isSelected()) {
                             showTideCurveCB.setBounds(this.getWidth() - 130, this.getHeight() - 25, 130, 25);
-                            if (coeffColor == null && ts != null) // Tide Station has changed
-                            {
+                            if (coeffColor == null && ts != null) { // Tide Station has changed
                                 buildCoeffColor();
                             }
                             if (harmonicCurves == null) {
@@ -566,46 +565,44 @@ public class TideInternalFrame
                                 final TidePanel instance = this;
                                 final double _bottomValue = bottomValue;
                                 final Calendar _reference = (Calendar) now.clone();
-                                Thread harmonicThread = new Thread() {
-                                    public void run() {
-                                        long before = System.currentTimeMillis();
-                                        instance.setHarmonicsReady(false);
-                                        harmonicCurves = new Hashtable<String, List<DataPoint>>();
-                                        int k = lookBusy("Computing Harmonic curves");
-                                        for (int j = 0; j < coeffColor.length; j++) {
-                                            // Calculate one full curve
-                                            List<DataPoint> lp = harmonicCurves.get(coeffColor[j].name);
-                                            if (lp == null) {
-                                                System.out.println("Calculating curve for [" + coeffColor[j].name + "]");
-                                                updateBusyLook("Calculating [" + coeffColor[j].name + "]", k);
-                                                lp = new ArrayList<DataPoint>();
-                                                for (int h = 0; h < 24; h++) {
-                                                    for (int m = 0; m < 60; m++) {
-                                                        Calendar cal = new GregorianCalendar(_reference.get(Calendar.YEAR),
-                                                                _reference.get(Calendar.MONTH),
-                                                                _reference.get(Calendar.DAY_OF_MONTH),
-                                                                h + hourOffset, m);
-                                                        cal.setTimeZone(TimeZone.getTimeZone(timeZone2Use));
-                                                        int year = cal.get(Calendar.YEAR);
-                                                        // Calc Jan 1st of the current year
-                                                        Date jan1st = new GregorianCalendar(year, 0, 1).getTime();
-                                                        //      double value = Utils.convert(TideUtilities.getHarmonicValue(cal.getTime(), jan1st, ts, constSpeed, i), ts.getDisplayUnit(), currentUnit);
-                                                        double value = Utils.convert(TideUtilities.getHarmonicValue(cal.getTime(), jan1st, ts, constSpeed, coeffColor[j].name), ts.getDisplayUnit(), currentUnit);
-                                                        double x = (h + (double) (m / 60D));
-                                                        double y = (value - _bottomValue);
-                                                        lp.add(new DataPoint(x, y));
-                                                    }
+                                Thread harmonicThread = new Thread(() -> {
+                                    long before = System.currentTimeMillis();
+                                    instance.setHarmonicsReady(false);
+                                    harmonicCurves = new Hashtable<String, List<DataPoint>>();
+                                    int k = lookBusy("Computing Harmonic curves");
+                                    for (int j = 0; j < coeffColor.length; j++) {
+                                        // Calculate one full curve
+                                        List<DataPoint> lp = harmonicCurves.get(coeffColor[j].name);
+                                        if (lp == null) {
+                                            System.out.println("Calculating curve for [" + coeffColor[j].name + "]");
+                                            updateBusyLook("Calculating [" + coeffColor[j].name + "]", k);
+                                            lp = new ArrayList<DataPoint>();
+                                            for (int h = 0; h < 24; h++) {
+                                                for (int m = 0; m < 60; m++) {
+                                                    Calendar cal = new GregorianCalendar(_reference.get(Calendar.YEAR),
+                                                            _reference.get(Calendar.MONTH),
+                                                            _reference.get(Calendar.DAY_OF_MONTH),
+                                                            h + hourOffset, m);
+                                                    cal.setTimeZone(TimeZone.getTimeZone(timeZone2Use));
+                                                    int year = cal.get(Calendar.YEAR);
+                                                    // Calc Jan 1st of the current year
+                                                    Date jan1st = new GregorianCalendar(year, 0, 1).getTime();
+                                                    //      double value = Utils.convert(TideUtilities.getHarmonicValue(cal.getTime(), jan1st, ts, constSpeed, i), ts.getDisplayUnit(), currentUnit);
+                                                    double value = Utils.convert(TideUtilities.getHarmonicValue(cal.getTime(), jan1st, ts, constSpeed, coeffColor[j].name), ts.getDisplayUnit(), currentUnit);
+                                                    double x = (h + (double) (m / 60D));
+                                                    double y = (value - _bottomValue);
+                                                    lp.add(new DataPoint(x, y));
                                                 }
-                                                harmonicCurves.put(coeffColor[j].name, lp);
                                             }
+                                            harmonicCurves.put(coeffColor[j].name, lp);
                                         }
-                                        long after = System.currentTimeMillis();
-                                        coolDown(k);
-                                        System.out.println("1 - Harmonic computation completed in " + Long.toString(after - before) + " ms");
-                                        instance.setHarmonicsReady(true);
-                                        instance.repaint();
                                     }
-                                };
+                                    long after = System.currentTimeMillis();
+                                    coolDown(k);
+                                    System.out.println("1 - Harmonic computation completed in " + Long.toString(after - before) + " ms");
+                                    instance.setHarmonicsReady(true);
+                                    instance.repaint();
+                                });
                                 harmonicThread.start();
                             }
                             if (isHarmonicsReady()) {

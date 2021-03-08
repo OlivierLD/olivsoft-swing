@@ -36,7 +36,8 @@ public class MainDesktop4Test
 //        tides.setBounds(new Rectangle(70, 35, 1200, 800));
         this.add(tides);
         try {
-            tides.setMaximum(true); // Maximize in the parent, AFTER adding it to the parent
+            // Maximize in the parent, AFTER adding it to the parent
+            tides.setMaximum(true);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
