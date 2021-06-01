@@ -17,8 +17,9 @@ repositories {
 
 dependencies {
   testCompile group: 'junit', name: 'junit', version: '4.11'
-  compile     group: 'org.hsqldb', name: 'hsqldb', version: '2.5.1'
+//  compile     group: 'org.hsqldb', name: 'hsqldb', version: '2.5.1'
 //  compile     'org.hsqldb:hsqldb:2.4.0'
+  compile     'org.hsqldb:hsqldb:1.8.0.10'  // Warning: in sync with coreutilities
   compile project(':coreutilities')
 //  compile project(':chartcomponents')
 }

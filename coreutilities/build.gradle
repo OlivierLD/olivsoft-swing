@@ -21,8 +21,8 @@ dependencies {
   testCompile group: 'junit', name: 'junit', version: '4.11'
   compile     'oracle:xmlparser:2.0'
 //  compile     'sqlite:sqlitejdbc:0.56.0'
-//  compile     'org.hsqldb:hsqldb:1.8.0.10'
-  compile     group: 'org.hsqldb', name: 'hsqldb', version: '2.5.1'
+  compile     'org.hsqldb:hsqldb:1.8.0.10'
+//  compile     group: 'org.hsqldb', name: 'hsqldb', version: '2.5.1'
 
 }
 

@@ -34,7 +34,9 @@ public class Populate {
 		}
 	}
 
-	private static void insertNewImage(Connection conn, String imgName, String[] tags) throws Exception {
+	private static void insertNewImage(Connection conn,
+									   String imgName,
+									   String[] tags) throws Exception {
 		try {
 			File fImg = new File(imgName);
 			BufferedImage bufferedImage = ImageIO.read(fImg);
@@ -81,7 +83,14 @@ public class Populate {
 		}
 	}
 
-	public static void insertNewImage(Connection conn, String imgName, String type, int w, int h, java.sql.Date cr, byte[] data, String[] tags) throws Exception {
+	public static void insertNewImage(Connection conn,
+									  String imgName,
+									  String type,
+									  int w,
+									  int h,
+									  java.sql.Date cr,
+									  byte[] data,
+									  String[] tags) throws Exception {
 		boolean proceed = true;
 		try {
 			String checkExistenceStmt = "select count(*) from images where name = ?";
