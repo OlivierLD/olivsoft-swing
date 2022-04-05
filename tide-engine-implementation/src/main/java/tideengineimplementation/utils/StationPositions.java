@@ -51,6 +51,6 @@ public class StationPositions {
         if (ts != null)
             System.out.println("Selected " + ts.getFullName());
         else
-            System.out.println("Nothing seledcted!");
+            System.out.println("Nothing selected!");
     }
 }

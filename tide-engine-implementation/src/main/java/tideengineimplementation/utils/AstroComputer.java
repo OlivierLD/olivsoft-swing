@@ -93,8 +93,8 @@ public class AstroComputer {
      *
      * @param latitude
      * @return the time of rise and set of the body (Sun in that case).
-     * @see http://aa.usno.navy.mil/data/docs/RS_OneYear.php
-     * @see http://www.jgiesen.de/SunMoonHorizon/
+     * @see <a href="http://aa.usno.navy.mil/data/docs/RS_OneYear.php">...</a>
+     * @see <a href="http://www.jgiesen.de/SunMoonHorizon/">...</a>
      */
     public static synchronized double[] sunRiseAndSet(double latitude, double longitude) {
         //  out.println("Sun HP:" + Context.HPsun);
@@ -132,8 +132,8 @@ public class AstroComputer {
     }
 
     /**
-     * @see http://aa.usno.navy.mil/data/docs/RS_OneYear.php
-     * @see http://www.jgiesen.de/SunMoonHorizon/
+     * @see <a href="http://aa.usno.navy.mil/data/docs/RS_OneYear.php">...</a>
+     * @see <a href="http://www.jgiesen.de/SunMoonHorizon/">...</a>
      */
     public static synchronized double[] moonRiseAndSet(double latitude, double longitude) {
         //  out.println("Moon HP:" + (Context.HPmoon / 60) + "'");

@@ -181,8 +181,9 @@ public class Utils {
             });
             // Populate a table for the user to select one station.
         }
-        if (stationMap.size() > 0)
+        if (stationMap.size() > 0) {
             closest = stationMap.get(0);
+        }
         return closest;
     }
 
