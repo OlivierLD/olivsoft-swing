@@ -27,7 +27,11 @@ public class ChartLib
   public void go()
   {
     // Get the DB Connection 
-    try { conn = SQLUtil.getConnection(); }
+    try {
+//      conn = SQLUtil.getConnection();
+//      conn = SQLUtil.getConnection("./sql", "CHART", "chart", "chart");
+      conn = SQLUtil.getConnection("./sql", "CHART", "SA", "");
+    }
     catch (Exception e)
     {
       JOptionPane.showMessageDialog(null, "Cannot get DB Connection", "DB Connection", JOptionPane.ERROR_MESSAGE);

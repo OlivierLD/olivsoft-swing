@@ -115,7 +115,7 @@ public class NMEAConsole {
         System.out.println(" java nmea.main.NMEAConsole [-config [configfile]] [-verb [y|n]] [[-simul [filename]] | [-serial [COM1] -br [4800]] | [-tcp [80]] | [-udp [8000]] | [-host [localhost]] [-http.port [80]]");
         String fName = null;
         boolean verb = false;
-        String serial = "COM1";
+        String serial = "COM1"; // /dev/tty.usbmodem14142201
         String br = "4800";
         String tcp = "";
         String udp = "";

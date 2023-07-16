@@ -31,6 +31,11 @@ public class PolarHelper
   {
     // Polar V2.
     String fName = fileName;
+
+    if (fName.isEmpty()) {
+      return;
+    }
+
     coeffList = null;
     DOMParser parser = NMEAContext.getInstance().getParser();
     try

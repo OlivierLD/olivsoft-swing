@@ -240,7 +240,7 @@ public class CommandPanel
     chartPanel.setDdRectColor(Color.green);
     chartPanel.setMouseDraggedType(ChartPanel.MOUSE_DRAG_GRAB_SCROLL);
 
-    String placesFileName = "places.xml";
+    String placesFileName = "sql" + File.separator + "places.xml";
     DOMParser parser = new DOMParser();
     try
     {

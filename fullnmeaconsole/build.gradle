@@ -12,6 +12,7 @@ repositories {
   maven { url "https://raw.githubusercontent.com/OlivierLD/raspberry-coffee/repository" }
   maven { url "http://www.datanucleus.org/downloads/maven2" }
   maven { url "https://oss.sonatype.org/content/groups/public" }
+  maven { url "https://maven.oracle.com/public" }
   maven { url "http://lediouris.net/maven2" }
   mavenLocal()
 }
@@ -19,7 +20,7 @@ repositories {
 dependencies {
   testCompile group: 'junit', name: 'junit', version: '4.11'
   compile     'oracle:xmlparser:2.0'
-//  compile     'jdev:rt:1.0'
+  compile     'jdev:rt:1.0'
   compile     project(':geomutils')
   compile     project(':javanauticalalmanac')
   compile     project(':coreutilities')

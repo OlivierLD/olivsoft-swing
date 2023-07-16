@@ -2,30 +2,22 @@ package main.splash;
 
 import chartview.ctx.ApplicationEventListener;
 import chartview.ctx.WWContext;
-
 import chartview.util.WWGnlUtilities;
-
 import coreutilities.Utilities;
+import main.help.AboutBox;
 
 import java.lang.reflect.Method;
-
 import java.util.Date;
-
-import javax.swing.ImageIcon;
-
-import main.help.AboutBox;
 
 public class Splasher
 {
   static
   {
-    WWContext.getInstance().addApplicationListener(new ApplicationEventListener()
-                                                   {
-                                                     public void applicationLoaded()
-                                                     {
-                                                       SplashWindow.disposeSplash();
-                                                     }
-                                                   });
+    WWContext.getInstance().addApplicationListener(new ApplicationEventListener() {
+      public void applicationLoaded() {
+        SplashWindow.disposeSplash();
+      }
+    });
   }
   public static void main(String... args)
   {

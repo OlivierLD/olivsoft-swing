@@ -36,6 +36,7 @@ public class SampleFrame extends JFrame {
             public void run() {
                 try {
                     System.out.println("Reading Station Data...");
+                    BackEndTideComputer.connect();
                     List<TideStation> stationData = BackEndTideComputer.getStationData();
                     System.out.println("Done!");
                     commandPanel.setStationData(stationData);

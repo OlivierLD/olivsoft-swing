@@ -153,9 +153,11 @@ public class Utils {
         TideInternalFrame.StationDistance closest = null;
         if (tideStations == null) {
             try {
+                BackEndTideComputer.connect();
                 tideStations = BackEndTideComputer.getStationData();
             } catch (Exception ex) {
                 // TODO Do something with it!
+                ex.printStackTrace();
             }
         }
         if (tideStations != null) {
@@ -181,14 +183,14 @@ public class Utils {
             });
             // Populate a table for the user to select one station.
         }
-        if (stationMap.size() > 0) {
+        if (stationMap != null && stationMap.size() > 0) {
             closest = stationMap.get(0);
         }
         return closest;
     }
 
     public static void main1(String[] args) {
-        System.out.println(formatTimeDiff(8094701L / 1000L));
+        System.out.println(formatTimeDiff(8_094_701L / 1_000L));
     }
 
     public static void main(String... args) {

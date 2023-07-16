@@ -6,7 +6,7 @@ import polarmaker.polars.PolarPoint;
 public class DataComputer 
 {
   /**
-   * Smoothes a curve with the least squares method
+   * Smooth a curve with the least squares method
    * 
    * @param pp Vector of PolarPoint
    * @param reqDegree degree of the expected smoothed polynom

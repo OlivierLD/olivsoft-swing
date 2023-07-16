@@ -10,7 +10,7 @@ public class SampleFrame extends JFrame {
 
     public SampleFrame() {
         borderLayout = new BorderLayout();
-//  commandPanel = new CommandPanel(this);
+        // commandPanel = new CommandPanel(this);
         commandPanel = new CommandPanel_II(this);
         try {
             jbInit();

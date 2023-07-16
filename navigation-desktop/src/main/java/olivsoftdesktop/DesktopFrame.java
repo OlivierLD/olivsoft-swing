@@ -596,7 +596,6 @@ public class DesktopFrame
             solarClock = new ClockDisplay("Solar", "00:00:00", "Solar Time", 18);
             solarClock.setCustomBGColor(new Color(0f, 0f, 0f, 0f));
             solarClock.setWithGlossyBG(glossy);
-            solarClock.setDisplayColor(wpFontColor);
             solarClock.setGridColor(wpFontColor);
             Dimension clockDim = new Dimension(150, 150);
             solarClock.setPreferredSize(clockDim);
