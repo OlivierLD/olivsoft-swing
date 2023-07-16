@@ -679,7 +679,7 @@ public class CommandPanelPopup
         List<SpotLine> spotLines = null;
         // Mouse coordinates at this._x, this._y
         GeoPoint spot = parent.chartPanel.getGeoPos(this._x, this._y);
-        System.out.println("Spoting " + spot.toString());
+        System.out.println("Spotting " + spot.toString());
         spotLines = GribHelper.getSpotLines(WWContext.getInstance().getGribFile(), spot);
         spotPanel.setSpotLines(spotLines);        
         final JDialog dialog = new JDialog(WWContext.getInstance().getMasterTopFrame(), "SPOT " + spot.toString(), true);
